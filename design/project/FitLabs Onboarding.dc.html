@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<style>
+body{margin:0;background:#0A080C;-webkit-font-smoothing:antialiased}
+[data-theme="dark"]{--page:#0A080C;--bg:#110E14;--surface-1:#19151D;--surface-2:#211C26;--surface-3:#2B2531;--line:#322B38;--line-strong:#443B4B;--text:#F6F2F5;--text-2:#B4AAB6;--text-3:#8A7F8D;--accent:#FF6FAE;--accent-press:#E85A98;--on-accent:#2A0716;--accent-tint:rgba(255,111,174,.15);--accent-text:#FF9CC8;--lower:#6CC4F7;--lower-tint:rgba(108,196,247,.15);--lower-text:#9CD8FA;--upper:#B394FF;--upper-tint:rgba(179,148,255,.16);--upper-text:#CDB8FF;--func:#FFB38A;--func-tint:rgba(255,179,138,.15);--func-text:#FFCBAE;--done:#4CC38A;--danger:#F2645C;--knob:#FFFFFF}
+[data-theme="light"]{--page:#E9E3E8;--bg:#F7F3F6;--surface-1:#FFFFFF;--surface-2:#F4EEF2;--surface-3:#EAE2E8;--line:#EBE3E9;--line-strong:#D6CBD3;--text:#1A1420;--text-2:#564B5A;--text-3:#73677A;--accent:#F0559A;--accent-press:#D9407F;--on-accent:#2A0716;--accent-tint:rgba(240,85,154,.12);--accent-text:#B8236A;--lower:#1F9AE0;--lower-tint:rgba(31,154,224,.12);--lower-text:#13689C;--upper:#7B55E0;--upper-tint:rgba(123,85,224,.12);--upper-text:#5A35BF;--func:#F08A55;--func-tint:rgba(240,138,85,.15);--func-text:#A2471A;--done:#23985F;--danger:#D53A32;--knob:#FFFFFF}
+a{color:var(--accent-text)}a:hover{color:var(--text)}
+input::placeholder,textarea::placeholder{color:var(--text-3)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--page);color:var(--text);font-family:'Onest',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:48px">
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:40px">
+  <div style="font-size:15px;font-weight:700;color:var(--accent-text)">FitLabs</div>
+  <h1 style="margin:0;font-size:40px;font-weight:800;letter-spacing:-.02em">Sign in &amp; onboarding</h1>
+  <p style="margin:0;font-size:17px;color:var(--text-2)">390 × 844 · all controls are live · switch EN/UK on sign in</p>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+
+<div data-screen-label="01 Sign in" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">01 · Sign in</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="padding:8px 20px 0;display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:20px;font-weight:800;letter-spacing:-.01em">FitLabs</span>
+    <div style="display:flex;padding:3px;gap:2px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px">
+      <button onClick="{{ setEn }}" style="min-width:52px;height:40px;border:0;border-radius:999px;font:700 14px 'Onest',sans-serif;cursor:pointer;background:{{ enBg }};color:{{ enFg }}">EN</button>
+      <button onClick="{{ setUk }}" style="min-width:52px;height:40px;border:0;border-radius:999px;font:700 14px 'Onest',sans-serif;cursor:pointer;background:{{ ukBg }};color:{{ ukFg }}">UK</button>
+    </div>
+  </div>
+  <div style="flex:1;padding:56px 20px 0;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h2 style="margin:0;font-size:34px;line-height:1.1;font-weight:800;letter-spacing:-.02em;text-wrap:balance">{{ t.welcome }}</h2>
+      <p style="margin:0;font-size:17px;line-height:1.45;color:var(--text-2);text-wrap:pretty">{{ t.sub }}</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">{{ t.email }}</span><input type="email" value="olena@example.com" readonly="" style="height:56px;padding:0 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"></label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:var(--text-2)"><span>{{ t.pw }}</span><a href="#" style="font-weight:600;text-decoration:none">{{ t.forgot }}</a></span>
+        <span style="height:56px;display:flex;align-items:center;padding:0 4px 0 16px;border:2px solid var(--accent);border-radius:14px;background:var(--surface-1);box-shadow:0 0 0 4px var(--accent-tint)"><input type="{{ pwType }}" value="squat2026" readonly="" style="flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"><button onClick="{{ togglePw }}" aria-label="Show password" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:10px;background:transparent;color:var(--text-2);cursor:pointer"><i class="{{ pwIcon }}" style="font-size:20px"></i></button></span>
+      </label>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <button style="min-height:64px;padding:10px 20px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px/1.2 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)">{{ t.signIn }}</button>
+      <div style="display:flex;align-items:center;gap:12px;color:var(--text-3);font-size:13px;font-weight:600"><span style="flex:1;height:1px;background:var(--line)"></span>{{ t.or }}<span style="flex:1;height:1px;background:var(--line)"></span></div>
+      <button style="min-height:56px;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:10px;border:1.5px solid var(--line-strong);border-radius:16px;background:transparent;color:var(--text);font:600 16px/1.2 'Onest',sans-serif;cursor:pointer;text-align:center" style-active="transform:scale(.98)"><i class="icon-mail" style="font-size:20px"></i>{{ t.magic }}</button>
+      <p style="margin:0;font-size:13px;line-height:1.4;color:var(--text-3);text-align:center;text-wrap:pretty">{{ t.magicHint }}</p>
+    </div>
+  </div>
+  <p style="margin:0;padding:0 32px 40px;font-size:13px;line-height:1.4;color:var(--text-3);text-align:center">{{ t.invite }}</p>
+</div>
+</div>
+
+<div data-screen-label="02 About you" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">02 · About you</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 1 of 6</span></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px 24px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">About you</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">We use this to set starting weights. Only you can see it.</p></div>
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Name</span><input value="Olena" readonly="" style="height:56px;padding:0 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"></label>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Sex</span>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+        <sc-for list="{{ sexOpts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="min-height:48px;border:0;border-radius:12px;font:600 15px 'Onest',sans-serif;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.label }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+      <sc-for list="{{ bodyVals }}" as="b" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px;background:var(--surface-1);border:1px solid var(--line);border-radius:18px">
+          <span style="font-size:13px;font-weight:600;color:var(--text-2)">{{ b.label }}</span>
+          <span style="display:flex;align-items:baseline;gap:3px"><span style="font-size:32px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ b.val }}</span><span style="font-size:13px;font-weight:600;color:var(--text-3)">{{ b.unit }}</span></span>
+          <div style="display:flex;gap:6px"><button onClick="{{ b.down }}" aria-label="Decrease" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-minus" style="font-size:20px"></i></button><button onClick="{{ b.up }}" aria-label="Increase" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:20px"></i></button></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Experience</span>
+      <sc-for list="{{ expOpts }}" as="o" hint-placeholder-count="3">
+        <button onClick="{{ o.pick }}" style="min-height:60px;padding:10px 16px;display:flex;align-items:center;gap:12px;border-radius:16px;cursor:pointer;text-align:left;font-family:'Onest',sans-serif;color:var(--text);background:{{ o.bg }};border:{{ o.border }}">
+          <span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;font-weight:700">{{ o.label }}</span><span style="font-size:13px;color:var(--text-2)">{{ o.hint }}</span></span>
+          <span style="width:24px;height:24px;flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center;border:{{ o.ring }};background:{{ o.dotBg }};color:var(--on-accent)"><sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:14px"></i></sc-if></span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:none;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="width:100%;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)">Next<i class="icon-arrow-right" style="font-size:20px"></i></button></div>
+</div>
+</div>
+
+<div data-screen-label="03 Goal" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">03 · Goal</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 2 of 6</span></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">What's your main goal?</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">Pick one. You can change it any time.</p></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ goalOpts }}" as="g" hint-placeholder-count="4">
+        <button onClick="{{ g.pick }}" style="min-height:104px;padding:18px;display:flex;align-items:center;gap:16px;border-radius:22px;cursor:pointer;text-align:left;font-family:'Onest',sans-serif;color:var(--text);background:{{ g.bg }};border:{{ g.border }}" style-active="transform:scale(.99)">
+          <span style="width:56px;height:56px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:16px;background:{{ g.iconBg }};color:{{ g.iconFg }}"><i class="{{ g.icon }}" style="font-size:28px"></i></span>
+          <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-size:20px;font-weight:700">{{ g.label }}</span><span style="font-size:14px;line-height:1.35;color:var(--text-2)">{{ g.hint }}</span></span>
+          <span style="width:28px;height:28px;flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center;border:{{ g.ring }};background:{{ g.dotBg }};color:var(--on-accent)"><sc-if value="{{ g.on }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:16px"></i></sc-if></span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:none;display:flex;gap:12px;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="min-height:64px;padding:0 24px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer">Back</button><button style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)">Next<i class="icon-arrow-right" style="font-size:20px"></i></button></div>
+</div>
+</div>
+
+<div data-screen-label="04 Schedule" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">04 · Schedule</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 3 of 6</span><span style="font-size:15px;font-weight:700;color:var(--accent-text)">{{ dayCount }} days / week</span></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">When do you train?</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">Tap days, then pick a focus for each.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+      <sc-for list="{{ dayOpts }}" as="d" hint-placeholder-count="7">
+        <button onClick="{{ d.toggle }}" style="height:56px;border-radius:16px;font:700 16px 'Onest',sans-serif;cursor:pointer;background:{{ d.bg }};color:{{ d.fg }};border:{{ d.border }}">{{ d.short }}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ dayRows }}" as="r" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:14px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+          <span style="font-size:16px;font-weight:700">{{ r.name }}</span>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+            <sc-for list="{{ r.opts }}" as="f" hint-placeholder-count="4">
+              <button onClick="{{ f.pick }}" style="min-height:44px;padding:4px 2px;border-radius:12px;font:700 13px/1.15 'Onest',sans-serif;cursor:pointer;background:{{ f.bg }};color:{{ f.fg }};border:{{ f.border }}">{{ f.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Session length</span>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+        <sc-for list="{{ lenOpts }}" as="l" hint-placeholder-count="5"><button onClick="{{ l.pick }}" style="min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:0;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;background:{{ l.bg }};color:{{ l.fg }}"><span style="font-size:18px;font-weight:800;line-height:1">{{ l.val }}</span><span style="font-size:11px;font-weight:600">min</span></button></sc-for>
+      </div>
+    </div>
+  </div>
+  <div style="flex:none;display:flex;gap:12px;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="min-height:64px;padding:0 24px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer">Back</button><button style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)">Next<i class="icon-arrow-right" style="font-size:20px"></i></button></div>
+</div>
+</div>
+
+<div data-screen-label="05 Rules" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">05 · Rules</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 4 of 6</span></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">Your rules</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">Every plan we build will follow these.</p></div>
+    <div style="flex-shrink:0;display:flex;flex-direction:column;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;overflow:hidden">
+      <sc-for list="{{ ruleToggles }}" as="r" hint-placeholder-count="2">
+        <button onClick="{{ r.toggle }}" style="min-height:72px;padding:12px 16px;display:flex;align-items:center;gap:14px;border:0;border-bottom:1px solid var(--line);background:transparent;cursor:pointer;text-align:left;font-family:'Onest',sans-serif;color:var(--text)">
+          <span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;font-weight:700">{{ r.label }}</span><span style="font-size:13px;line-height:1.35;color:var(--text-2)">{{ r.hint }}</span></span>
+          <span style="width:52px;height:32px;flex:none;padding:3px;box-sizing:border-box;border-radius:999px;display:flex;justify-content:{{ r.justify }};background:{{ r.track }}"><span style="width:26px;height:26px;border-radius:999px;background:var(--knob);box-shadow:0 1px 3px rgba(0,0,0,.3)"></span></span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Avoid these exercises or equipment</span>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ avoidList }}" as="a" hint-placeholder-count="3">
+          <span style="min-height:44px;padding:0 6px 0 14px;display:flex;align-items:center;gap:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-strong);font-size:15px;font-weight:600">{{ a.label }}<button onClick="{{ a.remove }}" aria-label="Remove" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:transparent;color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:16px"></i></button></span>
+        </sc-for>
+      </div>
+      <div style="display:flex;gap:8px"><input value="{{ avoidInput }}" onChange="{{ onAvoidInput }}" onKeyDown="{{ onAvoidKey }}" placeholder="e.g. Overhead press" style="flex:1;min-width:0;height:56px;padding:0 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"><button onClick="{{ addAvoid }}" aria-label="Add" style="width:56px;height:56px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:14px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:24px"></i></button></div>
+    </div>
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Anything else?</span><textarea rows="4" placeholder="e.g. Bad left knee — no jumping. Keep Fridays under 40 min." style="padding:14px 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px/1.45 'Onest',sans-serif;outline:none;resize:none"></textarea></label>
+  </div>
+  <div style="flex:none;display:flex;gap:12px;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="min-height:64px;padding:0 24px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer">Back</button><button style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)">Next<i class="icon-arrow-right" style="font-size:20px"></i></button></div>
+</div>
+</div>
+
+<div data-screen-label="06 Equipment" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">06 · Equipment</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 5 of 6</span><span style="font-size:15px;font-weight:700;color:var(--accent-text)">{{ equipCount }} selected</span></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--surface-3)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">What does your gym have?</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">We'll only plan exercises you can do.</p></div>
+    <sc-for list="{{ equipGroups }}" as="g" hint-placeholder-count="4">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">{{ g.name }} · {{ g.count }}</span><button onClick="{{ g.toggleAll }}" style="min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--accent-text);font:600 15px 'Onest',sans-serif;cursor:pointer">{{ g.allLabel }}</button></div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;overflow:hidden">
+          <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
+            <button onClick="{{ it.toggle }}" style="min-height:56px;padding:0 16px;display:flex;align-items:center;gap:14px;border:0;border-bottom:1px solid var(--line);background:transparent;cursor:pointer;text-align:left;font:600 16px 'Onest',sans-serif;color:var(--text)">
+              <span style="width:26px;height:26px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;background:{{ it.boxBg }};border:{{ it.boxBorder }};color:var(--on-accent)"><sc-if value="{{ it.on }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:16px"></i></sc-if></span>
+              <span style="flex:1">{{ it.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+    <div style="display:flex;gap:8px"><input value="{{ customInput }}" onChange="{{ onCustomInput }}" onKeyDown="{{ onCustomKey }}" placeholder="Add custom equipment" style="flex:1;min-width:0;height:56px;padding:0 16px;border:1.5px dashed var(--line-strong);border-radius:14px;background:transparent;color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"><button onClick="{{ addCustom }}" style="min-height:56px;padding:0 18px;flex:none;display:flex;align-items:center;gap:6px;border:0;border-radius:14px;background:var(--surface-3);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer"><i class="icon-plus" style="font-size:20px"></i>Add</button></div>
+  </div>
+  <div style="flex:none;display:flex;gap:12px;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="min-height:64px;padding:0 24px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer">Back</button><button style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)">Next<i class="icon-arrow-right" style="font-size:20px"></i></button></div>
+</div>
+</div>
+
+<div data-screen-label="07 Examples" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">07 · Examples</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 0;display:flex;flex-direction:column;gap:12px">
+    <div style="height:44px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:700;color:var(--text-2)">Step 6 of 6 · Optional</span><button style="min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--accent-text);font:600 15px 'Onest',sans-serif;cursor:pointer">Skip</button></div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px"><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span><span style="height:6px;border-radius:3px;background:var(--accent)"></span></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:28px;line-height:1.15;font-weight:800;letter-spacing:-.01em">Show us past workouts</h2><p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">Paste from your notes app, any format. We'll pick up exercises, weights and your style.</p></div>
+    <div style="flex:1 0 300px;min-height:300px;display:flex;flex-direction:column;border:1.5px solid var(--line-strong);border-radius:18px;background:var(--surface-1);overflow:hidden">
+      <textarea onChange="{{ onExamples }}" value="{{ examples }}" placeholder="Mon – legs&#10;Squat 4×8 60kg&#10;RDL 3×10 40kg&#10;Leg press 3×12 120kg&#10;&#10;Wed – upper&#10;Bench 4×6 45kg&#10;…" style="flex:1;padding:16px;border:0;background:transparent;color:var(--text);font:500 17px/1.5 'Onest',sans-serif;outline:none;resize:none"></textarea>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 6px 16px;border-top:1px solid var(--line)"><span style="font-size:13px;color:var(--text-3)">{{ exampleMeta }}</span><button onClick="{{ pasteSample }}" style="min-height:44px;padding:0 14px;display:flex;align-items:center;gap:8px;border:0;border-radius:12px;background:var(--surface-3);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer"><i class="icon-clipboard-paste" style="font-size:18px"></i>Paste</button></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:var(--surface-2)"><i class="icon-lock" style="font-size:18px;color:var(--text-2);margin-top:1px"></i><span style="font-size:13px;line-height:1.45;color:var(--text-2)">Used only to tailor your plans. Edit or delete it later in Profile.</span></div>
+  </div>
+  <div style="flex:none;display:flex;gap:12px;padding:12px 20px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="min-height:64px;padding:0 24px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer">Back</button><button style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-sparkles" style="font-size:20px"></i>Build my plan</button></div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;}}">
+const I18N = {
+  en: { welcome: 'Welcome back', sub: 'Sign in to plan your training week.', email: 'Email', pw: 'Password', forgot: 'Forgot password?', signIn: 'Sign in', or: 'or', magic: 'Send magic link', magicHint: "We'll email you a one-tap sign-in link.", invite: 'Accounts are created by invitation only.' },
+  uk: { welcome: 'З поверненням', sub: 'Увійдіть, щоб спланувати тиждень тренувань.', email: 'Електронна пошта', pw: 'Пароль', forgot: 'Забули пароль?', signIn: 'Увійти', or: 'або', magic: 'Надіслати посилання для входу', magicHint: 'Ми надішлемо на пошту посилання для входу в один дотик.', invite: 'Акаунти створюються лише за запрошенням.' }
+};
+const DAYS = [['mon', 'M', 'Monday'], ['tue', 'T', 'Tuesday'], ['wed', 'W', 'Wednesday'], ['thu', 'T', 'Thursday'], ['fri', 'F', 'Friday'], ['sat', 'S', 'Saturday'], ['sun', 'S', 'Sunday']];
+const FOCUS = [['lower', 'Lower'], ['upper', 'Upper'], ['func', 'Circuit'], ['full', 'Full body']];
+const EQUIP = [
+  ['Free weights', ['Dumbbells', 'Barbell', 'Kettlebells', 'EZ bar']],
+  ['Machines', ['Leg press', 'Lat pulldown', 'Leg curl / extension', 'Smith machine']],
+  ['Cables', ['Cable station', 'Cable crossover']],
+  ['Accessories', ['Flat / incline bench', 'Pull-up bar', 'Resistance bands', 'Plyo box']]
+];
+const SAMPLE = 'Mon – legs\nSquat 4×8 60kg\nRDL 3×10 40kg\nLeg press 3×12 120kg\n\nWed – upper\nBench 4×6 45kg\nLat pulldown 3×10 40kg';
+class Component extends DCLogic {
+  state = { lang: 'en', showPw: false, sex: 'female', exp: 'intermediate', age: 29, height: 168, weight: 62, goal: 'strength',
+    days: { mon: true, wed: true, fri: true }, focus: { mon: 'lower', wed: 'upper', fri: 'func' }, len: 60,
+    noWarm: false, abs: true, avoid: ['Deadlift', 'Burpees', 'Smith machine'], avoidInput: '',
+    equip: { Dumbbells: true, Barbell: true, Kettlebells: true, 'Leg press': true, 'Lat pulldown': true, 'Cable station': true, 'Flat / incline bench': true, 'Pull-up bar': true },
+    custom: [], customInput: '', examples: '' };
+  renderVals() {
+    const s = this.state, set = o => this.setState(o);
+    const seg = a => ({ bg: a ? 'var(--surface-1)' : 'transparent', fg: a ? 'var(--text)' : 'var(--text-2)' });
+    const inv = a => ({ bg: a ? 'var(--text)' : 'transparent', fg: a ? 'var(--bg)' : 'var(--text-2)' });
+    const radio = a => ({ bg: a ? 'var(--accent-tint)' : 'var(--surface-1)', border: a ? '2px solid var(--accent)' : '1px solid var(--line)', ring: a ? '0' : '2px solid var(--line-strong)', dotBg: a ? 'var(--accent)' : 'transparent', on: a });
+    const step = (k, d, min) => () => this.setState(p => ({ [k]: Math.max(min, p[k] + d) }));
+    const allEquip = EQUIP.map(([n, items]) => [n, n === 'Accessories' ? items.concat(s.custom) : items]);
+    const focusStyle = (k, a) => {
+      if (!a) return { bg: 'transparent', fg: 'var(--text-2)', border: '1.5px solid var(--line)' };
+      if (k === 'full') return { bg: 'var(--surface-3)', fg: 'var(--text)', border: '1.5px solid var(--text-2)' };
+      return { bg: `var(--${k}-tint)`, fg: `var(--${k}-text)`, border: `1.5px solid var(--${k})` };
+    };
+    return {
+      theme: this.props.theme ?? 'dark',
+      t: I18N[s.lang],
+      setEn: () => set({ lang: 'en' }), setUk: () => set({ lang: 'uk' }),
+      enBg: inv(s.lang === 'en').bg, enFg: inv(s.lang === 'en').fg, ukBg: inv(s.lang === 'uk').bg, ukFg: inv(s.lang === 'uk').fg,
+      pwType: s.showPw ? 'text' : 'password', pwIcon: s.showPw ? 'icon-eye-off' : 'icon-eye', togglePw: () => set({ showPw: !s.showPw }),
+      sexOpts: [['female', 'Female'], ['male', 'Male'], ['other', 'Other']].map(([k, label]) => ({ label, ...seg(s.sex === k), pick: () => set({ sex: k }) })),
+      bodyVals: [
+        { label: 'Age', val: s.age, unit: 'y', down: step('age', -1, 14), up: step('age', 1, 14) },
+        { label: 'Height', val: s.height, unit: 'cm', down: step('height', -1, 120), up: step('height', 1, 120) },
+        { label: 'Weight', val: s.weight, unit: 'kg', down: step('weight', -1, 30), up: step('weight', 1, 30) }
+      ],
+      expOpts: [['beginner', 'Beginner', 'Less than a year of regular training'], ['intermediate', 'Intermediate', '1–3 years, know the main lifts'], ['advanced', 'Advanced', '3+ years, follow structured programs']]
+        .map(([k, label, hint]) => ({ label, hint, ...radio(s.exp === k), pick: () => set({ exp: k }) })),
+      goalOpts: [['strength', 'Strength', 'Lift heavier. Lower reps, longer rest.', 'icon-dumbbell', 'upper'], ['muscle', 'Build muscle', 'More volume, moderate weight, steady progress.', 'icon-biceps-flexed', 'lower'], ['fat', 'Fat loss', 'Keep strength, add circuits and conditioning.', 'icon-flame', 'func'], ['general', 'General fitness', 'Feel strong and move well. Balanced mix.', 'icon-heart-pulse', 'accent']]
+        .map(([k, label, hint, icon, c]) => { const r = radio(s.goal === k); return { label, hint, icon, ...r, iconBg: `var(--${c}-tint)`, iconFg: `var(--${c}-text)`, pick: () => set({ goal: k }) }; }),
+      dayCount: Object.values(s.days).filter(Boolean).length,
+      dayOpts: DAYS.map(([k, short]) => { const a = !!s.days[k]; return { short, bg: a ? 'var(--accent)' : 'var(--surface-1)', fg: a ? 'var(--on-accent)' : 'var(--text-2)', border: a ? '0' : '1px solid var(--line)',
+        toggle: () => this.setState(p => ({ days: { ...p.days, [k]: !p.days[k] }, focus: { full: undefined, ...p.focus, [k]: p.focus[k] || 'full' } })) }; }),
+      dayRows: DAYS.filter(([k]) => s.days[k]).map(([k, , name]) => ({ name, opts: FOCUS.map(([fk, label]) => ({ label, ...focusStyle(fk, s.focus[k] === fk), pick: () => this.setState(p => ({ focus: { ...p.focus, [k]: fk } })) })) })),
+      lenOpts: [30, 45, 60, 75, 90].map(v => ({ val: v, ...seg(s.len === v), pick: () => set({ len: v }) })),
+      ruleToggles: [['noWarm', "I don't warm up", 'Skip warm-up sets — go straight to working weight'], ['abs', 'Always finish with abs', 'Add 1–2 core exercises at the end of every session']]
+        .map(([k, label, hint]) => ({ label, hint, track: s[k] ? 'var(--accent)' : 'var(--surface-3)', justify: s[k] ? 'flex-end' : 'flex-start', toggle: () => set({ [k]: !s[k] }) })),
+      avoidList: s.avoid.map(label => ({ label, remove: () => this.setState(p => ({ avoid: p.avoid.filter(x => x !== label) })) })),
+      avoidInput: s.avoidInput,
+      onAvoidInput: e => set({ avoidInput: e.target.value }),
+      addAvoid: () => this.addAvoid(),
+      onAvoidKey: e => { if (e.key === 'Enter') this.addAvoid(); },
+      equipCount: Object.values(s.equip).filter(Boolean).length,
+      equipGroups: allEquip.map(([name, items]) => {
+        const n = items.filter(i => s.equip[i]).length, all = n === items.length;
+        return { name, count: `${n}/${items.length}`, allLabel: all ? 'Clear' : 'Select all',
+          toggleAll: () => this.setState(p => { const e = { ...p.equip }; items.forEach(i => { e[i] = !all; }); return { equip: e }; }),
+          items: items.map(label => { const a = !!s.equip[label]; return { label, on: a, boxBg: a ? 'var(--accent)' : 'transparent', boxBorder: a ? '0' : '2px solid var(--line-strong)', toggle: () => this.setState(p => ({ equip: { ...p.equip, [label]: !p.equip[label] } })) }; }) };
+      }),
+      customInput: s.customInput,
+      onCustomInput: e => set({ customInput: e.target.value }),
+      addCustom: () => this.addCustom(),
+      onCustomKey: e => { if (e.key === 'Enter') this.addCustom(); },
+      examples: s.examples,
+      onExamples: e => set({ examples: e.target.value }),
+      pasteSample: () => set({ examples: SAMPLE }),
+      exampleMeta: s.examples.trim() ? `${s.examples.trim().split('\n').filter(l => l.trim()).length} lines` : 'Nothing pasted yet'
+    };
+  }
+  addAvoid() { const v = this.state.avoidInput.trim(); if (v) this.setState(p => ({ avoid: p.avoid.includes(v) ? p.avoid : [...p.avoid, v], avoidInput: '' })); }
+  addCustom() { const v = this.state.customInput.trim(); if (v) this.setState(p => ({ custom: p.custom.includes(v) ? p.custom : [...p.custom, v], equip: { ...p.equip, [v]: true }, customInput: '' })); }
+}
+</script>
+</body>
+</html>

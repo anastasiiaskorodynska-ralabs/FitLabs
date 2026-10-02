@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<style>
+body{margin:0;background:#0A080C;-webkit-font-smoothing:antialiased}
+[data-theme="dark"]{--page:#0A080C;--bg:#110E14;--surface-1:#19151D;--surface-2:#211C26;--surface-3:#2B2531;--line:#322B38;--line-strong:#443B4B;--text:#F6F2F5;--text-2:#B4AAB6;--text-3:#8A7F8D;--accent:#FF6FAE;--accent-press:#E85A98;--on-accent:#2A0716;--accent-tint:rgba(255,111,174,.15);--accent-text:#FF9CC8;--lower:#6CC4F7;--lower-tint:rgba(108,196,247,.15);--lower-text:#9CD8FA;--upper:#B394FF;--upper-tint:rgba(179,148,255,.16);--upper-text:#CDB8FF;--func:#FFB38A;--func-tint:rgba(255,179,138,.15);--func-text:#FFCBAE;--done:#4CC38A;--done-tint:rgba(76,195,138,.13);--done-text:#7FDAAE;--danger:#F2645C;--scrim:rgba(0,0,0,.6);--shadow:0 -12px 40px rgba(0,0,0,.5)}
+[data-theme="light"]{--page:#E9E3E8;--bg:#F7F3F6;--surface-1:#FFFFFF;--surface-2:#F4EEF2;--surface-3:#EAE2E8;--line:#EBE3E9;--line-strong:#D6CBD3;--text:#1A1420;--text-2:#564B5A;--text-3:#73677A;--accent:#F0559A;--accent-press:#D9407F;--on-accent:#2A0716;--accent-tint:rgba(240,85,154,.12);--accent-text:#B8236A;--lower:#1F9AE0;--lower-tint:rgba(31,154,224,.12);--lower-text:#13689C;--upper:#7B55E0;--upper-tint:rgba(123,85,224,.12);--upper-text:#5A35BF;--func:#F08A55;--func-tint:rgba(240,138,85,.15);--func-text:#A2471A;--done:#23985F;--done-tint:rgba(35,152,95,.1);--done-text:#176E44;--danger:#D53A32;--scrim:rgba(26,20,32,.45);--shadow:0 -12px 40px rgba(26,20,32,.18)}
+a{color:var(--accent-text)}a:hover{color:var(--text)}
+input::placeholder,textarea::placeholder{color:var(--text-3)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--page);color:var(--text);font-family:'Onest',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:48px">
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:40px">
+  <div style="font-size:15px;font-weight:700;color:var(--accent-text)">FitLabs</div>
+  <h1 style="margin:0;font-size:40px;font-weight:800;letter-spacing:-.02em">Log results</h1>
+  <p style="margin:0;font-size:17px;color:var(--text-2)">390 × 844 · live: tap ○ = as planned, tap a number to change the actual, Mark as done → success. Data is shared across phones.</p>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+<sc-for list="{{ phones }}" as="ph" hint-placeholder-count="4">
+<div data-screen-label="{{ ph.caption }}" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">{{ ph.caption }}</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+
+  <sc-if value="{{ ph.isLog }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:none;padding:0 12px 12px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)">
+      <div style="height:48px;display:flex;align-items:center;gap:8px">
+        <button aria-label="Back" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text);cursor:pointer"><i class="icon-chevron-left" style="font-size:26px"></i></button>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font-size:20px;font-weight:800;letter-spacing:-.01em">Log results</span><span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-2)"><span style="width:8px;height:8px;border-radius:999px;background:var(--lower)"></span>Lower body · Tue, Oct 6</span></div>
+        <span style="font-size:15px;font-weight:700;color:var(--text-2);padding-right:8px">{{ loggedLabel }}</span>
+      </div>
+      <div style="margin:0 8px;height:6px;border-radius:999px;background:var(--surface-3);overflow:hidden"><div style="height:100%;border-radius:999px;background:var(--done);transition:width .25s;width:{{ loggedPct }}"></div></div>
+    </div>
+
+    <div ref="{{ ph.scrollRef }}" style="flex:1;overflow-y:auto;padding:14px 16px 20px;display:flex;flex-direction:column;gap:14px">
+      <sc-for list="{{ ph.blocks }}" as="blk" hint-placeholder-count="4">
+        <div style="flex-shrink:0;display:flex;flex-direction:column;border-radius:22px;background:{{ blk.bg }};border:{{ blk.border }}">
+          <sc-if value="{{ blk.hasHeader }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:10px;padding:14px 12px 4px 16px">
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+                <div style="display:flex;align-items:center;gap:8px"><i class="{{ blk.icon }}" style="font-size:18px;color:var(--text-2)"></i><span style="font-size:18px;font-weight:800">{{ blk.label }}</span><sc-if value="{{ blk.isAbs }}" hint-placeholder-val="{{ false }}"><span style="min-height:24px;padding:0 8px;display:flex;align-items:center;border-radius:999px;background:var(--text);color:var(--bg);font-size:11px;font-weight:800;letter-spacing:.06em">FINISHER</span></sc-if></div>
+                <span style="font-size:13px;font-weight:600;color:var(--text-2)">{{ blk.meta }}</span>
+              </div>
+              <sc-if value="{{ blk.hasRounds }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:4px;padding:4px;border-radius:14px;background:var(--surface-3)">
+                  <button onClick="{{ blk.roundDown }}" aria-label="Fewer rounds" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:0;border-radius:10px;background:transparent;color:var(--text);cursor:pointer"><i class="icon-minus" style="font-size:18px"></i></button>
+                  <span style="min-width:44px;display:flex;flex-direction:column;align-items:center;line-height:1"><span style="font-size:18px;font-weight:800">{{ blk.roundsLabel }}</span><span style="font-size:10px;font-weight:700;color:var(--text-2);margin-top:2px">ROUNDS</span></span>
+                  <button onClick="{{ blk.roundUp }}" aria-label="More rounds" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:0;border-radius:10px;background:transparent;color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:18px"></i></button>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+          <sc-for list="{{ blk.ex }}" as="ex" hint-placeholder-count="1">
+            <div style="padding:14px;display:flex;flex-direction:column;gap:10px;border-top:{{ ex.divider }}">
+              <div style="display:flex;align-items:center;gap:12px">
+                <span style="position:relative;width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:12px;color:var(--text-3);background:repeating-linear-gradient(135deg,var(--surface-3) 0 6px,var(--surface-2) 6px 12px)"><i class="icon-image" style="font-size:18px"></i><sc-if value="{{ ex.hasTag }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-6px;left:-6px;min-width:24px;height:22px;padding:0 5px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--text);color:var(--bg);font-size:11px;font-weight:800">{{ ex.tag }}</span></sc-if></span>
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:17px;line-height:1.25;font-weight:700">{{ ex.name }}</span><span style="font-size:13px;color:var(--text-2)">{{ ex.sub }}</span></div>
+                <button onClick="{{ ex.allPlanned }}" style="min-height:44px;padding:0 10px;flex:none;display:flex;align-items:center;gap:6px;border:0;border-radius:12px;background:transparent;font:600 14px 'Onest',sans-serif;cursor:pointer;color:{{ ex.allColor }}"><i class="icon-check-check" style="font-size:18px"></i>{{ ex.allLabel }}</button>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="display:grid;grid-template-columns:44px 70px minmax(0,1fr) minmax(0,1fr);gap:8px;padding:0 4px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--text-3)"><span></span><span>PLAN</span><span>KG</span><span>{{ ex.repsHead }}</span></div>
+                <sc-for list="{{ ex.rows }}" as="row" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:44px 70px minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:center;padding:4px;border-radius:16px;background:{{ row.bg }}">
+                    <button onClick="{{ row.toggle }}" aria-label="{{ row.aria }}" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:999px;cursor:pointer;font:800 15px 'Onest',sans-serif;background:{{ row.checkBg }};border:{{ row.checkBorder }};color:{{ row.checkFg }}"><sc-if value="{{ row.done }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:22px"></i></sc-if><sc-if value="{{ row.pending }}" hint-placeholder-val="{{ true }}">{{ row.n }}</sc-if></button>
+                    <span style="font-size:14px;line-height:1.25;font-weight:600;color:var(--text-3)">{{ row.plan }}</span>
+                    <button onClick="{{ row.edit }}" style="min-width:0;overflow:hidden;min-height:48px;padding:0 8px;display:flex;align-items:center;gap:3px;border-radius:12px;background:var(--surface-2);cursor:pointer;font-family:'Onest',sans-serif;border:{{ row.kgBorder }};color:{{ row.kgFg }}"><span style="font-size:20px;font-weight:800;letter-spacing:-.01em">{{ row.kg }}</span><span style="font-size:11px;font-weight:600;color:var(--text-2)">{{ row.kgUnit }}</span><i class="{{ row.kgArrow }}" style="font-size:13px;flex:none"></i></button>
+                    <button onClick="{{ row.edit }}" style="min-width:0;overflow:hidden;min-height:48px;padding:0 8px;display:flex;align-items:center;gap:3px;border-radius:12px;background:var(--surface-2);cursor:pointer;font-family:'Onest',sans-serif;border:{{ row.repsBorder }};color:{{ row.repsFg }}"><span style="font-size:20px;font-weight:800;letter-spacing:-.01em">{{ row.reps }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">{{ row.repsUnit }}</span><i class="{{ row.repsArrow }}" style="font-size:13px;flex:none"></i></button>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ ex.noteOpen }}" hint-placeholder-val="{{ false }}">
+                <textarea rows="2" value="{{ ex.note }}" onChange="{{ ex.onNote }}" placeholder="Note for this exercise — seat height, how it felt…" style="padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 16px/1.45 'Onest',sans-serif;outline:none;resize:none"></textarea>
+              </sc-if>
+              <sc-if value="{{ ex.noteClosed }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ ex.openNote }}" style="align-self:flex-start;min-height:44px;padding:0 10px;margin-left:-6px;display:flex;align-items:center;gap:8px;border:0;border-radius:12px;background:transparent;color:var(--text-2);font:600 14px 'Onest',sans-serif;cursor:pointer"><i class="icon-notebook-pen" style="font-size:18px"></i>Add note</button>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-for>
+      <label style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Session notes</span><textarea rows="3" value="{{ sessionNote }}" onChange="{{ onSessionNote }}" placeholder="Energy, sleep, gym was busy, anything for next time…" style="padding:14px 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 16px/1.45 'Onest',sans-serif;outline:none;resize:none"></textarea></label>
+    </div>
+
+    <div style="flex:none;display:flex;flex-direction:column;gap:10px;padding:10px 16px 34px;border-top:1px solid var(--line);background:var(--bg)">
+      <button onClick="{{ toggleSave }}" style="min-height:52px;padding:0 4px;display:flex;align-items:center;gap:12px;border:0;background:transparent;color:var(--text);cursor:pointer;text-align:left;font-family:'Onest',sans-serif">
+        <i class="icon-sparkles" style="font-size:20px;color:var(--accent-text)"></i>
+        <span style="flex:1;display:flex;flex-direction:column;gap:1px"><span style="font-size:16px;font-weight:700">Save as example for AI</span><span style="font-size:12px;color:var(--text-2)">Future plans will learn from this session</span></span>
+        <span style="width:52px;height:32px;flex:none;padding:3px;box-sizing:border-box;border-radius:999px;display:flex;justify-content:{{ saveJustify }};background:{{ saveTrack }}"><span style="width:26px;height:26px;border-radius:999px;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.3)"></span></span>
+      </button>
+      <div style="display:flex;gap:10px">
+        <button onClick="{{ ph.skip }}" style="min-height:64px;padding:0 22px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 17px 'Onest',sans-serif;cursor:pointer" style-active="transform:scale(.98)">Skipped</button>
+        <button onClick="{{ ph.finish }}" style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-check" style="font-size:22px"></i>Mark as done</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ ph.isSuccess }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;overflow-y:auto;padding:40px 20px 20px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+        <span style="width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ ph.heroBg }};color:{{ ph.heroFg }}"><i class="{{ ph.heroIcon }}" style="font-size:48px"></i></span>
+        <h2 style="margin:0;font-size:32px;line-height:1.1;font-weight:800;letter-spacing:-.02em">{{ ph.heroTitle }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.45;color:var(--text-2);text-wrap:pretty">{{ ph.heroSub }}</p>
+      </div>
+      <sc-if value="{{ ph.wasDone }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px 6px;border-radius:18px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:30px;line-height:1;font-weight:800">{{ statSets }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">sets logged</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px 6px;border-radius:18px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:30px;line-height:1;font-weight:800;color:var(--done-text)">{{ statUp }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">above plan</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:16px 6px;border-radius:18px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:30px;line-height:1;font-weight:800">{{ statDown }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">below plan</span></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ saveOn }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--accent-tint)"><i class="icon-sparkles" style="font-size:20px;color:var(--accent-text)"></i><span style="flex:1;font-size:15px;line-height:1.4;font-weight:600">Saved as an example — next plans will use it.</span></div>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Up next</span>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+          <div style="width:56px;height:56px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:14px;background:var(--upper-tint);color:var(--upper-text)"><span style="font-size:11px;font-weight:700;letter-spacing:.06em">THU</span><span style="font-size:22px;font-weight:800;line-height:1">8</span></div>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700">Upper body</span><span style="font-size:13px;color:var(--text-2)">6 exercises · 50 min</span></div>
+          <span style="flex:none;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:15px"></i>Planned</span>
+        </div>
+      </div>
+    </div>
+    <div style="flex:none;display:flex;flex-direction:column;gap:10px;padding:12px 16px 34px">
+      <button onClick="{{ ph.backToLog }}" style="min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)">Back to week</button>
+      <button onClick="{{ ph.backToLog }}" style="min-height:52px;border:0;border-radius:16px;background:transparent;color:var(--text-2);font:600 16px 'Onest',sans-serif;cursor:pointer">Edit results</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ ph.isEdit }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ ph.close }}" style="position:absolute;inset:0;z-index:10;background:var(--scrim)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;z-index:11;display:flex;flex-direction:column;gap:18px;padding:10px 20px 34px;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+      <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--text-2)">{{ ph.ed.where }}</span><span style="font-size:22px;line-height:1.2;font-weight:700">{{ ph.ed.name }}</span><span style="font-size:14px;font-weight:600;color:var(--text-3)">Planned: {{ ph.ed.plan }}</span></div><button onClick="{{ ph.close }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:15px;font-weight:600;color:var(--text-2)">Actual weight</div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px">
+          <button onClick="{{ ph.ed.kgDown }}" aria-label="Decrease weight" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+          <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px"><span style="font-size:52px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ ph.ed.kg }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">{{ ph.ed.kgUnit }}</span></div>
+          <button onClick="{{ ph.ed.kgUp }}" aria-label="Increase weight" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:15px;font-weight:600;color:var(--text-2)">{{ ph.ed.repsLabel }}</div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px">
+          <button onClick="{{ ph.ed.repsDown }}" aria-label="Decrease" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+          <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px"><span style="font-size:52px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ ph.ed.reps }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">{{ ph.ed.repsUnit }}</span></div>
+          <button onClick="{{ ph.ed.repsUp }}" aria-label="Increase" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button onClick="{{ ph.ed.reset }}" style="min-height:64px;padding:0 20px;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);font:600 16px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px"><i class="icon-rotate-ccw" style="font-size:18px"></i>Reset to plan</button>
+        <button onClick="{{ ph.ed.save }}" style="flex:1;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)">Save set</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;}}">
+const R = (kg, reps, mode, act, done) => ({ plan: { kg, reps, mode }, act: act || { kg, reps }, done: !!done });
+const BLOCKS = [
+  { id: 'b1', kind: 'single', ex: [
+    { id: 'lp', name: 'Leg press', sub: '3 sets · rest 90 s', rows: [R(60, 15, 'reps', null, true), R(60, 15, 'reps', { kg: 62.5, reps: 15 }, true), R(60, 15, 'reps')] }] },
+  { id: 'b2', kind: 'superset', label: 'Superset A', meta: '3 sets · rest 90 s after A2', ex: [
+    { id: 'bss', tag: 'A1', name: 'Bulgarian split squat', sub: 'Dumbbells · per side', rows: [R(12, 12, 'side', null, true), R(12, 12, 'side', null, true), R(12, 12, 'side')] },
+    { id: 'bssbw', tag: 'A2', name: 'Bulgarian split squat', sub: 'Bodyweight · per side', rows: [R(null, 12, 'side', null, true), R(null, 12, 'side', { kg: null, reps: 10 }, true), R(null, 12, 'side')] }] },
+  { id: 'b3', kind: 'circuit', label: 'Circuit 1', meta: 'Plan: 3 rounds · rest 60–90 sec', rounds: 2, roundsPlan: 3, ex: [
+    { id: 'kbs', name: 'Kettlebell swing', sub: 'Per round', rows: [R(16, 15, 'reps', null, true)] },
+    { id: 'wl', name: 'Walking lunge', sub: 'Per round', rows: [R(null, 10, 'side', null, true)] },
+    { id: 'ws', name: 'Wall sit', sub: 'Per round', rows: [R(null, 45, 'time', { kg: null, reps: 40 }, true)] }] },
+  { id: 'b4', kind: 'abs', label: 'Abs finisher', meta: 'Plan: 2 rounds', rounds: 0, roundsPlan: 2, ex: [
+    { id: 'hkr', name: 'Hanging knee raise', sub: 'Per round', rows: [R(null, null, 'max', { kg: null, reps: null })] },
+    { id: 'dbg', name: 'Dead bug', sub: 'Per round', rows: [R(null, 10, 'side')] },
+    { id: 'pl', name: 'Plank', sub: 'Per round', rows: [R(null, 45, 'time')] }] }
+];
+const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
+const clone = o => JSON.parse(JSON.stringify(o));
+const planStr = p => { const k = p.kg == null ? 'BW' : fmt(p.kg); const r = p.mode === 'max' ? 'max' : p.mode === 'time' ? `${p.reps} s` : p.mode === 'side' ? `${p.reps}/side` : p.reps; return p.mode === 'time' ? r : `${k} × ${r}`; };
+class Component extends DCLogic {
+  state = { blocks: clone(BLOCKS), phones: [{ view: 'log' }, { view: 'log', bottom: true }, { view: 'log', sheet: { ex: 'lp', row: 2 } }, { view: 'done' }],
+    notes: { lp: 'Seat on 5. Felt easy — try 65 next time.' }, noteOpen: { lp: true }, sessionNote: '', save: true };
+  rowsAll() { return this.state.blocks.flatMap(b => b.ex.flatMap(e => e.rows)); }
+  find(id) { for (const b of this.state.blocks) for (const e of b.ex) if (e.id === id) return e; }
+  mutRow(exId, i, fn) { this.setState(s => { const blocks = clone(s.blocks); blocks.forEach(b => b.ex.forEach(e => { if (e.id === exId) (i == null ? e.rows : [e.rows[i]]).forEach(fn); })); return { blocks }; }); }
+  setPhone(p, patch) { this.setState(s => ({ phones: s.phones.map((x, i) => i === p ? { ...x, ...patch } : x) })); }
+  renderVals() {
+    const s = this.state, all = this.rowsAll(), logged = all.filter(r => r.done).length;
+    const diff = (a, b) => (a == null || b == null) ? 0 : Math.sign(a - b);
+    const arrow = d => d > 0 ? 'icon-arrow-up' : d < 0 ? 'icon-arrow-down' : '';
+    const col = d => d > 0 ? 'var(--done-text)' : d < 0 ? 'var(--func-text)' : 'var(--text)';
+    let up = 0, down = 0;
+    all.forEach(r => { if (!r.done) return; const d = diff(r.act.kg, r.plan.kg) || diff(r.act.reps, r.plan.reps); if (d > 0) up++; if (d < 0) down++; });
+    const phones = s.phones.map((ph, p) => {
+      const blocks = s.blocks.map(b => ({
+        hasHeader: b.kind !== 'single', label: b.label, meta: b.meta, isAbs: b.kind === 'abs',
+        icon: { superset: 'icon-link-2', circuit: 'icon-repeat', abs: 'icon-target' }[b.kind] || '',
+        bg: b.kind === 'abs' ? 'var(--surface-2)' : 'var(--surface-1)', border: b.kind === 'abs' ? '1.5px dashed var(--line-strong)' : '1px solid var(--line)',
+        hasRounds: b.rounds != null, roundsLabel: `${b.rounds}/${b.roundsPlan}`,
+        roundDown: () => this.setState(st => ({ blocks: st.blocks.map(q => q.id === b.id ? { ...q, rounds: Math.max(0, q.rounds - 1) } : q) })),
+        roundUp: () => this.setState(st => ({ blocks: st.blocks.map(q => q.id === b.id ? { ...q, rounds: q.rounds + 1 } : q) })),
+        ex: b.ex.map((x, i) => {
+          const allDone = x.rows.every(r => r.done);
+          return { name: x.name, sub: x.sub, tag: x.tag || '', hasTag: !!x.tag,
+            divider: i > 0 ? '1px solid var(--line)' : '0',
+            allLabel: allDone ? 'Done' : 'All planned', allColor: allDone ? 'var(--done-text)' : 'var(--accent-text)',
+            allPlanned: () => this.mutRow(x.id, null, r => { if (!r.done) { r.done = true; if (r.plan.mode !== 'max') r.act = { kg: r.plan.kg, reps: r.plan.reps }; } }),
+            repsHead: x.rows[0].plan.mode === 'time' ? 'SEC' : 'REPS',
+            rows: x.rows.map((r, k) => {
+              const needs = r.act.reps == null, dk = diff(r.act.kg, r.plan.kg), dr = r.plan.mode === 'max' ? 0 : diff(r.act.reps, r.plan.reps);
+              return { n: x.rows.length > 1 ? k + 1 : '', done: r.done, pending: !r.done, aria: r.done ? 'Undo' : 'Mark as planned',
+                bg: r.done ? 'var(--done-tint)' : 'transparent',
+                checkBg: r.done ? 'var(--done)' : 'transparent', checkBorder: r.done ? '0' : '2px solid var(--line-strong)', checkFg: r.done ? 'var(--bg)' : 'var(--text-2)',
+                plan: planStr(r.plan),
+                kg: r.act.kg == null ? 'BW' : fmt(r.act.kg), kgUnit: r.act.kg == null ? '' : 'kg', kgArrow: arrow(dk), kgFg: col(dk), kgBorder: '1.5px solid transparent',
+                reps: needs ? '—' : String(r.act.reps), repsUnit: needs ? 'enter' : r.plan.mode === 'time' ? 's' : r.plan.mode === 'side' ? '/side' : '', repsArrow: arrow(dr), repsFg: needs ? 'var(--text-2)' : col(dr),
+                repsBorder: needs ? '1.5px dashed var(--accent)' : '1.5px solid transparent',
+                toggle: () => r.plan.mode === 'max' && needs ? this.setPhone(p, { sheet: { ex: x.id, row: k } })
+                  : this.mutRow(x.id, k, q => { q.done = !q.done; if (q.done && q.plan.mode !== 'max') q.act = { kg: q.plan.kg, reps: q.plan.reps }; }),
+                edit: () => this.setPhone(p, { sheet: { ex: x.id, row: k } }) };
+            }),
+            noteOpen: !!s.noteOpen[x.id], noteClosed: !s.noteOpen[x.id], note: s.notes[x.id] || '',
+            openNote: () => this.setState(st => ({ noteOpen: { ...st.noteOpen, [x.id]: true } })),
+            onNote: ev => { const v = ev.target.value; this.setState(st => ({ notes: { ...st.notes, [x.id]: v } })); } };
+        })
+      }));
+      const sh = ph.sheet, ex = sh && this.find(sh.ex), row = ex && ex.rows[sh.row];
+      let ed = {};
+      if (row) {
+        const m = row.plan.mode, step = m === 'time' ? 5 : 1;
+        ed = { name: ex.name, where: ex.rows.length > 1 ? `Set ${sh.row + 1} of ${ex.rows.length}` : 'Per round', plan: planStr(row.plan),
+          kg: row.act.kg == null ? 'BW' : fmt(row.act.kg), kgUnit: row.act.kg == null ? 'bodyweight' : 'kg',
+          repsLabel: m === 'time' ? 'Actual time · step 5 s' : m === 'side' ? 'Actual reps per side' : m === 'max' ? 'Reps you managed' : 'Actual reps',
+          reps: row.act.reps == null ? '—' : String(row.act.reps), repsUnit: m === 'time' ? 'sec' : m === 'side' ? '/side' : 'reps',
+          kgDown: () => this.mutRow(ex.id, sh.row, q => { q.act.kg = q.act.kg == null || q.act.kg <= 2.5 ? null : q.act.kg - 2.5; }),
+          kgUp: () => this.mutRow(ex.id, sh.row, q => { q.act.kg = q.act.kg == null ? 2.5 : q.act.kg + 2.5; }),
+          repsDown: () => this.mutRow(ex.id, sh.row, q => { q.act.reps = Math.max(0, (q.act.reps ?? 10) - step); }),
+          repsUp: () => this.mutRow(ex.id, sh.row, q => { q.act.reps = q.act.reps == null ? 10 : q.act.reps + step; }),
+          reset: () => this.mutRow(ex.id, sh.row, q => { q.act = { kg: q.plan.kg, reps: q.plan.reps }; }),
+          save: () => { this.mutRow(ex.id, sh.row, q => { if (q.act.reps == null) q.act.reps = 10; q.done = true; }); this.setPhone(p, { sheet: null }); } };
+      }
+      const skipped = ph.view === 'skipped';
+      return { caption: ['01 · Logging', '02 · Bottom: notes, AI toggle, actions', '03 · Change actual value', '04 · Saved'][p], blocks,
+        isLog: ph.view === 'log', isSuccess: ph.view !== 'log', isEdit: ph.view === 'log' && !!row, ed, wasDone: !skipped,
+        heroBg: skipped ? 'var(--surface-3)' : 'var(--done-tint)', heroFg: skipped ? 'var(--text-2)' : 'var(--done-text)', heroIcon: skipped ? 'icon-x' : 'icon-check',
+        heroTitle: skipped ? 'Marked as skipped' : 'Workout logged', heroSub: skipped ? 'No problem — Tuesday stays in History as skipped. Your next plan accounts for it.' : 'Lower body · Tue, Oct 6. Nice work — your next plan will build on this.',
+        scrollRef: ph.bottom ? el => { if (el && !el.dataset.scrolled) { el.dataset.scrolled = '1'; setTimeout(() => { el.scrollTop = el.scrollHeight; }, 60); } } : null,
+        close: () => this.setPhone(p, { sheet: null }),
+        finish: () => this.setPhone(p, { view: 'done', sheet: null }), skip: () => this.setPhone(p, { view: 'skipped', sheet: null }),
+        backToLog: () => this.setPhone(p, { view: 'log' }) };
+    });
+    return {
+      theme: this.props.theme ?? 'dark', phones,
+      loggedLabel: `${logged}/${all.length}`, loggedPct: `${Math.round(logged / all.length * 100)}%`,
+      sessionNote: s.sessionNote, onSessionNote: ev => this.setState({ sessionNote: ev.target.value }),
+      saveOn: s.save, toggleSave: () => this.setState({ save: !s.save }),
+      saveTrack: s.save ? 'var(--accent)' : 'var(--surface-3)', saveJustify: s.save ? 'flex-end' : 'flex-start',
+      statSets: `${logged}/${all.length}`, statUp: up, statDown: down
+    };
+  }
+}
+</script>
+</body>
+</html>

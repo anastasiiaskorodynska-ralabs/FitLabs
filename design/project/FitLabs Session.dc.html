@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<style>
+body{margin:0;background:#0A080C;-webkit-font-smoothing:antialiased}
+[data-theme="dark"]{--page:#0A080C;--bg:#110E14;--surface-1:#19151D;--surface-2:#211C26;--surface-3:#2B2531;--line:#322B38;--line-strong:#443B4B;--text:#F6F2F5;--text-2:#B4AAB6;--text-3:#8A7F8D;--accent:#FF6FAE;--accent-press:#E85A98;--on-accent:#2A0716;--accent-tint:rgba(255,111,174,.15);--accent-text:#FF9CC8;--lower:#6CC4F7;--lower-tint:rgba(108,196,247,.15);--lower-text:#9CD8FA;--upper:#B394FF;--upper-tint:rgba(179,148,255,.16);--upper-text:#CDB8FF;--func:#FFB38A;--func-tint:rgba(255,179,138,.15);--func-text:#FFCBAE;--done:#4CC38A;--danger:#F2645C;--scrim:rgba(0,0,0,.6);--shadow:0 -12px 40px rgba(0,0,0,.5);--pop:0 12px 32px rgba(0,0,0,.5)}
+[data-theme="light"]{--page:#E9E3E8;--bg:#F7F3F6;--surface-1:#FFFFFF;--surface-2:#F4EEF2;--surface-3:#EAE2E8;--line:#EBE3E9;--line-strong:#D6CBD3;--text:#1A1420;--text-2:#564B5A;--text-3:#73677A;--accent:#F0559A;--accent-press:#D9407F;--on-accent:#2A0716;--accent-tint:rgba(240,85,154,.12);--accent-text:#B8236A;--lower:#1F9AE0;--lower-tint:rgba(31,154,224,.12);--lower-text:#13689C;--upper:#7B55E0;--upper-tint:rgba(123,85,224,.12);--upper-text:#5A35BF;--func:#F08A55;--func-tint:rgba(240,138,85,.15);--func-text:#A2471A;--done:#23985F;--danger:#D53A32;--scrim:rgba(26,20,32,.45);--shadow:0 -12px 40px rgba(26,20,32,.18);--pop:0 12px 32px rgba(26,20,32,.18)}
+@keyframes fl-spin{to{transform:rotate(360deg)}}
+a{color:var(--accent-text)}a:hover{color:var(--text)}
+input::placeholder{color:var(--text-3)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--page);color:var(--text);font-family:'Onest',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:48px">
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:40px">
+  <div style="font-size:15px;font-weight:700;color:var(--accent-text)">FitLabs</div>
+  <h1 style="margin:0;font-size:40px;font-weight:800;letter-spacing:-.02em">Session detail &amp; sheets</h1>
+  <p style="margin:0;font-size:17px;color:var(--text-2)">390 × 844 · live: tap numbers, thumbnails, swap, regenerate, ••• menu, technique. Edits are shared across phones.</p>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+<sc-for list="{{ phones }}" as="ph" hint-placeholder-count="4">
+<div data-screen-label="{{ ph.caption }}" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">{{ ph.caption }}</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;height:52px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;gap:8px">
+    <button aria-label="Back" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text);cursor:pointer"><i class="icon-chevron-left" style="font-size:26px"></i></button>
+    <button onClick="{{ ph.regenDay }}" style="min-height:44px;padding:0 14px;display:flex;align-items:center;gap:8px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer"><sc-if value="{{ dayBusy }}" hint-placeholder-val="{{ false }}">{{ spinner }}</sc-if><sc-if value="{{ dayIdle }}" hint-placeholder-val="{{ true }}"><i class="icon-refresh-cw" style="font-size:18px"></i></sc-if>{{ dayBtnLabel }}</button>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:8px 16px 24px;display:flex;flex-direction:column;gap:14px">
+    <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;padding:0 4px 4px">
+      <span style="align-self:flex-start;min-height:30px;padding:0 12px;display:flex;align-items:center;gap:8px;border-radius:999px;background:var(--lower-tint);color:var(--lower-text);font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:999px;background:var(--lower)"></span>Lower body</span>
+      <h2 style="margin:0;font-size:30px;line-height:1.1;font-weight:800;letter-spacing:-.02em">Tuesday, Oct 6</h2>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:15px;color:var(--text-2)">{{ exCount }} exercises · ~55 min</span><span style="min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:15px"></i>Planned</span></div>
+    </div>
+
+    <sc-for list="{{ ph.blocks }}" as="blk" hint-placeholder-count="4">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;border-radius:22px;background:{{ blk.bg }};border:{{ blk.border }}">
+        <sc-if value="{{ blk.hasHeader }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:4px;padding:16px 16px 2px">
+            <div style="display:flex;align-items:center;gap:8px"><i class="{{ blk.icon }}" style="font-size:18px;color:var(--text-2)"></i><span style="font-size:18px;font-weight:800">{{ blk.label }}</span><sc-if value="{{ blk.isAbs }}" hint-placeholder-val="{{ false }}"><span style="margin-left:auto;min-height:26px;padding:0 10px;display:flex;align-items:center;border-radius:999px;background:var(--text);color:var(--bg);font-size:12px;font-weight:800;letter-spacing:.06em">FINISHER</span></sc-if></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text-2)">{{ blk.meta }}</span>
+          </div>
+        </sc-if>
+        <sc-for list="{{ blk.ex }}" as="ex" hint-placeholder-count="1">
+          <div style="position:relative;padding:14px;display:flex;flex-direction:column;gap:12px;border-top:{{ ex.divider }}">
+            <sc-if value="{{ ex.showThen }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:6px;margin:-6px 0 -2px;font-size:12px;font-weight:700;color:var(--text-3)"><i class="icon-arrow-down" style="font-size:14px"></i>Then straight into</div></sc-if>
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <button onClick="{{ ex.openInfo }}" aria-label="Exercise info" style="position:relative;width:52px;height:52px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:12px;cursor:pointer;color:var(--text-3);background:repeating-linear-gradient(135deg,var(--surface-3) 0 6px,var(--surface-2) 6px 12px)"><i class="icon-image" style="font-size:20px"></i><sc-if value="{{ ex.hasTag }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-6px;left:-6px;min-width:24px;height:22px;padding:0 5px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--text);color:var(--bg);font-size:11px;font-weight:800">{{ ex.tag }}</span></sc-if></button>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;padding-top:2px"><span style="font-size:17px;line-height:1.25;font-weight:700;text-wrap:pretty">{{ ex.name }}</span><span style="font-size:13px;line-height:1.3;color:var(--text-2)">{{ ex.sub }}</span></div>
+              <div style="display:flex;flex:none;margin:-4px -6px 0 0">
+                <button onClick="{{ ex.regen }}" aria-label="Regenerate exercise" style="width:40px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text-2);cursor:pointer"><sc-if value="{{ ex.busy }}" hint-placeholder-val="{{ false }}">{{ spinner }}</sc-if><sc-if value="{{ ex.idle }}" hint-placeholder-val="{{ true }}"><i class="icon-refresh-cw" style="font-size:19px"></i></sc-if></button>
+                <button onClick="{{ ex.swap }}" aria-label="Swap exercise" style="width:40px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text-2);cursor:pointer"><i class="icon-arrow-left-right" style="font-size:19px"></i></button>
+                <button onClick="{{ ex.toggleMenu }}" aria-label="More" style="width:40px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;color:var(--text-2);cursor:pointer;background:{{ ex.menuBtnBg }}"><i class="icon-ellipsis-vertical" style="font-size:19px"></i></button>
+              </div>
+            </div>
+            <sc-if value="{{ ex.menuOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:58px;right:10px;z-index:5;width:200px;padding:6px;display:flex;flex-direction:column;background:var(--surface-1);border:1px solid var(--line-strong);border-radius:16px;box-shadow:var(--pop)">
+                <button onClick="{{ ex.moveUp }}" style="min-height:48px;padding:0 12px;display:flex;align-items:center;gap:12px;border:0;border-radius:10px;background:transparent;font:600 15px 'Onest',sans-serif;cursor:pointer;color:{{ ex.upColor }}"><i class="icon-arrow-up" style="font-size:18px"></i>Move up</button>
+                <button onClick="{{ ex.moveDown }}" style="min-height:48px;padding:0 12px;display:flex;align-items:center;gap:12px;border:0;border-radius:10px;background:transparent;font:600 15px 'Onest',sans-serif;cursor:pointer;color:{{ ex.downColor }}"><i class="icon-arrow-down" style="font-size:18px"></i>Move down</button>
+                <div style="height:1px;margin:4px 6px;background:var(--line)"></div>
+                <button onClick="{{ ex.remove }}" style="min-height:48px;padding:0 12px;display:flex;align-items:center;gap:12px;border:0;border-radius:10px;background:transparent;color:var(--danger);font:600 15px 'Onest',sans-serif;cursor:pointer"><i class="icon-trash-2" style="font-size:18px"></i>Delete</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ ex.hasSets }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="display:grid;grid-template-columns:32px 1fr 1fr;gap:8px;padding:0 2px;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--text-3)"><span>SET</span><span>KG</span><span>{{ ex.repsHead }}</span></div>
+                <sc-for list="{{ ex.sets }}" as="row" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:32px 1fr 1fr;gap:8px;align-items:center">
+                    <span style="font-size:15px;font-weight:700;color:var(--text-3);padding-left:4px">{{ row.n }}</span>
+                    <button onClick="{{ row.edit }}" style="min-height:48px;padding:0 12px;display:flex;align-items:baseline;gap:4px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer;font-family:'Onest',sans-serif;align-content:center;flex-wrap:wrap;justify-content:flex-start;line-height:48px"><span style="font-size:22px;font-weight:800">{{ row.kg }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">{{ row.kgUnit }}</span></button>
+                    <button onClick="{{ row.edit }}" style="min-height:48px;padding:0 12px;display:flex;align-items:baseline;gap:4px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer;font-family:'Onest',sans-serif;line-height:48px"><span style="font-size:22px;font-weight:800">{{ row.reps }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">{{ row.repsUnit }}</span></button>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ ex.isTarget }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:8px">
+                <sc-if value="{{ ex.t.hasKg }}" hint-placeholder-val="{{ false }}"><button onClick="{{ ex.t.edit }}" style="min-height:48px;padding:0 14px;display:flex;align-items:baseline;gap:4px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer;font-family:'Onest',sans-serif;line-height:48px"><span style="font-size:22px;font-weight:800">{{ ex.t.kg }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">kg</span></button><span style="font-size:17px;font-weight:700;color:var(--text-3)">×</span></sc-if>
+                <button onClick="{{ ex.t.edit }}" style="min-height:48px;padding:0 14px;display:flex;align-items:baseline;gap:4px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer;font-family:'Onest',sans-serif;line-height:48px"><span style="font-size:22px;font-weight:800">{{ ex.t.reps }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">{{ ex.t.repsUnit }}</span></button>
+                <button onClick="{{ ex.toggleTech }}" style="margin-left:auto;min-height:44px;padding:0 8px 0 12px;display:flex;align-items:center;gap:4px;border:0;border-radius:12px;background:transparent;color:var(--text-2);font:600 14px 'Onest',sans-serif;cursor:pointer">Technique<i class="{{ ex.techIcon }}" style="font-size:18px"></i></button>
+              </div>
+              <sc-if value="{{ ex.techOpen }}" hint-placeholder-val="{{ false }}">
+                <ol style="margin:0;padding:12px 14px 12px 34px;display:flex;flex-direction:column;gap:6px;border-radius:14px;background:var(--surface-2);font-size:15px;line-height:1.45;color:var(--text-2)">
+                  <sc-for list="{{ ex.steps }}" as="stp" hint-placeholder-count="3"><li>{{ stp.text }}</li></sc-for>
+                </ol>
+              </sc-if>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-for>
+
+    <button style="flex-shrink:0;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px dashed var(--line-strong);border-radius:16px;background:transparent;color:var(--text);font:600 16px 'Onest',sans-serif;cursor:pointer"><i class="icon-plus" style="font-size:20px"></i>Add exercise</button>
+  </div>
+
+  <div style="flex:none;padding:12px 16px 34px;border-top:1px solid var(--line);background:var(--bg)"><button style="width:100%;min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-clipboard-check" style="font-size:20px"></i>Log results</button></div>
+
+  <sc-if value="{{ ph.hasSheet }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ ph.close }}" style="position:absolute;inset:0;z-index:10;background:var(--scrim)"></div>
+  </sc-if>
+
+  <sc-if value="{{ ph.isEdit }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;bottom:0;z-index:11;display:flex;flex-direction:column;gap:18px;padding:10px 20px 34px;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+      <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--text-2)">{{ ph.ed.where }}</span><span style="font-size:22px;line-height:1.2;font-weight:700">{{ ph.ed.name }}</span></div><button onClick="{{ ph.close }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+        <sc-for list="{{ ph.ed.modes }}" as="md" hint-placeholder-count="4"><button onClick="{{ md.pick }}" style="min-height:44px;padding:0 4px;border:0;border-radius:12px;font:600 14px/1.1 'Onest',sans-serif;cursor:pointer;background:{{ md.bg }};color:{{ md.fg }}">{{ md.label }}</button></sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:var(--text-2)"><span>Weight</span><span style="color:var(--text-3);font-weight:500">− below 2.5 = bodyweight</span></div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px">
+          <button onClick="{{ ph.ed.kgDown }}" aria-label="Decrease weight" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+          <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px"><span style="font-size:52px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ ph.ed.kg }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">{{ ph.ed.kgUnit }}</span></div>
+          <button onClick="{{ ph.ed.kgUp }}" aria-label="Increase weight" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:15px;font-weight:600;color:var(--text-2)">{{ ph.ed.repsLabel }}</div>
+        <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px;opacity:{{ ph.ed.repsOpacity }}">
+          <button onClick="{{ ph.ed.repsDown }}" aria-label="Decrease" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+          <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px"><span style="font-size:52px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ ph.ed.reps }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">{{ ph.ed.repsUnit }}</span></div>
+          <button onClick="{{ ph.ed.repsUp }}" aria-label="Increase" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+        </div>
+      </div>
+      <sc-if value="{{ ph.ed.isSet }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ ph.ed.toggleAll }}" style="min-height:48px;display:flex;align-items:center;gap:12px;border:0;background:transparent;color:var(--text);font:600 16px 'Onest',sans-serif;cursor:pointer;padding:0"><span style="width:26px;height:26px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--on-accent);background:{{ ph.ed.allBg }};border:{{ ph.ed.allBorder }}"><sc-if value="{{ ph.ed.all }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:16px"></i></sc-if></span>Apply to all {{ ph.ed.setCount }} sets</button>
+      </sc-if>
+      <button onClick="{{ ph.close }}" style="min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)">Done</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ ph.isSwap }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;bottom:0;top:70px;z-index:11;display:flex;flex-direction:column;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+      <div style="flex:none;display:flex;flex-direction:column;gap:14px;padding:10px 20px 12px">
+        <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--text-2)">Swap</span><span style="font-size:22px;line-height:1.2;font-weight:700">{{ ph.sw.name }}</span></div><button onClick="{{ ph.close }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+        <span style="height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border-radius:14px;background:var(--surface-2);color:var(--text-3)"><i class="icon-search" style="font-size:20px"></i><input value="{{ swapQuery }}" onChange="{{ onSwapQuery }}" placeholder="Search exercises" style="flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"></span>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-2)"><i class="icon-filter" style="font-size:15px"></i>Only your equipment · {{ ph.sw.hiddenNote }}</div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:0 20px 12px;display:flex;flex-direction:column;gap:8px">
+        <sc-if value="{{ ph.sw.hasAi }}" hint-placeholder-val="{{ false }}">
+          <div style="flex-shrink:0;display:flex;align-items:center;gap:6px;padding:4px 2px 0;font-size:13px;font-weight:700;color:var(--accent-text)"><i class="icon-sparkles" style="font-size:15px"></i>Suggested for you</div>
+          <sc-for list="{{ ph.sw.ai }}" as="it" hint-placeholder-count="2">
+            <button onClick="{{ it.pick }}" style="flex-shrink:0;min-height:72px;padding:10px;display:flex;align-items:center;gap:12px;border:1.5px solid var(--accent);border-radius:16px;background:var(--accent-tint);color:var(--text);cursor:pointer;text-align:left;font-family:'Onest',sans-serif">
+              <span style="width:52px;height:52px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:12px;color:var(--text-3);background:repeating-linear-gradient(135deg,var(--surface-3) 0 6px,var(--surface-2) 6px 12px)"><i class="icon-image" style="font-size:20px"></i></span>
+              <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:700">{{ it.name }}</span><span style="font-size:13px;line-height:1.3;color:var(--text-2)">{{ it.why }}</span></span>
+            </button>
+          </sc-for>
+          <div style="flex-shrink:0;padding:8px 2px 0;font-size:13px;font-weight:700;color:var(--text-3)">All matches</div>
+        </sc-if>
+        <sc-for list="{{ ph.sw.list }}" as="it" hint-placeholder-count="5">
+          <button onClick="{{ it.pick }}" style="flex-shrink:0;min-height:72px;padding:10px;display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:16px;background:var(--surface-1);color:var(--text);cursor:pointer;text-align:left;font-family:'Onest',sans-serif" style-active="background:var(--surface-2)">
+            <span style="width:52px;height:52px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:12px;color:var(--text-3);background:repeating-linear-gradient(135deg,var(--surface-3) 0 6px,var(--surface-2) 6px 12px)"><i class="icon-image" style="font-size:20px"></i></span>
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:16px;font-weight:700">{{ it.name }}</span><span style="font-size:13px;color:var(--text-2)">{{ it.equip }} · {{ it.musclesStr }}</span></span>
+            <i class="icon-chevron-right" style="font-size:20px;color:var(--text-3)"></i>
+          </button>
+        </sc-for>
+        <sc-if value="{{ ph.sw.noResults }}" hint-placeholder-val="{{ false }}"><div style="padding:24px 8px;text-align:center;font-size:15px;color:var(--text-2)">No matches with your equipment. Try "Suggest with AI".</div></sc-if>
+      </div>
+      <div style="flex:none;display:flex;flex-direction:column;gap:10px;padding:12px 20px 34px;border-top:1px solid var(--line)">
+        <input value="{{ swapReason }}" onChange="{{ onSwapReason }}" placeholder="Reason (optional) — e.g. knee hurts today" style="height:52px;padding:0 14px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 16px 'Onest',sans-serif;outline:none">
+        <button onClick="{{ ph.suggest }}" style="min-height:56px;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);font:700 16px 'Onest',sans-serif;cursor:pointer"><sc-if value="{{ aiBusy }}" hint-placeholder-val="{{ false }}">{{ spinner }}</sc-if><sc-if value="{{ aiIdle }}" hint-placeholder-val="{{ true }}"><i class="icon-sparkles" style="font-size:20px;color:var(--accent-text)"></i></sc-if>{{ aiLabel }}</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ ph.isInfo }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;bottom:0;top:54px;z-index:11;display:flex;flex-direction:column;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+      <div style="flex:none;display:flex;flex-direction:column;gap:12px;padding:10px 20px 8px">
+        <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--text-2)">{{ ph.inf.equip }}</span><span style="font-size:24px;line-height:1.15;font-weight:800;letter-spacing:-.01em">{{ ph.inf.name }}</span></div><button onClick="{{ ph.close }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:8px 20px 34px;display:flex;flex-direction:column;gap:22px">
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div onScroll="{{ ph.onCarousel }}" style="display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:20px;scrollbar-width:none">
+            <div style="flex:0 0 100%;height:230px;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;border-radius:20px;color:var(--text-3);background:repeating-linear-gradient(135deg,var(--surface-3) 0 10px,var(--surface-2) 10px 20px)"><i class="icon-image" style="font-size:36px"></i><span style="position:absolute;left:12px;bottom:12px;min-height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:var(--bg);color:var(--text);font-size:13px;font-weight:700">1 · Start position</span></div>
+            <div style="flex:0 0 100%;height:230px;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;border-radius:20px;color:var(--text-3);background:repeating-linear-gradient(45deg,var(--surface-3) 0 10px,var(--surface-2) 10px 20px)"><i class="icon-image" style="font-size:36px"></i><span style="position:absolute;left:12px;bottom:12px;min-height:30px;padding:0 12px;display:flex;align-items:center;border-radius:999px;background:var(--bg);color:var(--text);font-size:13px;font-weight:700">2 · End position</span></div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:6px"><span style="height:6px;border-radius:999px;transition:width .2s;width:{{ ph.dot1w }};background:{{ ph.dot1 }}"></span><span style="height:6px;border-radius:999px;transition:width .2s;width:{{ ph.dot2w }};background:{{ ph.dot2 }}"></span></div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <div style="height:170px;position:relative;display:flex;align-items:center;justify-content:center;border-radius:20px;background:var(--surface-3)"><button aria-label="Play video" style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:var(--text);color:var(--bg);cursor:pointer"><i class="icon-play" style="font-size:28px;margin-left:3px"></i></button><span style="position:absolute;right:12px;bottom:12px;padding:3px 8px;border-radius:8px;background:var(--bg);font-size:13px;font-weight:700">0:42</span></div>
+          <button style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--line-strong);border-radius:16px;background:transparent;color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer"><i class="icon-external-link" style="font-size:18px"></i>Watch on YouTube</button>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Technique</span>
+          <sc-for list="{{ ph.inf.steps }}" as="stp" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;align-items:flex-start"><span style="width:28px;height:28px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:999px;background:var(--surface-3);font-size:14px;font-weight:800">{{ stp.n }}</span><span style="font-size:16px;line-height:1.45;padding-top:2px">{{ stp.text }}</span></div>
+          </sc-for>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Primary muscles</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ ph.inf.muscles }}" as="mu" hint-placeholder-count="2"><span style="min-height:36px;padding:0 14px;display:flex;align-items:center;border-radius:999px;background:var(--lower-tint);color:var(--lower-text);font-size:14px;font-weight:700">{{ mu.label }}</span></sc-for></div>
+        </div>
+        <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Equipment</span>
+          <div style="min-height:56px;padding:0 16px;display:flex;align-items:center;gap:12px;border-radius:16px;background:var(--surface-2);font-size:16px;font-weight:600"><i class="icon-dumbbell" style="font-size:20px;color:var(--text-2)"></i>{{ ph.inf.equip }}<i class="icon-circle-check" style="margin-left:auto;font-size:20px;color:var(--done)"></i></div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;}}">
+const S = (n, kg, reps, mode) => Array.from({ length: n }, () => ({ kg, reps, mode }));
+const BLOCKS = [
+  { id: 'b1', kind: 'single', ex: [
+    { id: 'lp', name: 'Leg press', equip: 'Leg press machine', muscles: ['Quads', 'Glutes'], sub: '3 sets · rest 90 s', sets: S(3, 60, 15, 'reps'),
+      steps: ['Sit with your lower back flat on the pad, feet hip-width on the platform.', 'Release the safeties and lower until knees reach about 90°.', 'Press through your whole foot to straighten — don\'t lock the knees.', 'Re-rack with the safeties after the last rep.'] }] },
+  { id: 'b2', kind: 'superset', label: 'Superset A', meta: '3 sets · rest 90 s after A2', ex: [
+    { id: 'bss', tag: 'A1', name: 'Bulgarian split squat', equip: 'Dumbbells · Bench', muscles: ['Quads', 'Glutes'], sub: 'Dumbbells · per side', sets: S(3, 12, 12, 'side'),
+      steps: ['Rear foot laces-down on a bench, front foot a long stride ahead.', 'Lower straight down until the back knee nearly touches the floor.', 'Drive through the front heel to stand. Finish one side, then switch.'] },
+    { id: 'bssbw', tag: 'A2', name: 'Bulgarian split squat', equip: 'Bench', muscles: ['Quads', 'Glutes'], sub: 'Bodyweight · per side', sets: S(3, null, 12, 'side'),
+      steps: ['Same setup, no weights.', 'Keep the tempo controlled — 2 s down, 1 s up.', 'Keep your torso tall and front knee tracking over toes.'] }] },
+  { id: 'b3', kind: 'circuit', label: 'Circuit 1', meta: '3 rounds · rest 60–90 sec', ex: [
+    { id: 'kbs', name: 'Kettlebell swing', equip: 'Kettlebell', muscles: ['Glutes', 'Hamstrings'], sub: 'Kettlebell', target: { kg: 16, reps: 15, mode: 'reps' },
+      steps: ['Hinge at the hips, bell between your feet, flat back.', 'Hike the bell back, then snap your hips forward to float it to chest height.', 'Let it fall back into the hinge — arms stay relaxed.'] },
+    { id: 'wl', name: 'Walking lunge', equip: 'Bodyweight', muscles: ['Quads', 'Glutes'], sub: 'Bodyweight', target: { kg: null, reps: 10, mode: 'side' },
+      steps: ['Step forward and lower until both knees are at about 90°.', 'Push off the front foot and step straight into the next lunge.', 'Count each leg — 10 per side.'] },
+    { id: 'ws', name: 'Wall sit', equip: 'Wall', muscles: ['Quads'], sub: 'Bodyweight · hold', target: { kg: null, reps: 45, mode: 'time' },
+      steps: ['Back flat against the wall, slide down until thighs are parallel.', 'Knees over ankles, weight in your heels.', 'Breathe steadily and hold for the full time.'] }] },
+  { id: 'b4', kind: 'abs', label: 'Abs finisher', meta: '2 rounds · minimal rest', ex: [
+    { id: 'hkr', name: 'Hanging knee raise', equip: 'Pull-up bar', muscles: ['Abs', 'Hip flexors'], sub: 'Pull-up bar', target: { kg: null, reps: 0, mode: 'max' },
+      steps: ['Hang with straight arms, shoulders pulled down.', 'Curl your knees toward your chest without swinging.', 'Lower slowly. Stop when form breaks.'] },
+    { id: 'dbg', name: 'Dead bug', equip: 'Mat', muscles: ['Abs'], sub: 'Mat', target: { kg: null, reps: 10, mode: 'side' },
+      steps: ['Lie on your back, arms up, knees over hips.', 'Press your lower back into the floor.', 'Extend opposite arm and leg, return, switch.'] },
+    { id: 'pl', name: 'Plank', equip: 'Mat', muscles: ['Abs', 'Shoulders'], sub: 'Mat · hold', target: { kg: null, reps: 45, mode: 'time' },
+      steps: ['Forearms under shoulders, body in one straight line.', 'Squeeze glutes and brace like you\'re about to be poked.', 'Hold — don\'t let hips sag.'] }] }
+];
+const POOL = [
+  { name: 'Hack squat', equip: 'Machine', muscles: ['Quads', 'Glutes'], why: 'Same quad focus, back supported' },
+  { name: 'Goblet squat', equip: 'Dumbbell', muscles: ['Quads', 'Glutes'], why: 'Easy on the knees at moderate depth' },
+  { name: 'Leg extension', equip: 'Machine', muscles: ['Quads'], why: 'Isolates quads, no spinal load' },
+  { name: 'Barbell back squat', equip: 'Barbell', muscles: ['Quads', 'Glutes', 'Core'] },
+  { name: 'Dumbbell step-up', equip: 'Dumbbells · Box', muscles: ['Quads', 'Glutes'] },
+  { name: 'Reverse lunge', equip: 'Dumbbells', muscles: ['Glutes', 'Quads'] },
+  { name: 'Cable pull-through', equip: 'Cable', muscles: ['Glutes', 'Hamstrings'] },
+  { name: 'Leg curl', equip: 'Machine', muscles: ['Hamstrings'] }
+];
+const ALTS = { lp: ['Hack squat', 'Goblet squat'], bss: ['Reverse lunge', 'Dumbbell step-up'], bssbw: ['Reverse lunge'], kbs: ['Cable pull-through'], wl: ['Reverse lunge'], ws: ['Goblet squat'], hkr: ['Reverse crunch'], dbg: ['Bird dog'], pl: ['Side plank'] };
+const MODES = [['reps', 'Reps'], ['max', 'Max'], ['side', 'Per side'], ['time', 'Time']];
+const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
+const clone = o => JSON.parse(JSON.stringify(o));
+class Component extends DCLogic {
+  state = { blocks: clone(BLOCKS), phones: [{ sheet: null, car: 0 }, { sheet: { t: 'edit', ex: 'lp', set: 1 }, car: 0 }, { sheet: { t: 'swap', ex: 'lp' }, car: 0 }, { sheet: { t: 'info', ex: 'lp' }, car: 0 }],
+    menu: { p: 0, ex: 'wl' }, tech: { kbs: true }, busy: {}, dayBusy: false, applyAll: false, swapQuery: '', swapReason: '', ai: 'idle' };
+  componentWillUnmount() { (this.timers || []).forEach(clearTimeout); }
+  later(fn, ms) { (this.timers = this.timers || []).push(setTimeout(fn, ms)); }
+  find(id) { for (const b of this.state.blocks) for (const e of b.ex) if (e.id === id) return e; return null; }
+  mutate(fn) { this.setState(s => { const blocks = clone(s.blocks); fn(blocks); return { blocks: blocks.filter(b => b.ex.length) }; }); }
+  editEx(id, fn) { this.mutate(bs => bs.forEach(b => b.ex.forEach(e => { if (e.id === id) fn(e); }))); }
+  setSheet(p, sheet) { this.setState(s => ({ phones: s.phones.map((x, i) => i === p ? { ...x, sheet } : x), menu: null })); }
+  valFor(v) {
+    return { kg: v.kg == null ? 'BW' : fmt(v.kg), kgUnit: v.kg == null ? '' : 'kg', hasKg: v.kg != null,
+      reps: v.mode === 'max' ? 'MAX' : String(v.reps), repsUnit: v.mode === 'side' ? '/side' : v.mode === 'time' ? 'sec' : '' };
+  }
+  editTarget(sheet) {
+    const ex = this.find(sheet.ex); if (!ex) return null;
+    return sheet.set === -1 ? ex.target : ex.sets[sheet.set];
+  }
+  changeVal(sheet, fn) {
+    this.editEx(sheet.ex, e => {
+      if (sheet.set === -1) fn(e.target);
+      else if (this.state.applyAll) e.sets.forEach(fn);
+      else fn(e.sets[sheet.set]);
+    });
+  }
+  renderVals() {
+    const s = this.state, e = React.createElement;
+    const phones = s.phones.map((ph, p) => {
+      const blocks = s.blocks.map(b => {
+        const hdr = b.kind !== 'single';
+        return { hasHeader: hdr, label: b.label, meta: b.meta, isAbs: b.kind === 'abs',
+          icon: { superset: 'icon-link-2', circuit: 'icon-repeat', abs: 'icon-target' }[b.kind] || '',
+          bg: b.kind === 'abs' ? 'var(--surface-2)' : 'var(--surface-1)',
+          border: b.kind === 'abs' ? '1.5px dashed var(--line-strong)' : '1px solid var(--line)',
+          ex: b.ex.map((x, i) => {
+            const menuOpen = !!s.menu && s.menu.p === p && s.menu.ex === x.id, busy = !!s.busy[x.id];
+            const move = d => this.mutate(bs => { const bb = bs.find(q => q.id === b.id), k = bb.ex.findIndex(q => q.id === x.id), j = k + d; if (j < 0 || j >= bb.ex.length) return; [bb.ex[k], bb.ex[j]] = [bb.ex[j], bb.ex[k]]; });
+            const t = x.target ? { ...this.valFor(x.target), edit: () => this.setSheet(p, { t: 'edit', ex: x.id, set: -1 }) } : {};
+            return { name: x.name, sub: x.sub, tag: x.tag || '', hasTag: !!x.tag,
+              divider: i > 0 || hdr ? (i > 0 ? '1px solid var(--line)' : '0') : '0',
+              showThen: b.kind === 'superset' && i > 0,
+              busy, idle: !busy, menuOpen, menuBtnBg: menuOpen ? 'var(--surface-3)' : 'transparent',
+              upColor: i === 0 ? 'var(--text-3)' : 'var(--text)', downColor: i === b.ex.length - 1 ? 'var(--text-3)' : 'var(--text)',
+              openInfo: () => this.setSheet(p, { t: 'info', ex: x.id }),
+              swap: () => this.setSheet(p, { t: 'swap', ex: x.id }),
+              toggleMenu: () => this.setState({ menu: menuOpen ? null : { p, ex: x.id } }),
+              moveUp: () => { move(-1); this.setState({ menu: null }); }, moveDown: () => { move(1); this.setState({ menu: null }); },
+              remove: () => { this.mutate(bs => bs.forEach(bb => { bb.ex = bb.ex.filter(q => q.id !== x.id); })); this.setState({ menu: null }); },
+              regen: () => { if (busy) return; this.setState(st => ({ busy: { ...st.busy, [x.id]: true } }));
+                this.later(() => { const alts = ALTS[x.id] || []; const cur = this.find(x.id); const next = alts.find(a => a !== cur.name) || alts[0] || cur.name;
+                  this.editEx(x.id, q => { if (alts.length) { ALTS[x.id] = [...alts.filter(a => a !== next), q.name]; q.name = next; } });
+                  this.setState(st => ({ busy: { ...st.busy, [x.id]: false } })); }, 1200); },
+              hasSets: !!x.sets, isTarget: !!x.target,
+              repsHead: x.sets && x.sets[0].mode === 'time' ? 'SEC' : 'REPS',
+              sets: (x.sets || []).map((v, k) => ({ n: k + 1, ...this.valFor(v), edit: () => this.setSheet(p, { t: 'edit', ex: x.id, set: k }) })),
+              t, techOpen: !!s.tech[x.id], techIcon: s.tech[x.id] ? 'icon-chevron-up' : 'icon-chevron-down',
+              toggleTech: () => this.setState(st => ({ tech: { ...st.tech, [x.id]: !st.tech[x.id] } })),
+              steps: x.steps.map(text => ({ text })) };
+          }) };
+      });
+      const sh = ph.sheet, live = sh && this.find(sh.ex);
+      return { caption: ['01 · Session detail', '02 · Tap a number → stepper', '03 · Swap sheet', '04 · Exercise info sheet'][p], blocks,
+        hasSheet: !!live, isEdit: !!live && sh.t === 'edit', isSwap: !!live && sh.t === 'swap', isInfo: !!live && sh.t === 'info',
+        close: () => this.setSheet(p, null),
+        regenDay: () => { if (s.dayBusy) return; this.setState({ dayBusy: true }); this.later(() => this.setState({ dayBusy: false }), 2000); },
+        suggest: () => { this.setState({ ai: 'busy' }); this.later(() => this.setState({ ai: 'done' }), 1500); },
+        onCarousel: ev => { const el = ev.currentTarget, idx = Math.round(el.scrollLeft / el.clientWidth); if (idx !== ph.car) this.setState(st => ({ phones: st.phones.map((x, i) => i === p ? { ...x, car: idx } : x) })); },
+        dot1: ph.car === 0 ? 'var(--text)' : 'var(--line-strong)', dot2: ph.car === 1 ? 'var(--text)' : 'var(--line-strong)',
+        dot1w: ph.car === 0 ? '20px' : '6px', dot2w: ph.car === 1 ? '20px' : '6px',
+        ed: null, sw: null, inf: null, _sheet: sh, _p: p };
+    });
+    const sheetVals = ph => {
+      const sh = ph._sheet, x = sh && this.find(sh.ex), p = ph._p;
+      if (!x) return {};
+      if (sh.t === 'edit') {
+        const v = this.editTarget(sh), mode = v.mode, isSet = sh.set !== -1;
+        return { ed: { name: x.name, where: isSet ? `Set ${sh.set + 1} of ${x.sets.length}` : 'Target per round', isSet, setCount: x.sets ? x.sets.length : 0,
+          modes: MODES.map(([k, label]) => ({ label, bg: mode === k ? 'var(--surface-1)' : 'transparent', fg: mode === k ? 'var(--text)' : 'var(--text-2)',
+            pick: () => this.changeVal(sh, q => { q.mode = k; if (k === 'time' && q.reps < 10) q.reps = 30; if (k !== 'time' && k !== 'max' && q.reps > 30) q.reps = 12; if (k !== 'max' && q.reps === 0) q.reps = 10; }) })),
+          ...{ kg: v.kg == null ? 'BW' : fmt(v.kg), kgUnit: v.kg == null ? 'bodyweight' : 'kg' },
+          kgDown: () => this.changeVal(sh, q => { q.kg = q.kg == null || q.kg <= 2.5 ? null : q.kg - 2.5; }),
+          kgUp: () => this.changeVal(sh, q => { q.kg = q.kg == null ? 2.5 : q.kg + 2.5; }),
+          repsLabel: mode === 'time' ? 'Duration · step 5 s' : mode === 'side' ? 'Reps per side' : mode === 'max' ? 'Reps · as many as possible' : 'Reps',
+          reps: mode === 'max' ? 'MAX' : String(v.reps), repsUnit: mode === 'time' ? 'sec' : mode === 'side' ? '/side' : mode === 'max' ? '' : 'reps',
+          repsOpacity: mode === 'max' ? 0.45 : 1,
+          repsDown: () => mode !== 'max' && this.changeVal(sh, q => { q.reps = Math.max(1, q.reps - (q.mode === 'time' ? 5 : 1)); }),
+          repsUp: () => mode !== 'max' && this.changeVal(sh, q => { q.reps = q.reps + (q.mode === 'time' ? 5 : 1); }),
+          all: s.applyAll, allBg: s.applyAll ? 'var(--accent)' : 'transparent', allBorder: s.applyAll ? '0' : '2px solid var(--line-strong)',
+          toggleAll: () => this.setState({ applyAll: !s.applyAll }) } };
+      }
+      if (sh.t === 'swap') {
+        const q = s.swapQuery.trim().toLowerCase();
+        const pick = it => () => { this.editEx(x.id, ex => { ex.name = it.name; ex.equip = it.equip; ex.muscles = it.muscles; ex.sub = ex.sets ? ex.sub : it.equip; }); this.setSheet(p, null); this.setState({ ai: 'idle', swapReason: '', swapQuery: '' }); };
+        const list = POOL.filter(it => it.name !== x.name && (!q || it.name.toLowerCase().includes(q) || it.equip.toLowerCase().includes(q)));
+        return { sw: { name: x.name, hiddenNote: '2 hidden', hasAi: s.ai === 'done',
+          ai: POOL.filter(it => it.why && it.name !== x.name).slice(0, 2).map(it => ({ name: it.name, why: s.swapReason ? `${it.why} · fits “${s.swapReason}”` : it.why, pick: pick(it) })),
+          list: list.map(it => ({ name: it.name, equip: it.equip, musclesStr: it.muscles.join(', '), pick: pick(it) })), noResults: !list.length } };
+      }
+      return { inf: { name: x.name, equip: x.equip, steps: x.steps.map((text, i) => ({ n: i + 1, text })), muscles: x.muscles.map(label => ({ label })) } };
+    };
+    phones.forEach(ph => Object.assign(ph, sheetVals(ph)));
+    const firstSheet = k => (phones.find(ph => ph[k]) || {})[k] || {};
+    return {
+      theme: this.props.theme ?? 'dark', phones,
+      ed: firstSheet('ed'), sw: firstSheet('sw'), inf: firstSheet('inf'),
+      exCount: s.blocks.reduce((n, b) => n + b.ex.length, 0),
+      dayBusy: s.dayBusy, dayIdle: !s.dayBusy, dayBtnLabel: s.dayBusy ? 'Regenerating…' : 'Regenerate whole day',
+      swapQuery: s.swapQuery, swapReason: s.swapReason,
+      onSwapQuery: ev => this.setState({ swapQuery: ev.target.value }), onSwapReason: ev => this.setState({ swapReason: ev.target.value }),
+      aiBusy: s.ai === 'busy', aiIdle: s.ai !== 'busy', aiLabel: s.ai === 'busy' ? 'Thinking…' : 'Suggest with AI',
+      spinner: e('i', { className: 'icon-loader-circle', style: { fontSize: 18, display: 'inline-block', animation: 'fl-spin 1s linear infinite' } })
+    };
+  }
+}
+</script>
+</body>
+</html>

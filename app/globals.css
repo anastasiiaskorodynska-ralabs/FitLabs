@@ -1,0 +1,191 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Theme follows the system setting. Tokens come from /design (FitLabs Design System). */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+@theme inline {
+  --font-sans: var(--font-onest);
+  --font-heading: var(--font-onest);
+
+  /* FitLabs tokens */
+  --color-page: var(--page);
+  --color-bg: var(--bg);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-brand: var(--brand);
+  --color-brand-press: var(--brand-press);
+  --color-on-brand: var(--on-brand);
+  --color-brand-tint: var(--brand-tint);
+  --color-brand-text: var(--brand-text);
+  --color-lower: var(--lower);
+  --color-lower-tint: var(--lower-tint);
+  --color-lower-text: var(--lower-text);
+  --color-upper: var(--upper);
+  --color-upper-tint: var(--upper-tint);
+  --color-upper-text: var(--upper-text);
+  --color-func: var(--func);
+  --color-func-tint: var(--func-tint);
+  --color-func-text: var(--func-text);
+  --color-full: var(--full);
+  --color-full-tint: var(--full-tint);
+  --color-full-text: var(--full-text);
+  --color-done: var(--done);
+  --color-done-tint: var(--done-tint);
+  --color-done-text: var(--done-text);
+  --color-skip-tint: var(--skip-tint);
+  --color-skip-text: var(--skip-text);
+  --color-danger: var(--danger);
+  --color-scrim: var(--scrim);
+  --shadow-sheet: var(--shadow);
+
+  /* shadcn/ui semantic colors, mapped onto FitLabs tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+}
+
+:root {
+  --page: #e9e3e8;
+  --bg: #f7f3f6;
+  --surface-1: #ffffff;
+  --surface-2: #f4eef2;
+  --surface-3: #eae2e8;
+  --line: #ebe3e9;
+  --line-strong: #d6cbd3;
+  --text: #1a1420;
+  --text-2: #564b5a;
+  --text-3: #73677a;
+  --brand: #f0559a;
+  --brand-press: #d9407f;
+  --on-brand: #2a0716;
+  --brand-tint: rgba(240, 85, 154, 0.12);
+  --brand-text: #b8236a;
+  --lower: #1f9ae0;
+  --lower-tint: rgba(31, 154, 224, 0.12);
+  --lower-text: #13689c;
+  --upper: #7b55e0;
+  --upper-tint: rgba(123, 85, 224, 0.12);
+  --upper-text: #5a35bf;
+  --func: #f08a55;
+  --func-tint: rgba(240, 138, 85, 0.15);
+  --func-text: #a2471a;
+  --full: #564b5a;
+  --full-tint: rgba(26, 20, 32, 0.07);
+  --full-text: #1a1420;
+  --done: #23985f;
+  --done-tint: rgba(35, 152, 95, 0.12);
+  --done-text: #176e44;
+  --skip-tint: rgba(115, 103, 122, 0.14);
+  --skip-text: #564b5a;
+  --danger: #d53a32;
+  --scrim: rgba(26, 20, 32, 0.45);
+  --shadow: 0 -12px 40px rgba(26, 20, 32, 0.18);
+
+  /* shadcn/ui semantic aliases */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface-1);
+  --card-foreground: var(--text);
+  --popover: var(--surface-1);
+  --popover-foreground: var(--text);
+  --primary: var(--brand);
+  --primary-foreground: var(--on-brand);
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface-2);
+  --muted-foreground: var(--text-2);
+  --accent: var(--surface-3);
+  --accent-foreground: var(--text);
+  --destructive: var(--danger);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--brand);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0a080c;
+    --bg: #110e14;
+    --surface-1: #19151d;
+    --surface-2: #211c26;
+    --surface-3: #2b2531;
+    --line: #322b38;
+    --line-strong: #443b4b;
+    --text: #f6f2f5;
+    --text-2: #b4aab6;
+    --text-3: #8a7f8d;
+    --brand: #ff6fae;
+    --brand-press: #e85a98;
+    --on-brand: #2a0716;
+    --brand-tint: rgba(255, 111, 174, 0.15);
+    --brand-text: #ff9cc8;
+    --lower: #6cc4f7;
+    --lower-tint: rgba(108, 196, 247, 0.15);
+    --lower-text: #9cd8fa;
+    --upper: #b394ff;
+    --upper-tint: rgba(179, 148, 255, 0.16);
+    --upper-text: #cdb8ff;
+    --func: #ffb38a;
+    --func-tint: rgba(255, 179, 138, 0.15);
+    --func-text: #ffcbae;
+    --full: #b4aab6;
+    --full-tint: rgba(246, 242, 245, 0.1);
+    --full-text: #f6f2f5;
+    --done: #4cc38a;
+    --done-tint: rgba(76, 195, 138, 0.15);
+    --done-text: #7fdaae;
+    --skip-tint: rgba(138, 127, 141, 0.18);
+    --skip-text: #b4aab6;
+    --danger: #f2645c;
+    --scrim: rgba(0, 0, 0, 0.6);
+    --shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    font-variant-numeric: tabular-nums;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-3);
+  }
+}

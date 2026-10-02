@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<style>
+body{margin:0;background:#110E14;-webkit-font-smoothing:antialiased}
+[data-theme="dark"]{--bg:#110E14;--surface-1:#19151D;--surface-2:#211C26;--surface-3:#2B2531;--line:#322B38;--line-strong:#443B4B;--text:#F6F2F5;--text-2:#B4AAB6;--text-3:#8A7F8D;--accent:#FF6FAE;--accent-press:#E85A98;--on-accent:#2A0716;--accent-tint:rgba(255,111,174,.15);--accent-text:#FF9CC8;--lower:#6CC4F7;--lower-tint:rgba(108,196,247,.15);--lower-text:#9CD8FA;--upper:#B394FF;--upper-tint:rgba(179,148,255,.16);--upper-text:#CDB8FF;--func:#FFB38A;--func-tint:rgba(255,179,138,.15);--func-text:#FFCBAE;--done:#4CC38A;--done-tint:rgba(76,195,138,.15);--done-text:#7FDAAE;--skip-tint:rgba(127,135,142,.18);--skip-text:#A9B0B6;--danger:#F2645C;--scrim:rgba(0,0,0,.6);--shadow:0 -12px 40px rgba(0,0,0,.5)}
+[data-theme="light"]{--bg:#F7F3F6;--surface-1:#FFFFFF;--surface-2:#F4EEF2;--surface-3:#EAE2E8;--line:#EBE3E9;--line-strong:#D6CBD3;--text:#1A1420;--text-2:#564B5A;--text-3:#73677A;--accent:#F0559A;--accent-press:#D9407F;--on-accent:#2A0716;--accent-tint:rgba(240,85,154,.12);--accent-text:#B8236A;--lower:#1F9AE0;--lower-tint:rgba(31,154,224,.12);--lower-text:#13689C;--upper:#7B55E0;--upper-tint:rgba(123,85,224,.12);--upper-text:#5A35BF;--func:#F08A55;--func-tint:rgba(240,138,85,.15);--func-text:#A2471A;--done:#23985F;--done-tint:rgba(35,152,95,.12);--done-text:#176E44;--skip-tint:rgba(107,114,121,.14);--skip-text:#535A61;--danger:#D53A32;--scrim:rgba(18,20,23,.45);--shadow:0 -12px 40px rgba(18,20,23,.18)}
+a{color:var(--accent-text)}a:hover{color:var(--text)}
+input::placeholder{color:var(--text-3)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--bg);color:var(--text);font-family:'Onest',system-ui,sans-serif;font-variant-numeric:tabular-nums">
+<div style="max-width:1180px;margin:0 auto;padding:40px 24px 120px;display:flex;flex-direction:column;gap:72px">
+
+<header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:32px;border-bottom:1px solid var(--line)">
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:640px">
+    <div style="font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--accent-text)">FitLabs</div>
+    <h1 style="margin:0;font-size:48px;line-height:1.02;font-weight:800;letter-spacing:-.02em;text-wrap:balance">Design system</h1>
+    <p style="margin:0;font-size:17px;line-height:1.5;color:var(--text-2);text-wrap:pretty">Focused, strong, calm. Built for one thumb, between sets, at arm's length. Dark first, light ready, English and Ukrainian.</p>
+  </div>
+  <div style="display:flex;padding:4px;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px">
+    <button onClick="{{ setDark }}" style="height:44px;padding:0 18px;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;font:600 15px 'Onest',sans-serif;cursor:pointer;background:{{ darkBtnBg }};color:{{ darkBtnFg }}"><i class="icon-moon" style="font-size:18px"></i>Dark</button>
+    <button onClick="{{ setLight }}" style="height:44px;padding:0 18px;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;font:600 15px 'Onest',sans-serif;cursor:pointer;background:{{ lightBtnBg }};color:{{ lightBtnFg }}"><i class="icon-sun" style="font-size:18px"></i>Light</button>
+  </div>
+</header>
+
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+  <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><i class="icon-eye" style="font-size:22px;color:var(--accent-text)"></i><div style="font-size:17px;font-weight:700">Arm's-length legible</div><div style="font-size:15px;line-height:1.45;color:var(--text-2)">Numbers you act on are 40px+. Nothing essential below 15px.</div></div>
+  <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><i class="icon-pointer" style="font-size:22px;color:var(--accent-text)"></i><div style="font-size:17px;font-weight:700">One thumb</div><div style="font-size:15px;line-height:1.45;color:var(--text-2)">Targets 44px minimum, 56px default. Primary actions live in the bottom third.</div></div>
+  <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><i class="icon-circle-dot" style="font-size:22px;color:var(--accent-text)"></i><div style="font-size:17px;font-weight:700">One accent</div><div style="font-size:15px;line-height:1.45;color:var(--text-2)">Pink is only for the next action. Type colours label; they never ask you to tap.</div></div>
+  <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><i class="icon-languages" style="font-size:22px;color:var(--accent-text)"></i><div style="font-size:17px;font-weight:700">Room for Ukrainian</div><div style="font-size:15px;line-height:1.45;color:var(--text-2)">Plan for +35% text length. Labels wrap to 2 lines; no fixed-width text boxes.</div></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">01 · Colour</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Neutrals, accent, workout types</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--bg);border:1px solid var(--line-strong)"></div><div style="font-size:15px;font-weight:600">bg</div><div style="font-size:13px;color:var(--text-3)">#110E14 · #F7F3F6</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--surface-1);border:1px solid var(--line)"></div><div style="font-size:15px;font-weight:600">surface-1</div><div style="font-size:13px;color:var(--text-3)">#19151D · #FFFFFF</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line)"></div><div style="font-size:15px;font-weight:600">surface-2</div><div style="font-size:13px;color:var(--text-3)">#211C26 · #F4EEF2</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--surface-3)"></div><div style="font-size:15px;font-weight:600">surface-3</div><div style="font-size:13px;color:var(--text-3)">#2B2531 · #EAE2E8</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--line-strong)"></div><div style="font-size:15px;font-weight:600">line-strong</div><div style="font-size:13px;color:var(--text-3)">#443B4B · #D6CBD3</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px"><div style="height:72px;border-radius:16px;background:var(--surface-1);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:10px;font-size:28px;font-weight:700"><span style="color:var(--text)">Aa</span><span style="color:var(--text-2)">Aa</span><span style="color:var(--text-3)">Aa</span></div><div style="font-size:15px;font-weight:600">text / 2 / 3</div><div style="font-size:13px;color:var(--text-3)">All ≥ 4.5:1 on surfaces</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+    <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:170px;padding:20px;border-radius:20px;background:var(--accent);color:var(--on-accent)"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Accent · Blossom</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:28px;font-weight:800">Primary action</div><div style="font-size:13px;font-weight:600">#FF6FAE · #F0559A · ink text #2A0716</div></div></div>
+    <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:170px;padding:20px;border-radius:20px;background:var(--lower-tint)"><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lower-text)"><span style="width:10px;height:10px;border-radius:999px;background:var(--lower)"></span>Lower body</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:22px;font-weight:700;color:var(--lower-text)">Нижня частина тіла</div><div style="font-size:13px;color:var(--text-2)">lower #6CC4F7 · #1F9AE0</div></div></div>
+    <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:170px;padding:20px;border-radius:20px;background:var(--upper-tint)"><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--upper-text)"><span style="width:10px;height:10px;border-radius:999px;background:var(--upper)"></span>Upper body</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:22px;font-weight:700;color:var(--upper-text)">Верхня частина тіла</div><div style="font-size:13px;color:var(--text-2)">upper #B394FF · #7B55E0</div></div></div>
+    <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:170px;padding:20px;border-radius:20px;background:var(--func-tint)"><div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--func-text)"><span style="width:10px;height:10px;border-radius:999px;background:var(--func)"></span>Functional circuit</div><div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:22px;font-weight:700;color:var(--func-text)">Функціональне коло</div><div style="font-size:13px;color:var(--text-2)">func #FFB38A · #F08A55</div></div></div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--surface-1);border:1px solid var(--line)"><span style="width:20px;height:20px;border-radius:6px;background:var(--done)"></span><span style="font-size:15px;font-weight:600">done</span><span style="font-size:13px;color:var(--text-3)">#4CC38A · #23985F</span></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--surface-1);border:1px solid var(--line)"><span style="width:20px;height:20px;border-radius:6px;background:var(--danger)"></span><span style="font-size:15px;font-weight:600">danger</span><span style="font-size:13px;color:var(--text-3)">#F2645C · #D53A32</span></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--surface-1);border:1px solid var(--line)"><span style="width:20px;height:20px;border-radius:6px;background:var(--accent-tint);border:1px solid var(--accent)"></span><span style="font-size:15px;font-weight:600">*-tint</span><span style="font-size:13px;color:var(--text-3)">12–15% fills for chips, badges, icons</span></div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">02 · Type</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Onest — one family, Latin + Cyrillic, tabular figures</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    <div style="display:flex;flex-direction:column;gap:20px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap"><div style="font-size:80px;line-height:.95;font-weight:800;letter-spacing:-.03em">102.5</div><div style="font-size:13px;color:var(--text-3)">num-xl · 80/76 · 800</div></div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap"><div style="font-size:56px;line-height:1;font-weight:800;letter-spacing:-.02em">12</div><div style="font-size:13px;color:var(--text-3)">num-l · 56/56 · 800 — stepper value</div></div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap"><div style="font-size:36px;line-height:1;font-weight:700;letter-spacing:-.01em">4 × 8 · 60 kg</div><div style="font-size:13px;color:var(--text-3)">num-m · 36/36 · 700</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-.01em">Тренування на тиждень</div><div style="font-size:13px;color:var(--text-3)">title · 28/32 · 700</div></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:20px;line-height:1.3;font-weight:600">Back squat · Присідання зі штангою</div><div style="font-size:13px;color:var(--text-3)">headline · 20/26 · 600</div></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:17px;line-height:1.45">Keep your chest up and brace before each rep.</div><div style="font-size:13px;color:var(--text-3)">body · 17/25 · 400 — min for reading</div></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:15px;line-height:1.2;font-weight:600">Записати підхід</div><div style="font-size:13px;color:var(--text-3)">label · 15/18 · 600 — buttons, chips</div></div>
+      <div style="display:flex;flex-direction:column;gap:2px"><div style="font-size:13px;line-height:1.3;font-weight:500;color:var(--text-2)">6 вправ · 55 хв · Останнє: 60 кг × 10</div><div style="font-size:13px;color:var(--text-3)">caption · 13/17 · 500 — metadata only</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">03 · Space, shape, touch</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">4-pt grid, soft corners, big targets</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:4px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">4 · icon gap</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">8 · inline</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:12px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">12 · list gap</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:16px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">16 · card padding (compact)</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:20px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">20 · screen margin</span></div>
+      <div style="display:flex;align-items:center;gap:12px"><div style="width:32px;height:16px;background:var(--accent);border-radius:2px"></div><span style="font-size:13px;color:var(--text-2)">32 · section</span></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:56px;height:56px;border-radius:8px;background:var(--surface-3)"></div><span style="font-size:13px;color:var(--text-2)">8 · tag</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:56px;height:56px;border-radius:14px;background:var(--surface-3)"></div><span style="font-size:13px;color:var(--text-2)">14 · input</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:56px;height:56px;border-radius:20px;background:var(--surface-3)"></div><span style="font-size:13px;color:var(--text-2)">20 · card</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:56px;height:56px;border-radius:28px 28px 0 0;background:var(--surface-3)"></div><span style="font-size:13px;color:var(--text-2)">28 · sheet</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:72px;height:56px;border-radius:999px;background:var(--surface-3)"></div><span style="font-size:13px;color:var(--text-2)">pill · chip</span></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:44px;height:44px;border-radius:12px;border:1.5px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">44</div><span style="font-size:13px;color:var(--text-2)">min</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:56px;height:56px;border-radius:16px;border:1.5px dashed var(--text-2);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">56</div><span style="font-size:13px;color:var(--text-2)">default</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px"><div style="width:64px;height:64px;border-radius:18px;border:1.5px dashed var(--accent);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:var(--accent-text)">64</div><span style="font-size:13px;color:var(--text-2)">primary</span></div>
+      <div style="flex:1;min-width:140px;font-size:13px;line-height:1.45;color:var(--text-2)">8px minimum between adjacent targets. Steppers and primary CTAs use 64.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">04 · Buttons</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">One primary per screen</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+    <div style="display:flex;flex-direction:column;gap:12px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <button style="min-height:64px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px/1.2 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-play" style="font-size:20px"></i>Start workout</button>
+      <button style="min-height:64px;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px/1.2 'Onest',sans-serif;cursor:pointer;text-align:center" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-play" style="font-size:20px"></i>Почати тренування</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <button style="min-height:56px;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);font:600 15px/1.2 'Onest',sans-serif;cursor:pointer;text-align:center" style-active="transform:scale(.98)">Пропустити підхід</button>
+        <button style="min-height:56px;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--line-strong);border-radius:16px;background:transparent;color:var(--text);font:600 15px/1.2 'Onest',sans-serif;cursor:pointer;text-align:center" style-active="transform:scale(.98)"><i class="icon-plus" style="font-size:18px"></i>Додати вправу</button>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">Primary 64 · Secondary / Outline 56 · text wraps, never truncates</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button style="min-height:56px;padding:0 22px;border:0;border-radius:16px;background:var(--accent);color:var(--on-accent);font:700 15px 'Onest',sans-serif;cursor:pointer">Log set</button>
+        <button style="min-height:56px;padding:0 22px;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer">Skip</button>
+        <button style="min-height:44px;padding:0 14px;border:0;border-radius:12px;background:transparent;color:var(--accent-text);font:600 15px 'Onest',sans-serif;cursor:pointer">Edit plan</button>
+        <button style="min-height:56px;padding:0 22px;border:0;border-radius:16px;background:transparent;color:var(--danger);font:600 15px 'Onest',sans-serif;cursor:pointer">Delete</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button disabled="" style="min-height:56px;padding:0 22px;border:0;border-radius:16px;background:var(--surface-2);color:var(--text-3);font:700 15px 'Onest',sans-serif">Log set</button>
+        <button style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-timer" style="font-size:24px"></i></button>
+        <button style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text-2);cursor:pointer"><i class="icon-ellipsis" style="font-size:22px"></i></button>
+        <button style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:0;border-radius:20px;background:var(--accent);color:var(--on-accent);cursor:pointer"><i class="icon-check" style="font-size:28px"></i></button>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">Primary · Secondary · Ghost · Destructive · Disabled · Icon 56 / 44 / 64. Press: scale .98 + darker fill, 120ms.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">05 · Number stepper</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">The most-used control. Try it.</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+    <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:var(--text-2)"><span>Weight</span><span style="color:var(--text-3);font-weight:500">step 2.5</span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px">
+        <button onClick="{{ kgDown }}" aria-label="Decrease" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+        <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px;min-width:0"><span style="font-size:56px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ kgStr }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">kg</span></div>
+        <button onClick="{{ kgUp }}" aria-label="Increase" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">Last time: 60 kg · tap value to type</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;color:var(--text-2)"><span>Повторення</span><span style="color:var(--text-3);font-weight:500">крок 1</span></div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--surface-2);border-radius:24px">
+        <button onClick="{{ repsDown }}" aria-label="Зменшити" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-minus" style="font-size:28px"></i></button>
+        <div style="flex:1;display:flex;align-items:baseline;justify-content:center;gap:6px;min-width:0"><span style="font-size:56px;line-height:1;font-weight:800;letter-spacing:-.02em">{{ reps }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">повт.</span></div>
+        <button onClick="{{ repsUp }}" aria-label="Збільшити" style="width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:18px;background:var(--surface-3);color:var(--text);cursor:pointer" style-active="transform:scale(.94)"><i class="icon-plus" style="font-size:28px"></i></button>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">UK uses decimal comma: {{ kgStrUk }} кг</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="font-size:15px;font-weight:600;color:var(--text-2)">Compact (in lists, sheets)</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;padding:6px;background:var(--surface-2);border-radius:18px">
+        <button onClick="{{ kgDown }}" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:0;border-radius:14px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-minus" style="font-size:22px"></i></button>
+        <span style="font-size:32px;font-weight:800">{{ kgStr }}</span>
+        <button onClick="{{ kgUp }}" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:0;border-radius:14px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:22px"></i></button>
+      </div>
+      <div style="font-size:13px;line-height:1.45;color:var(--text-3)">Long-press −/+ to repeat. Haptic tick per step. Value never drops below 0.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">06 · Inputs</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Labels above, always visible</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Workout name</span><input value="Leg day A" readonly="" style="height:56px;padding:0 16px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"><span style="font-size:13px;color:var(--text-3)">Default</span></label>
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Назва тренування</span><input placeholder="Наприклад, День ніг" style="height:56px;padding:0 16px;border:2px solid var(--accent);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none;box-shadow:0 0 0 4px var(--accent-tint)"><span style="font-size:13px;color:var(--text-3)">Focus · 2px accent + 4px halo</span></label>
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Weight, kg</span><input value="0" readonly="" inputmode="decimal" style="height:56px;padding:0 16px;border:2px solid var(--danger);border-radius:14px;background:var(--surface-1);color:var(--text);font:700 22px 'Onest',sans-serif;outline:none"><span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--danger)"><i class="icon-circle-alert" style="font-size:15px"></i>Введіть вагу більше 0</span></label>
+    <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Search</span><span style="height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;border-radius:14px;background:var(--surface-2);color:var(--text-3)"><i class="icon-search" style="font-size:20px"></i><input placeholder="Пошук вправ" style="flex:1;min-width:0;border:0;background:transparent;color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"></span><span style="font-size:13px;color:var(--text-3)">Filled, no border</span></label>
+  </div>
+</section>
+
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px 24px">
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">07 · Chips</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Filter and type</h2></div>
+    <div style="display:flex;flex-direction:column;gap:16px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.toggle }}" style="min-height:44px;padding:0 16px;display:flex;align-items:center;gap:8px;border-radius:999px;font:600 15px 'Onest',sans-serif;cursor:pointer;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.fg }}"><sc-if value="{{ c.on }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size:16px"></i></sc-if>{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="min-height:32px;padding:0 12px;display:flex;align-items:center;gap:8px;border-radius:999px;background:var(--lower-tint);color:var(--lower-text);font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:999px;background:var(--lower)"></span>Lower body</span>
+        <span style="min-height:32px;padding:0 12px;display:flex;align-items:center;gap:8px;border-radius:999px;background:var(--upper-tint);color:var(--upper-text);font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:999px;background:var(--upper)"></span>Верхня частина тіла</span>
+        <span style="min-height:32px;padding:0 12px;display:flex;align-items:center;gap:8px;border-radius:999px;background:var(--func-tint);color:var(--func-text);font-size:13px;font-weight:700"><span style="width:8px;height:8px;border-radius:999px;background:var(--func)"></span>Функціональне коло</span>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">Filter chips 44 tall, selected = inverted. Type tags 32, read-only, dot + tint.</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">08 · Status badges</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Icon + word, never colour alone</h2></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;padding:24px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:15px"></i>Planned</span>
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:15px"></i>Заплановано</span>
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--done-tint);color:var(--done-text);font-size:13px;font-weight:700"><i class="icon-check" style="font-size:15px"></i>Done</span>
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--done-tint);color:var(--done-text);font-size:13px;font-weight:700"><i class="icon-check" style="font-size:15px"></i>Виконано</span>
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--skip-tint);color:var(--skip-text);font-size:13px;font-weight:700"><i class="icon-x" style="font-size:15px"></i>Skipped</span>
+      <span style="justify-self:start;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--skip-tint);color:var(--skip-text);font-size:13px;font-weight:700"><i class="icon-x" style="font-size:15px"></i>Пропущено</span>
+      <div style="grid-column:1 / -1;font-size:13px;color:var(--text-3)">Planned is outline (not yet real). Done is filled. Skipped is muted.</div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">09 · Cards</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">Workout and exercise</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;cursor:pointer" style-active="transform:scale(.99)">
+        <div style="width:56px;height:56px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--lower-tint);color:var(--lower-text)"><span style="font-size:11px;font-weight:700;letter-spacing:.06em">MON</span><span style="font-size:22px;font-weight:800;line-height:1">5</span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><div style="font-size:17px;font-weight:700;line-height:1.25">Lower body</div><div style="font-size:13px;color:var(--text-2)">6 exercises · 55 min</div></div>
+        <span style="flex:none;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--done-tint);color:var(--done-text);font-size:13px;font-weight:700"><i class="icon-check" style="font-size:15px"></i>Done</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:16px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;cursor:pointer" style-active="transform:scale(.99)">
+        <div style="width:56px;height:56px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--func-tint);color:var(--func-text)"><span style="font-size:11px;font-weight:700;letter-spacing:.06em">ПТ</span><span style="font-size:22px;font-weight:800;line-height:1">9</span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><div style="font-size:17px;font-weight:700;line-height:1.25">Функціональне коло</div><div style="font-size:13px;color:var(--text-2)">5 вправ × 4 кола · 40 хв</div></div>
+        <span style="flex:none;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:15px"></i>Заплановано</span>
+      </div>
+      <div style="font-size:13px;color:var(--text-3)">Whole card is the tap target. Title wraps to 2 lines before the badge shrinks.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;padding:20px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:6px"><span style="align-self:flex-start;min-height:26px;padding:0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--lower-tint);color:var(--lower-text);font-size:12px;font-weight:700"><span style="width:6px;height:6px;border-radius:999px;background:var(--lower)"></span>Lower body</span><div style="font-size:20px;font-weight:700">Back squat</div></div><button style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text-2)"><i class="icon-ellipsis" style="font-size:22px"></i></button></div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:grid;grid-template-columns:36px 1fr 1fr 44px;align-items:center;gap:8px;min-height:48px;padding:0 8px;border-radius:12px;color:var(--text-3)"><span style="font-size:15px;font-weight:700">1</span><span style="font-size:22px;font-weight:700;color:var(--text-2)">60 <span style="font-size:13px">kg</span></span><span style="font-size:22px;font-weight:700;color:var(--text-2)">10 <span style="font-size:13px">reps</span></span><i class="icon-circle-check" style="font-size:24px;color:var(--done)"></i></div>
+        <div style="display:grid;grid-template-columns:36px 1fr 1fr 44px;align-items:center;gap:8px;min-height:56px;padding:0 8px;border-radius:12px;background:var(--accent-tint);border:1.5px solid var(--accent)"><span style="font-size:15px;font-weight:700;color:var(--accent-text)">2</span><span style="font-size:26px;font-weight:800">{{ kgStr }} <span style="font-size:13px;font-weight:600;color:var(--text-2)">kg</span></span><span style="font-size:26px;font-weight:800">{{ reps }} <span style="font-size:13px;font-weight:600;color:var(--text-2)">reps</span></span><i class="icon-circle" style="font-size:24px;color:var(--accent-text)"></i></div>
+        <div style="display:grid;grid-template-columns:36px 1fr 1fr 44px;align-items:center;gap:8px;min-height:48px;padding:0 8px;border-radius:12px"><span style="font-size:15px;font-weight:700;color:var(--text-3)">3</span><span style="font-size:22px;font-weight:700;color:var(--text-3)">62.5 <span style="font-size:13px">kg</span></span><span style="font-size:22px;font-weight:700;color:var(--text-3)">8 <span style="font-size:13px">reps</span></span><i class="icon-circle" style="font-size:24px;color:var(--line-strong)"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">10 · Tab bar &amp; bottom sheet</div><h2 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-.01em">In context, 360 × 740</h2></div>
+  <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+    <div style="width:360px;height:740px;position:relative;overflow:hidden;border-radius:40px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+      <div style="flex:1;overflow:hidden;padding:56px 20px 0;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;font-weight:600;color:var(--text-3)">Oct 5 – 11</span><span style="font-size:28px;font-weight:800;letter-spacing:-.01em">{{ tabTitle }}</span></div><span style="font-size:15px;font-weight:700;color:var(--text-2)">1 / 3</span></div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><div style="width:52px;height:52px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--lower-tint);color:var(--lower-text)"><span style="font-size:11px;font-weight:700">MON</span><span style="font-size:20px;font-weight:800;line-height:1">5</span></div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:17px;font-weight:700">Lower body</span><span style="font-size:13px;color:var(--text-2)">6 exercises · 55 min</span></div><span style="flex:none;height:28px;padding:0 10px 0 8px;display:flex;align-items:center;gap:5px;border-radius:999px;background:var(--done-tint);color:var(--done-text);font-size:13px;font-weight:700"><i class="icon-check" style="font-size:14px"></i>Done</span></div>
+          <div style="display:flex;flex-direction:column;gap:14px;padding:16px;background:var(--surface-1);border:1.5px solid var(--line-strong);border-radius:20px"><div style="display:flex;align-items:center;gap:12px"><div style="width:52px;height:52px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--upper-tint);color:var(--upper-text)"><span style="font-size:11px;font-weight:700">WED</span><span style="font-size:20px;font-weight:800;line-height:1">7</span></div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:17px;font-weight:700">Upper body</span><span style="font-size:13px;color:var(--text-2)">Today · 5 exercises · 50 min</span></div></div><button onClick="{{ openSheet }}" style="min-height:56px;border:0;border-radius:16px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-play" style="font-size:18px"></i>Start workout</button></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px"><div style="width:52px;height:52px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:14px;background:var(--func-tint);color:var(--func-text)"><span style="font-size:11px;font-weight:700">FRI</span><span style="font-size:20px;font-weight:800;line-height:1">9</span></div><div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:17px;font-weight:700">Functional circuit</span><span style="font-size:13px;color:var(--text-2)">5 × 4 rounds · 40 min</span></div><span style="flex:none;height:28px;padding:0 10px 0 8px;display:flex;align-items:center;gap:5px;border-radius:999px;border:1.5px solid var(--line-strong);color:var(--text-2);font-size:13px;font-weight:700"><i class="icon-circle-dashed" style="font-size:14px"></i>Planned</span></div>
+        </div>
+      </div>
+      <nav style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px 22px;background:var(--surface-1);border-top:1px solid var(--line)">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.select }}" style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;cursor:pointer;font-family:'Onest',sans-serif;color:{{ t.fg }}"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ t.pill }}"><i class="{{ t.icon }}" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700;max-width:84px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ t.label }}</span></button>
+        </sc-for>
+      </nav>
+      <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:var(--scrim)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:16px;padding:10px 20px 28px;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+          <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--upper-text)">Set 3 of 4</span><span style="font-size:22px;font-weight:700">Bench press</span><span style="font-size:13px;color:var(--text-2)">Last: 60 kg × 10</span></div><button onClick="{{ closeSheet }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:var(--surface-2);border-radius:20px"><span style="font-size:40px;line-height:1;font-weight:800">{{ kgStr }}</span><span style="font-size:13px;font-weight:600;color:var(--text-2)">kg</span><div style="display:flex;gap:8px"><button onClick="{{ kgDown }}" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-minus" style="font-size:24px"></i></button><button onClick="{{ kgUp }}" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:24px"></i></button></div></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;background:var(--surface-2);border-radius:20px"><span style="font-size:40px;line-height:1;font-weight:800">{{ reps }}</span><span style="font-size:13px;font-weight:600;color:var(--text-2)">reps</span><div style="display:flex;gap:8px"><button onClick="{{ repsDown }}" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-minus" style="font-size:24px"></i></button><button onClick="{{ repsUp }}" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);cursor:pointer"><i class="icon-plus" style="font-size:24px"></i></button></div></div>
+          </div>
+          <button onClick="{{ closeSheet }}" style="min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-check" style="font-size:20px"></i>Log set</button>
+          <button onClick="{{ closeSheet }}" style="min-height:44px;border:0;background:transparent;color:var(--text-2);font:600 15px 'Onest',sans-serif;cursor:pointer">Skip set</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="flex:1;min-width:280px;max-width:420px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:17px;font-weight:700">Bottom tab bar</div>
+        <div style="font-size:15px;line-height:1.5;color:var(--text-2)">4 destinations, icon + label always. Active = pill behind icon + full-contrast label. 60px targets, sits above the home indicator.</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);padding:6px 4px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+          <div style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text)"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:var(--surface-3)"><i class="icon-calendar-days" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">Тиждень</span></div>
+          <div style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text-3)"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center"><i class="icon-history" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">Історія</span></div>
+          <div style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text-3)"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center"><i class="icon-book-open" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">Приклади</span></div>
+          <div style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--text-3)"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center"><i class="icon-user" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">Профіль</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:17px;font-weight:700">Bottom sheet</div>
+        <div style="font-size:15px;line-height:1.5;color:var(--text-2)">For logging a set and quick edits — keeps context visible. 28px top radius, grabber, primary action last and full width. Close via ×, scrim tap or swipe down. Slide-up 240ms ease-out.</div>
+        <button onClick="{{ openSheet }}" style="align-self:flex-start;min-height:56px;padding:0 22px;border:0;border-radius:16px;background:var(--surface-3);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px"><i class="icon-panel-bottom-open" style="font-size:20px"></i>Open sheet</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;}}">
+class Component extends DCLogic {
+  state = { theme: null, kg: 62.5, reps: 8, chips: { all: true, lower: false, upper: false, func: false }, tab: 'week', sheetOpen: false };
+  renderVals() {
+    const s = this.state;
+    const theme = s.theme || this.props.theme || 'dark';
+    const fmt = n => (Number.isInteger(n) ? String(n) : n.toFixed(1));
+    const chipDefs = [['all', 'All'], ['lower', 'Lower body'], ['upper', 'Верх тіла'], ['func', 'Functional']];
+    const tabDefs = [['week', 'icon-calendar-days', 'Week'], ['history', 'icon-history', 'History'], ['examples', 'icon-book-open', 'Examples'], ['profile', 'icon-user', 'Profile']];
+    const on = (a) => ({ bg: a ? 'var(--text)' : 'transparent', fg: a ? 'var(--bg)' : 'var(--text-2)' });
+    return {
+      theme,
+      setDark: () => this.setState({ theme: 'dark' }),
+      setLight: () => this.setState({ theme: 'light' }),
+      darkBtnBg: on(theme === 'dark').bg, darkBtnFg: on(theme === 'dark').fg,
+      lightBtnBg: on(theme === 'light').bg, lightBtnFg: on(theme === 'light').fg,
+      kgStr: fmt(s.kg), kgStrUk: fmt(s.kg).replace('.', ','), reps: s.reps,
+      kgUp: () => this.setState(p => ({ kg: p.kg + 2.5 })),
+      kgDown: () => this.setState(p => ({ kg: Math.max(0, p.kg - 2.5) })),
+      repsUp: () => this.setState(p => ({ reps: p.reps + 1 })),
+      repsDown: () => this.setState(p => ({ reps: Math.max(0, p.reps - 1) })),
+      chips: chipDefs.map(([k, label]) => {
+        const a = s.chips[k];
+        return { label, on: a, bg: a ? 'var(--text)' : 'transparent', fg: a ? 'var(--bg)' : 'var(--text)', border: a ? 'var(--text)' : 'var(--line-strong)',
+          toggle: () => this.setState(p => k === 'all' ? { chips: { all: true, lower: false, upper: false, func: false } } : (() => { const c = { ...p.chips, all: false, [k]: !p.chips[k] }; if (!c.lower && !c.upper && !c.func) c.all = true; return { chips: c }; })()) };
+      }),
+      tabs: tabDefs.map(([k, icon, label]) => ({ icon, label, fg: s.tab === k ? 'var(--text)' : 'var(--text-3)', pill: s.tab === k ? 'var(--surface-3)' : 'transparent', select: () => this.setState({ tab: k }) })),
+      tabTitle: tabDefs.find(t => t[0] === s.tab)[2],
+      sheetOpen: s.sheetOpen,
+      openSheet: () => this.setState({ sheetOpen: true }),
+      closeSheet: () => this.setState({ sheetOpen: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

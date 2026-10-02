@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css">
+<style>
+body{margin:0;background:#0A080C;-webkit-font-smoothing:antialiased}
+[data-theme="dark"]{--page:#0A080C;--bg:#110E14;--surface-1:#19151D;--surface-2:#211C26;--surface-3:#2B2531;--line:#322B38;--line-strong:#443B4B;--text:#F6F2F5;--text-2:#B4AAB6;--text-3:#8A7F8D;--accent:#FF6FAE;--accent-press:#E85A98;--on-accent:#2A0716;--accent-tint:rgba(255,111,174,.15);--accent-text:#FF9CC8;--lower:#6CC4F7;--lower-tint:rgba(108,196,247,.15);--lower-text:#9CD8FA;--upper:#B394FF;--upper-tint:rgba(179,148,255,.16);--upper-text:#CDB8FF;--func:#FFB38A;--func-tint:rgba(255,179,138,.15);--func-text:#FFCBAE;--full-tint:rgba(246,242,245,.1);--full-text:#F6F2F5;--full:#B4AAB6;--done:#4CC38A;--done-tint:rgba(76,195,138,.15);--done-text:#7FDAAE;--skip-tint:rgba(138,127,141,.18);--skip-text:#B4AAB6;--danger:#F2645C;--scrim:rgba(0,0,0,.6);--shadow:0 -12px 40px rgba(0,0,0,.5)}
+[data-theme="light"]{--page:#E9E3E8;--bg:#F7F3F6;--surface-1:#FFFFFF;--surface-2:#F4EEF2;--surface-3:#EAE2E8;--line:#EBE3E9;--line-strong:#D6CBD3;--text:#1A1420;--text-2:#564B5A;--text-3:#73677A;--accent:#F0559A;--accent-press:#D9407F;--on-accent:#2A0716;--accent-tint:rgba(240,85,154,.12);--accent-text:#B8236A;--lower:#1F9AE0;--lower-tint:rgba(31,154,224,.12);--lower-text:#13689C;--upper:#7B55E0;--upper-tint:rgba(123,85,224,.12);--upper-text:#5A35BF;--func:#F08A55;--func-tint:rgba(240,138,85,.15);--func-text:#A2471A;--full-tint:rgba(26,20,32,.07);--full-text:#1A1420;--full:#564B5A;--done:#23985F;--done-tint:rgba(35,152,95,.12);--done-text:#176E44;--skip-tint:rgba(115,103,122,.14);--skip-text:#564B5A;--danger:#D53A32;--scrim:rgba(26,20,32,.45);--shadow:0 -12px 40px rgba(26,20,32,.18)}
+a{color:var(--accent-text)}a:hover{color:var(--text)}
+input::placeholder,textarea::placeholder{color:var(--text-3)}
+</style>
+</helmet>
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--page);color:var(--text);font-family:'Onest',system-ui,sans-serif;font-variant-numeric:tabular-nums;padding:48px">
+<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:40px">
+  <div style="font-size:15px;font-weight:700;color:var(--accent-text)">FitLabs</div>
+  <h1 style="margin:0;font-size:40px;font-weight:800;letter-spacing:-.02em">History, Examples, Profile</h1>
+  <p style="margin:0;font-size:17px;color:var(--text-2)">390 × 844 · live: filters, Sessions/Progress switch, exercise picker, day-type picker, EN/UK, edit schedule</p>
+</div>
+<div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+
+<div data-screen-label="01 History · Sessions" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">01 · History — sessions</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 12px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line)">
+    <h2 style="margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em">History</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+      <button style="min-height:44px;border:0;border-radius:12px;background:var(--surface-1);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer">Sessions</button>
+      <button style="min-height:44px;border:0;border-radius:12px;background:transparent;color:var(--text-2);font:600 15px 'Onest',sans-serif;cursor:pointer">Progress</button>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px;scrollbar-width:none">
+      <sc-for list="{{ histChips }}" as="chip" hint-placeholder-count="4">
+        <button onClick="{{ chip.pick }}" style="flex:none;min-height:44px;padding:0 16px;display:flex;align-items:center;gap:8px;border-radius:999px;font:600 15px 'Onest',sans-serif;cursor:pointer;background:{{ chip.bg }};color:{{ chip.fg }};border:{{ chip.border }}"><span style="width:8px;height:8px;border-radius:999px;background:{{ chip.dot }}"></span>{{ chip.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:16px 20px 20px;display:flex;flex-direction:column;gap:22px">
+    <sc-for list="{{ histWeeks }}" as="wk" hint-placeholder-count="3">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:0 2px"><span style="font-size:15px;font-weight:700">{{ wk.range }}</span><span style="font-size:13px;font-weight:600;color:var(--text-3)">{{ wk.summary }}</span></div>
+        <sc-for list="{{ wk.items }}" as="it" hint-placeholder-count="2">
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;cursor:pointer" style-active="transform:scale(.99)">
+            <div style="width:52px;height:52px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:14px;background:{{ it.tint }};color:{{ it.tintText }}"><span style="font-size:11px;font-weight:700;letter-spacing:.06em">{{ it.dow }}</span><span style="font-size:20px;font-weight:800;line-height:1">{{ it.num }}</span></div>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font-size:17px;font-weight:700;line-height:1.25">{{ it.type }}</span><span style="font-size:13px;color:var(--text-2)">{{ it.meta }}</span></div>
+            <span style="flex:none;min-height:30px;padding:0 12px 0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;font-size:13px;font-weight:700;background:{{ it.badgeBg }};color:{{ it.badgeFg }}"><i class="{{ it.badgeIcon }}" style="font-size:15px"></i>{{ it.badge }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </sc-for>
+    <sc-if value="{{ histEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 12px;text-align:center;font-size:15px;color:var(--text-2)">No sessions of this type yet.</div></sc-if>
+  </div>
+  <nav style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px 26px;background:var(--surface-1);border-top:1px solid var(--line)">
+    <sc-for list="{{ tabsHistory }}" as="tab" hint-placeholder-count="4"><button style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;cursor:pointer;font-family:'Onest',sans-serif;color:{{ tab.fg }}"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ tab.pill }}"><i class="{{ tab.icon }}" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">{{ tab.label }}</span></button></sc-for>
+  </nav>
+</div>
+</div>
+
+<div data-screen-label="02 History · Progress" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">02 · History — exercise progress</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 12px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line)">
+    <h2 style="margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em">History</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+      <button style="min-height:44px;border:0;border-radius:12px;background:transparent;color:var(--text-2);font:600 15px 'Onest',sans-serif;cursor:pointer">Sessions</button>
+      <button style="min-height:44px;border:0;border-radius:12px;background:var(--surface-1);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer">Progress</button>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px;scrollbar-width:none">
+      <sc-for list="{{ exChips }}" as="chip" hint-placeholder-count="3">
+        <button onClick="{{ chip.pick }}" style="flex:none;min-height:44px;padding:0 16px;border-radius:999px;font:600 15px 'Onest',sans-serif;cursor:pointer;background:{{ chip.bg }};color:{{ chip.fg }};border:{{ chip.border }}">{{ chip.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:18px 20px 20px;display:flex;flex-direction:column;gap:18px">
+    <div style="flex-shrink:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:var(--text-2)">Top set weight</span><span style="display:flex;align-items:baseline;gap:6px"><span style="font-size:56px;line-height:1;font-weight:800;letter-spacing:-.03em">{{ prog.current }}</span><span style="font-size:17px;font-weight:600;color:var(--text-2)">kg</span></span></div>
+      <span style="min-height:32px;padding:0 12px;display:flex;align-items:center;gap:6px;border-radius:999px;background:var(--done-tint);color:var(--done-text);font-size:14px;font-weight:700"><i class="icon-trending-up" style="font-size:16px"></i>{{ prog.change }}</span>
+    </div>
+    <div style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding:16px 16px 12px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <div style="position:relative;height:170px">
+        <sc-for list="{{ prog.grid }}" as="gl" hint-placeholder-count="3">
+          <div style="position:absolute;left:0;right:0;display:flex;align-items:center;gap:8px;top:{{ gl.top }}"><span style="flex:1;height:1px;background:var(--line)"></span><span style="width:30px;font-size:12px;font-weight:600;color:var(--text-3);text-align:right">{{ gl.label }}</span></div>
+        </sc-for>
+        <svg width="280" height="170" viewBox="0 0 280 170" style="position:absolute;left:0;top:0;overflow:visible">
+          <path d="{{ prog.area }}" style="fill:{{ prog.tint }}"></path>
+          <polyline points="{{ prog.line }}" style="fill:none;stroke:{{ prog.color }};stroke-width:3;stroke-linejoin:round;stroke-linecap:round"></polyline>
+        </svg>
+        <div style="position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:999px;border:3px solid var(--surface-1);left:{{ prog.lastX }};top:{{ prog.lastY }};background:{{ prog.color }}"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding-right:38px;font-size:12px;font-weight:600;color:var(--text-3)"><span>{{ prog.x0 }}</span><span>{{ prog.x1 }}</span><span>{{ prog.x2 }}</span></div>
+    </div>
+    <div style="flex-shrink:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+      <div style="display:flex;flex-direction:column;gap:4px;padding:14px 12px;border-radius:16px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:22px;font-weight:800">{{ prog.best }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">best, kg</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;padding:14px 12px;border-radius:16px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:22px;font-weight:800">{{ prog.count }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">sessions</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;padding:14px 12px;border-radius:16px;background:var(--surface-1);border:1px solid var(--line)"><span style="font-size:22px;font-weight:800">{{ prog.reps }}</span><span style="font-size:12px;font-weight:600;color:var(--text-2)">usual reps</span></div>
+    </div>
+    <div style="flex-shrink:0;display:flex;flex-direction:column;gap:2px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);padding:0 2px 8px">Recent</span>
+      <sc-for list="{{ prog.recent }}" as="rc" hint-placeholder-count="4">
+        <div style="min-height:52px;display:flex;align-items:center;gap:12px;padding:0 2px;border-bottom:1px solid var(--line)"><span style="width:64px;font-size:14px;font-weight:600;color:var(--text-2)">{{ rc.date }}</span><span style="flex:1;font-size:17px;font-weight:700">{{ rc.val }}</span><span style="font-size:13px;color:var(--text-3)">{{ rc.sets }}</span></div>
+      </sc-for>
+    </div>
+  </div>
+  <nav style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px 26px;background:var(--surface-1);border-top:1px solid var(--line)">
+    <sc-for list="{{ tabsHistory }}" as="tab" hint-placeholder-count="4"><button style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;cursor:pointer;font-family:'Onest',sans-serif;color:{{ tab.fg }}"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ tab.pill }}"><i class="{{ tab.icon }}" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">{{ tab.label }}</span></button></sc-for>
+  </nav>
+</div>
+</div>
+
+<div data-screen-label="03 Examples" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">03 · Examples library</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:none;padding:4px 20px 14px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)">
+    <h2 style="margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em">Examples</h2>
+    <p style="margin:0;font-size:15px;line-height:1.45;color:var(--text-2)">Past workouts the AI copies your style from. {{ exampleCount }} saved.</p>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px">
+    <sc-for list="{{ examples }}" as="exm" hint-placeholder-count="4">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;padding:16px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px;cursor:pointer" style-active="transform:scale(.99)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="min-height:28px;padding:0 10px;display:flex;align-items:center;gap:6px;border-radius:999px;font-size:12px;font-weight:700;background:{{ exm.tint }};color:{{ exm.tintText }}"><span style="width:6px;height:6px;border-radius:999px;background:{{ exm.dot }}"></span>{{ exm.type }}</span>
+          <sc-if value="{{ exm.fromLog }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--accent-text)"><i class="icon-sparkles" style="font-size:13px"></i>From log</span></sc-if>
+          <button aria-label="More" style="margin-left:auto;width:40px;height:40px;margin-right:-8px;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:transparent;color:var(--text-2);cursor:pointer"><i class="icon-ellipsis-vertical" style="font-size:19px"></i></button>
+        </div>
+        <span style="font-size:18px;font-weight:700;margin-top:-4px">{{ exm.title }}</span>
+        <div style="display:flex;flex-direction:column;gap:3px;padding:10px 12px;border-radius:12px;background:var(--surface-2)">
+          <sc-for list="{{ exm.lines }}" as="ln" hint-placeholder-count="3"><span style="font-size:14px;line-height:1.35;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ln.text }}</span></sc-for>
+          <sc-if value="{{ exm.hasMore }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:var(--text-3)">{{ exm.more }}</span></sc-if>
+        </div>
+        <span style="font-size:12px;font-weight:600;color:var(--text-3)">{{ exm.meta }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="flex:none;padding:10px 20px 12px;background:var(--bg)"><button onClick="{{ openAdd }}" style="width:100%;min-height:56px;border:0;border-radius:16px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-active="background:var(--accent-press);transform:scale(.98)"><i class="icon-plus" style="font-size:20px"></i>Add example</button></div>
+  <nav style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px 26px;background:var(--surface-1);border-top:1px solid var(--line)">
+    <sc-for list="{{ tabsExamples }}" as="tab" hint-placeholder-count="4"><button style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;cursor:pointer;font-family:'Onest',sans-serif;color:{{ tab.fg }}"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ tab.pill }}"><i class="{{ tab.icon }}" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700">{{ tab.label }}</span></button></sc-for>
+  </nav>
+</div>
+</div>
+
+<div data-screen-label="04 Add example" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">04 · Add example</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="position:absolute;inset:0;background:var(--scrim)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;top:62px;display:flex;flex-direction:column;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+    <div style="flex:none;display:flex;flex-direction:column;gap:12px;padding:10px 20px 4px">
+      <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:24px;font-weight:800;letter-spacing:-.01em">Add example</span><button aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+    </div>
+    <div style="flex:1;min-height:0;overflow-y:auto;padding:12px 20px 16px;display:flex;flex-direction:column;gap:16px">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Day type</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <sc-for list="{{ addTypes }}" as="ty" hint-placeholder-count="4">
+            <button onClick="{{ ty.pick }}" style="min-height:52px;padding:0 14px;display:flex;align-items:center;gap:10px;border-radius:14px;font:700 15px 'Onest',sans-serif;cursor:pointer;text-align:left;background:{{ ty.bg }};color:{{ ty.fg }};border:{{ ty.border }}"><span style="width:10px;height:10px;flex:none;border-radius:999px;background:{{ ty.dot }}"></span>{{ ty.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <label style="flex-shrink:0;display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Name <span style="font-weight:500;color:var(--text-3)">(optional)</span></span><input placeholder="e.g. Leg day A" style="height:52px;padding:0 14px;border:1.5px solid var(--line-strong);border-radius:14px;background:var(--surface-1);color:var(--text);font:500 17px 'Onest',sans-serif;outline:none"></label>
+      <div style="flex:1 0 280px;display:flex;flex-direction:column;gap:8px"><span style="font-size:15px;font-weight:600;color:var(--text-2)">Workout</span>
+        <div style="flex:1;display:flex;flex-direction:column;border:2px solid var(--accent);box-shadow:0 0 0 4px var(--accent-tint);border-radius:16px;background:var(--surface-1);overflow:hidden">
+          <textarea value="{{ addText }}" onChange="{{ onAddText }}" placeholder="Paste from your notes — any format.&#10;&#10;Squat 4×8 60kg&#10;RDL 3×10 40kg&#10;…" style="flex:1;min-height:200px;padding:14px 16px;border:0;background:transparent;color:var(--text);font:500 17px/1.5 'Onest',sans-serif;outline:none;resize:none"></textarea>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 6px 14px;border-top:1px solid var(--line)"><span style="font-size:13px;color:var(--text-3)">{{ addMeta }}</span><button onClick="{{ pasteAdd }}" style="min-height:44px;padding:0 14px;display:flex;align-items:center;gap:8px;border:0;border-radius:12px;background:var(--surface-3);color:var(--text);font:600 15px 'Onest',sans-serif;cursor:pointer"><i class="icon-clipboard-paste" style="font-size:18px"></i>Paste</button></div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:none;padding:12px 20px 34px;border-top:1px solid var(--line)"><button onClick="{{ saveAdd }}" style="width:100%;min-height:64px;border:0;border-radius:18px;font:700 17px 'Onest',sans-serif;cursor:pointer;background:{{ addBtnBg }};color:{{ addBtnFg }}">Save example</button></div>
+  </div>
+</div>
+</div>
+
+<sc-for list="{{ profPhones }}" as="pp" hint-placeholder-count="2">
+<div data-screen-label="{{ pp.caption }}" style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:15px;font-weight:700;color:var(--text-2)">{{ pp.caption }}</div>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:48px;background:var(--bg);border:1px solid var(--line-strong);display:flex;flex-direction:column">
+  <div style="height:54px;flex:none;padding:0 32px;display:flex;align-items:center;font-size:16px;font-weight:700">9:41</div>
+  <div style="flex:1;overflow-y:auto;padding:4px 20px 24px;display:flex;flex-direction:column;gap:14px">
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:14px;padding-bottom:6px">
+      <span style="width:60px;height:60px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:999px;background:var(--accent-tint);color:var(--accent-text);font-size:24px;font-weight:800">O</span>
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font-size:26px;font-weight:800;letter-spacing:-.01em">Olena</span><span style="font-size:14px;color:var(--text-2)">olena@example.com</span></div>
+    </div>
+    <sc-for list="{{ pp.sections }}" as="sec" hint-placeholder-count="4">
+      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:10px;padding:14px 8px 16px 16px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+        <div style="display:flex;align-items:center;gap:10px"><i class="{{ sec.icon }}" style="font-size:19px;color:var(--text-2)"></i><span style="flex:1;min-width:0;font-size:17px;font-weight:700">{{ sec.title }}</span><button onClick="{{ sec.edit }}" style="min-height:44px;padding:0 12px;display:flex;align-items:center;gap:6px;border:0;border-radius:12px;background:var(--surface-2);color:var(--text);font:600 14px 'Onest',sans-serif;cursor:pointer"><i class="icon-pencil" style="font-size:15px"></i>{{ t.edit }}</button></div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-right:8px">
+          <sc-for list="{{ sec.lines }}" as="ln" hint-placeholder-count="2"><span style="display:flex;align-items:center;gap:8px;font-size:15px;line-height:1.4;color:var(--text-2)"><span style="width:8px;height:8px;flex:none;border-radius:999px;background:{{ ln.dot }}"></span><span style="flex:1;min-width:0">{{ ln.text }}</span></span></sc-for>
+        </div>
+      </div>
+    </sc-for>
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;padding:10px 10px 10px 16px;background:var(--surface-1);border:1px solid var(--line);border-radius:20px">
+      <i class="icon-languages" style="font-size:19px;color:var(--text-2)"></i><span style="flex:1;font-size:17px;font-weight:700">{{ t.language }}</span>
+      <div style="display:flex;padding:3px;gap:2px;background:var(--surface-2);border-radius:999px">
+        <button onClick="{{ setEn }}" style="min-width:56px;height:44px;border:0;border-radius:999px;font:700 14px 'Onest',sans-serif;cursor:pointer;background:{{ enBg }};color:{{ enFg }}">EN</button>
+        <button onClick="{{ setUk }}" style="min-width:56px;height:44px;border:0;border-radius:999px;font:700 14px 'Onest',sans-serif;cursor:pointer;background:{{ ukBg }};color:{{ ukFg }}">UK</button>
+      </div>
+    </div>
+    <button style="flex-shrink:0;min-height:56px;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--line-strong);border-radius:16px;background:transparent;color:var(--danger);font:600 16px 'Onest',sans-serif;cursor:pointer"><i class="icon-log-out" style="font-size:19px"></i>{{ t.signout }}</button>
+  </div>
+  <nav style="flex:none;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 8px 26px;background:var(--surface-1);border-top:1px solid var(--line)">
+    <sc-for list="{{ tabsProfile }}" as="tab" hint-placeholder-count="4"><button style="min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;cursor:pointer;font-family:'Onest',sans-serif;color:{{ tab.fg }}"><span style="width:56px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:{{ tab.pill }}"><i class="{{ tab.icon }}" style="font-size:22px"></i></span><span style="font-size:12px;font-weight:700;max-width:84px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ tab.label }}</span></button></sc-for>
+  </nav>
+  <sc-if value="{{ pp.open }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ pp.close }}" style="position:absolute;inset:0;z-index:10;background:var(--scrim)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;z-index:11;display:flex;flex-direction:column;gap:16px;padding:10px 20px 34px;background:var(--surface-1);border-radius:28px 28px 0 0;box-shadow:var(--shadow)">
+      <div style="align-self:center;width:40px;height:5px;border-radius:999px;background:var(--line-strong)"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:22px;font-weight:800">{{ t.schedule }}</span><button onClick="{{ pp.close }}" aria-label="Close" style="width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--surface-2);color:var(--text-2);cursor:pointer"><i class="icon-x" style="font-size:20px"></i></button></div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">
+        <sc-for list="{{ schedDays }}" as="day" hint-placeholder-count="7"><button onClick="{{ day.toggle }}" style="height:52px;border-radius:14px;font:700 15px 'Onest',sans-serif;cursor:pointer;background:{{ day.bg }};color:{{ day.fg }};border:{{ day.border }}">{{ day.short }}</button></sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <sc-for list="{{ schedRows }}" as="row" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:10px"><span style="width:40px;font-size:15px;font-weight:700">{{ row.name }}</span>
+            <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px"><sc-for list="{{ row.opts }}" as="fo" hint-placeholder-count="4"><button onClick="{{ fo.pick }}" style="min-height:44px;padding:2px;border-radius:12px;font:700 12px/1.1 'Onest',sans-serif;cursor:pointer;background:{{ fo.bg }};color:{{ fo.fg }};border:{{ fo.border }}">{{ fo.label }}</button></sc-for></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:4px;background:var(--surface-2);border-radius:16px">
+        <sc-for list="{{ schedLens }}" as="ln" hint-placeholder-count="5"><button onClick="{{ ln.pick }}" style="min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:0;border-radius:12px;cursor:pointer;font-family:'Onest',sans-serif;background:{{ ln.bg }};color:{{ ln.fg }}"><span style="font-size:17px;font-weight:800;line-height:1">{{ ln.val }}</span><span style="font-size:11px;font-weight:600">{{ t.min }}</span></button></sc-for>
+      </div>
+      <button onClick="{{ pp.close }}" style="min-height:64px;border:0;border-radius:18px;background:var(--accent);color:var(--on-accent);font:700 17px 'Onest',sans-serif;cursor:pointer" style-active="background:var(--accent-press);transform:scale(.98)">{{ t.save }}</button>
+    </div>
+  </sc-if>
+</div>
+</div>
+</sc-for>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;}}">
+const TYPES = { lower: ['Lower body', 'Lower', 'Нижня частина тіла', 'Низ'], upper: ['Upper body', 'Upper', 'Верхня частина тіла', 'Верх'], func: ['Functional circuit', 'Circuit', 'Функціональне коло', 'Коло'], full: ['Full body', 'Full body', 'Все тіло', 'Все тіло'] };
+const WEEKS = [
+  { range: 'Sep 28 – Oct 4', items: [['TUE', 29, 'lower', '52 min · 15 sets', 'done'], ['THU', 1, 'upper', '48 min · 16 sets', 'done']] },
+  { range: 'Sep 21 – 27', items: [['TUE', 22, 'lower', '55 min · 15 sets', 'done'], ['THU', 24, 'upper', 'Not logged', 'skipped'], ['SAT', 26, 'func', '38 min · 4 rounds', 'done']] },
+  { range: 'Sep 14 – 20', items: [['TUE', 15, 'lower', '50 min · 14 sets', 'done'], ['THU', 17, 'upper', '51 min · 16 sets', 'done'], ['SAT', 19, 'func', '41 min · 4 rounds', 'done']] },
+  { range: 'Sep 7 – 13', items: [['TUE', 8, 'lower', '53 min · 15 sets', 'done'], ['THU', 10, 'upper', '49 min · 15 sets', 'done'], ['SAT', 12, 'func', '40 min · 4 rounds', 'done']] }
+];
+const PROG = {
+  lp: { label: 'Leg press', key: 'lower', reps: '15', pts: [['Jul 7', 45], ['Jul 14', 47.5], ['Jul 21', 50], ['Jul 28', 50], ['Aug 4', 52.5], ['Aug 18', 55], ['Aug 25', 55], ['Sep 8', 57.5], ['Sep 22', 60], ['Sep 29', 62.5]] },
+  bss: { label: 'Bulgarian split squat', key: 'lower', reps: '12/side', pts: [['Jul 7', 6], ['Jul 21', 8], ['Aug 4', 8], ['Aug 18', 10], ['Sep 8', 10], ['Sep 22', 12], ['Sep 29', 12]] },
+  bench: { label: 'Bench press', key: 'upper', reps: '6', pts: [['Jul 9', 35], ['Jul 23', 37.5], ['Aug 6', 37.5], ['Aug 20', 40], ['Sep 10', 42.5], ['Sep 17', 42.5], ['Oct 1', 45]] },
+  kbs: { label: 'Kettlebell swing', key: 'func', reps: '15', pts: [['Jul 12', 12], ['Jul 26', 12], ['Aug 9', 14], ['Aug 23', 14], ['Sep 12', 16], ['Sep 26', 16]] }
+};
+const EXAMPLES = [
+  { key: 'lower', title: 'Tue, Sep 29', fromLog: true, lines: ['Leg press 3×15 60kg (S2 62.5)', 'Bulgarian split squat 3×12/side 12kg', '→ then bodyweight 3×12/side', 'Circuit: KB swing 16kg ×15, lunge ×10/side'], meta: 'Saved from log · Sep 29' },
+  { key: 'lower', title: 'Leg day A', lines: ['Squat 4×8 60kg', 'RDL 3×10 40kg', 'Leg press 3×12 120kg', 'Walking lunge 3×10'], meta: 'Pasted · Sep 12' },
+  { key: 'upper', title: 'Push + pull', lines: ['Bench 4×6 45kg', 'Lat pulldown 3×10 40kg', 'Seated row 3×12 35kg', 'Lateral raise 3×15 6kg', 'Face pull 3×15'], meta: 'Pasted · Sep 12' },
+  { key: 'func', title: 'Saturday circuit', lines: ['4 rounds, 60 s rest', 'KB swing ×15 · Box jump ×10', 'Push-up ×12 · Plank 45 s'], meta: 'Pasted · Sep 14' }
+];
+const I18N = {
+  en: { edit: 'Edit', language: 'Language', signout: 'Sign out', schedule: 'Schedule', save: 'Save', min: 'min', personal: 'Personal data', rules: 'Training rules', equipment: 'Equipment',
+    tabs: ['Week', 'History', 'Examples', 'Profile'], days: ['M', 'T', 'W', 'T', 'F', 'S', 'S'], dayNames: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    p1: '29 y · 168 cm · 62 kg', p2: 'Intermediate · Goal: strength', sessions: n => `${n} min sessions`,
+    r1: 'Always finish with abs', r2: 'Avoid: Deadlift, Burpees, Smith machine', e1: '12 items', e2: 'Dumbbells, barbell, kettlebells, leg press, lat pulldown, cable station +6' },
+  uk: { edit: 'Змінити', language: 'Мова', signout: 'Вийти', schedule: 'Розклад', save: 'Зберегти', min: 'хв', personal: 'Особисті дані', rules: 'Правила тренувань', equipment: 'Обладнання',
+    tabs: ['Тиждень', 'Історія', 'Приклади', 'Профіль'], days: ['П', 'В', 'С', 'Ч', 'П', 'С', 'Н'], dayNames: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'],
+    p1: '29 р · 168 см · 62 кг', p2: 'Середній рівень · Мета: сила', sessions: n => `Тренування по ${n} хв`,
+    r1: 'Завжди завершувати вправами на прес', r2: 'Уникати: станова тяга, берпі, тренажер Сміта', e1: '12 позицій', e2: 'Гантелі, штанга, гирі, жим ногами, верхня тяга, кросовер +6' }
+};
+const TAB_ICONS = ['icon-calendar-days', 'icon-history', 'icon-book-open', 'icon-user'];
+const SAMPLE = 'Upper B\nIncline DB press 4×8 16kg\nPull-up 4×max\nCable row 3×12 35kg\nArnold press 3×10 10kg\nTriceps pushdown 3×15';
+class Component extends DCLogic {
+  state = { histFilter: 'all', ex: 'lp', addType: 'upper', addText: '', lang: 'en', sheets: [false, true], days: { 1: true, 3: true, 5: true }, focus: { 1: 'lower', 3: 'upper', 5: 'func' }, len: 60 };
+  renderVals() {
+    const s = this.state, set = o => this.setState(o), t = I18N[s.lang], uk = s.lang === 'uk';
+    const chipStyle = a => ({ bg: a ? 'var(--text)' : 'transparent', fg: a ? 'var(--bg)' : 'var(--text)', border: a ? '1.5px solid var(--text)' : '1.5px solid var(--line-strong)' });
+    const tabs = (i, labels) => labels.map((label, k) => ({ label, icon: TAB_ICONS[k], fg: k === i ? 'var(--text)' : 'var(--text-3)', pill: k === i ? 'var(--surface-3)' : 'transparent' }));
+    const typeStyle = (k, a) => a ? { bg: `var(--${k}-tint)`, fg: `var(--${k}-text)`, border: `1.5px solid var(--${k})` } : { bg: 'transparent', fg: 'var(--text-2)', border: '1.5px solid var(--line)' };
+    const histChips = [['all', 'All', 'transparent'], ['lower', 'Lower', 'var(--lower)'], ['upper', 'Upper', 'var(--upper)'], ['func', 'Circuit', 'var(--func)']]
+      .map(([k, label, dot]) => { const a = s.histFilter === k; return { label, ...chipStyle(a), dot: k === 'all' ? 'transparent' : dot, pick: () => set({ histFilter: k }) }; });
+    const histWeeks = WEEKS.map(w => {
+      const items = w.items.filter(i => s.histFilter === 'all' || i[2] === s.histFilter);
+      const done = items.filter(i => i[4] === 'done').length;
+      return { range: w.range, summary: `${done} of ${items.length} done`, items: items.map(([dow, num, k, meta, st]) => ({ dow, num, meta, type: TYPES[k][0], tint: `var(--${k}-tint)`, tintText: `var(--${k}-text)`,
+        badge: st === 'done' ? 'Done' : 'Skipped', badgeIcon: st === 'done' ? 'icon-check' : 'icon-x', badgeBg: st === 'done' ? 'var(--done-tint)' : 'var(--skip-tint)', badgeFg: st === 'done' ? 'var(--done-text)' : 'var(--skip-text)' })) };
+    }).filter(w => w.items.length);
+    const P = PROG[s.ex], vals = P.pts.map(p => p[1]);
+    const mn = Math.floor((Math.min(...vals) - 2.5) / 5) * 5, mx = Math.ceil((Math.max(...vals) + 2.5) / 5) * 5;
+    const W = 280, H = 170, X = i => (i / (P.pts.length - 1)) * W, Y = v => H - ((v - mn) / (mx - mn)) * H;
+    const line = P.pts.map((p, i) => `${X(i).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
+    const fmt = n => Number.isInteger(n) ? String(n) : n.toFixed(1);
+    const mid = Math.round((mn + mx) / 2 / 2.5) * 2.5;
+    const prog = { current: fmt(vals[vals.length - 1]), change: `+${fmt(vals[vals.length - 1] - vals[0])} kg since ${P.pts[0][0]}`,
+      line, area: `M0,${H} L${line.split(' ').join(' L')} L${W},${H} Z`,
+      color: `var(--${P.key})`, tint: `var(--${P.key}-tint)`,
+      lastX: `${X(P.pts.length - 1)}px`, lastY: `${Y(vals[vals.length - 1])}px`,
+      grid: [mx, mid, mn].map(v => ({ label: fmt(v), top: `${Y(v)}px` })),
+      x0: P.pts[0][0], x1: P.pts[Math.floor(P.pts.length / 2)][0], x2: P.pts[P.pts.length - 1][0],
+      best: fmt(Math.max(...vals)), count: P.pts.length, reps: P.reps,
+      recent: P.pts.slice(-4).reverse().map(([date, v]) => ({ date, val: `${fmt(v)} kg × ${P.reps}`, sets: '3 sets' })) };
+    const addLines = s.addText.split('\n').filter(l => l.trim()).length;
+    const out = {
+      theme: this.props.theme ?? 'dark', t,
+      histChips, histWeeks, histEmpty: !histWeeks.length,
+      tabsHistory: tabs(1, I18N.en.tabs), tabsExamples: tabs(2, I18N.en.tabs), tabsProfile: tabs(3, t.tabs),
+      exChips: Object.entries(PROG).map(([k, v]) => ({ label: v.label, ...chipStyle(s.ex === k), pick: () => set({ ex: k }) })), prog,
+      exampleCount: EXAMPLES.length,
+      examples: EXAMPLES.map(e => ({ ...e, fromLog: !!e.fromLog, type: TYPES[e.key][0], tint: `var(--${e.key}-tint)`, tintText: `var(--${e.key}-text)`, dot: `var(--${e.key})`,
+        lines: e.lines.slice(0, 3).map(text => ({ text })), hasMore: e.lines.length > 3, more: `+${e.lines.length - 3} more` })),
+      openAdd: () => {},
+      addTypes: ['lower', 'upper', 'func', 'full'].map(k => ({ label: TYPES[k][0], dot: `var(--${k})`, ...typeStyle(k, s.addType === k), pick: () => set({ addType: k }) })),
+      addText: s.addText, onAddText: e => set({ addText: e.target.value }), pasteAdd: () => set({ addText: SAMPLE }),
+      addMeta: addLines ? `${addLines} lines · ${TYPES[s.addType][0]}` : 'Nothing pasted yet',
+      addBtnBg: addLines ? 'var(--accent)' : 'var(--surface-2)', addBtnFg: addLines ? 'var(--on-accent)' : 'var(--text-3)',
+      saveAdd: () => set({ addText: '' }),
+      setEn: () => set({ lang: 'en' }), setUk: () => set({ lang: 'uk' }),
+      enBg: uk ? 'transparent' : 'var(--text)', enFg: uk ? 'var(--text-2)' : 'var(--bg)', ukBg: uk ? 'var(--text)' : 'transparent', ukFg: uk ? 'var(--bg)' : 'var(--text-2)',
+      _sections: [
+        { icon: 'icon-user-round', title: t.personal, lines: [{ text: t.p1, dot: 'transparent' }, { text: t.p2, dot: 'transparent' }] },
+        { icon: 'icon-calendar-days', title: t.schedule, sched: true,
+          lines: [0, 1, 2, 3, 4, 5, 6].filter(d => s.days[d]).map(d => ({ text: `${t.dayNames[d]} · ${TYPES[s.focus[d] || 'full'][uk ? 2 : 0]}`, dot: `var(--${s.focus[d] || 'full'})` })).concat([{ text: t.sessions(s.len), dot: 'transparent' }]) },
+        { icon: 'icon-list-checks', title: t.rules, lines: [{ text: t.r1, dot: 'transparent' }, { text: t.r2, dot: 'transparent' }] },
+        { icon: 'icon-dumbbell', title: t.equipment, lines: [{ text: t.e1, dot: 'transparent' }, { text: t.e2, dot: 'transparent' }] }
+      ],
+      
+      schedDays: t.days.map((short, d) => { const a = !!s.days[d]; return { short, bg: a ? 'var(--accent)' : 'var(--surface-2)', fg: a ? 'var(--on-accent)' : 'var(--text-2)', border: '0',
+        toggle: () => this.setState(p => ({ days: { ...p.days, [d]: !p.days[d] }, focus: { ...p.focus, [d]: p.focus[d] || 'full' } })) }; }),
+      schedRows: [0, 1, 2, 3, 4, 5, 6].filter(d => s.days[d]).map(d => ({ name: t.dayNames[d], opts: ['lower', 'upper', 'func', 'full'].map(k => ({ label: TYPES[k][uk ? 3 : 1], ...typeStyle(k, s.focus[d] === k), pick: () => this.setState(p => ({ focus: { ...p.focus, [d]: k } })) })) })),
+      schedLens: [30, 45, 60, 75, 90].map(v => ({ val: v, bg: s.len === v ? 'var(--surface-1)' : 'transparent', fg: s.len === v ? 'var(--text)' : 'var(--text-2)', pick: () => set({ len: v }) }))
+    };
+    const setSheet = (i, v) => this.setState(p => ({ sheets: p.sheets.map((x, j) => j === i ? v : x) }));
+    out.profPhones = [0, 1].map(i => ({ caption: i ? '06 · Profile — edit schedule' : '05 · Profile — tap EN/UK', open: s.sheets[i], close: () => setSheet(i, false),
+      sections: out._sections.map(sec => ({ ...sec, edit: sec.sched ? () => setSheet(i, true) : () => {} })) }));
+    return out;
+  }
+}
+</script>
+</body>
+</html>

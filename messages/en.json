@@ -1,0 +1,13 @@
+{
+  "App": {
+    "name": "FitLabs",
+    "description": "Weekly gym workouts generated for you"
+  },
+  "Tabs": {
+    "label": "Main navigation",
+    "week": "Week",
+    "history": "History",
+    "examples": "Examples",
+    "profile": "Profile"
+  }
+}
