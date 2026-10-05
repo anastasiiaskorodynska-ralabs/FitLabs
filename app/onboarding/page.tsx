@@ -1,22 +1,53 @@
 import { redirect } from "next/navigation";
-import { getTranslations } from "next-intl/server";
-import { PageHeader } from "@/components/app-shell/page-header";
-import { SignOutButton } from "@/components/auth/sign-out-button";
+import { getLocale } from "next-intl/server";
+import { OnboardingWizard } from "@/components/onboarding/onboarding-wizard";
+import type { EquipmentItem } from "@/components/onboarding/types";
 import { isOnboarded, requireUser } from "@/lib/auth";
+import { SESSION_LENGTHS, type OnboardingDraft } from "@/lib/onboarding/schema";
 
-// Placeholder until the onboarding flow from /design is built.
 export default async function OnboardingPage() {
-  await requireUser();
+  const { supabase } = await requireUser();
   if (await isOnboarded()) redirect("/week");
-  const t = await getTranslations("Onboarding");
+  const locale = await getLocale();
 
-  return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-[480px] flex-col bg-bg">
-      <PageHeader title={t("title")} />
-      <div className="flex flex-col gap-6 px-5 py-6">
-        <p className="text-[17px] leading-[1.45] text-text-2">{t("comingSoon")}</p>
-        <SignOutButton />
-      </div>
-    </div>
-  );
+  const [{ data: profile }, { data: rules }, { data: schedule }, { data: equipment }] =
+    await Promise.all([
+      supabase.from("profile").select("*").eq("id", 1).single(),
+      supabase.from("training_rules").select("*").eq("id", 1).single(),
+      supabase.from("schedule_days").select("weekday, day_type").order("weekday"),
+      supabase
+        .from("equipment")
+        .select("id, name_en, name_uk, category, available")
+        .order("category")
+        .order("position"),
+    ]);
+
+  const length = SESSION_LENGTHS.find((n) => n === profile?.session_length_min) ?? 60;
+
+  const initial: OnboardingDraft = {
+    name: profile?.display_name ?? "",
+    sex: profile?.sex ?? null,
+    age: profile?.birth_year ? new Date().getFullYear() - profile.birth_year : 30,
+    height: profile?.height_cm ? Math.round(Number(profile.height_cm)) : 170,
+    weight: profile?.weight_kg ? Math.round(Number(profile.weight_kg)) : 65,
+    level: profile?.level ?? "intermediate",
+    goal: profile?.goal ?? null,
+    days: (schedule ?? []).map((d) => ({ weekday: d.weekday, dayType: d.day_type })),
+    sessionLength: length,
+    noWarmup: rules?.no_warmup ?? false,
+    absFinisher: rules?.abs_finisher ?? false,
+    avoid: rules?.avoid_terms ?? [],
+    notes: rules?.notes ?? "",
+    equipmentIds: (equipment ?? []).filter((e) => e.available).map((e) => e.id),
+    custom: [],
+    example: "",
+  };
+
+  const items: EquipmentItem[] = (equipment ?? []).map((e) => ({
+    id: e.id,
+    name: locale === "uk" ? e.name_uk : e.name_en,
+    category: e.category,
+  }));
+
+  return <OnboardingWizard initial={initial} equipment={items} />;
 }
