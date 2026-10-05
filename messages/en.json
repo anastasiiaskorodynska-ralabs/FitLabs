@@ -295,7 +295,7 @@
     },
     "start": "Start workout",
     "emptyTitle": "Nothing planned yet",
-    "emptyBody": "AI planning is coming soon. For now, log a workout and build it exercise by exercise.",
+    "emptyBody": "We'll build {count, plural, one {# session} other {# sessions}} from your schedule, rules and equipment. Takes about 40 seconds — you can edit anything after.",
     "log": "Log workout",
     "openDay": "Open session on {day}",
     "logDay": "Log workout on {day}",
@@ -309,6 +309,31 @@
       "errors": {
         "invalid": "Pick a day and a focus.",
         "saveFailed": "Couldn't create the session. Try again."
+      }
+    },
+    "emptyPast": "No training days left this week. Log a workout, or move to next week.",
+    "generate": {
+      "button": "Generate this week",
+      "retry": "Try again",
+      "building": "Building your week",
+      "timeLeft": "About {seconds} s left",
+      "almost": "Almost there…",
+      "steps": {
+        "goal": "Reading your goal and rules",
+        "balance": "Balancing your training days",
+        "exercises": "Choosing exercises for your gym",
+        "weights": "Setting weights from your history"
+      },
+      "errors": {
+        "noTargets": "Every training day this week is already planned or has passed.",
+        "refused": "The AI declined this request. Try again, or change your notes in Profile.",
+        "invalid": "The AI couldn't produce a plan that follows your rules. Try again.",
+        "rateLimited": "Too many requests right now. Wait a minute and try again.",
+        "unavailable": "The AI service is busy. Try again in a moment.",
+        "failed": "Something went wrong while generating. Try again.",
+        "network": "No connection. Check your internet and try again.",
+        "unauthorized": "Your session expired. Sign in again.",
+        "badRequest": "Something went wrong. Reload the page and try again."
       }
     }
   },

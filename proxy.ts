@@ -12,7 +12,8 @@ export async function proxy(request: NextRequest) {
   const { response, isSignedIn } = await updateSession(request);
   const { pathname, search } = request.nextUrl;
 
-  if (!isSignedIn && !isPublic(pathname)) {
+  // API routes check auth themselves and answer 401 instead of redirecting.
+  if (!isSignedIn && !isPublic(pathname) && !pathname.startsWith("/api/")) {
     const url = new URL("/login", request.url);
     if (pathname !== "/") url.searchParams.set("next", pathname + search);
     return withCookies(NextResponse.redirect(url), response);

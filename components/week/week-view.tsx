@@ -8,6 +8,7 @@ import { DAY_TYPE_STYLE, type DayType } from "@/lib/day-types";
 import { addDays, weekdayOf } from "@/lib/sessions/format";
 import type { SessionStatus } from "@/lib/sessions/types";
 import { cn } from "@/lib/utils";
+import { GenerateWeek } from "./generate-week";
 import { LogWorkoutSheet } from "./log-workout-sheet";
 
 export type WeekSession = {
@@ -54,6 +55,10 @@ export function WeekView({
     offset === 0 ? t("thisWeek") : offset === 1 ? t("nextWeek") : offset === -1 ? t("lastWeek") : String(utc(start).getUTCFullYear());
   const nextPlanned = offset === 0 ? sessions.find((s) => s.status === "planned" && s.date >= today) : undefined;
   const done = sessions.filter((s) => s.status === "done").length;
+  // Schedule days from today on without a session: what "Generate" would plan.
+  const targets = schedule
+    .map((d) => ({ date: addDays(start, d.weekday), dayType: d.dayType }))
+    .filter((d) => d.date >= today && !sessions.some((s) => s.date === d.date));
 
   return (
     <>
@@ -177,7 +182,9 @@ export function WeekView({
               <h2 className="text-[26px] leading-[1.15] font-extrabold tracking-[-0.01em] text-balance">
                 {t("emptyTitle")}
               </h2>
-              <p className="text-base leading-[1.45] text-text-2 text-pretty">{t("emptyBody")}</p>
+              <p className="text-base leading-[1.45] text-text-2 text-pretty">
+                {targets.length ? t("emptyBody", { count: targets.length }) : t("emptyPast")}
+              </p>
             </div>
             {schedule.length > 0 && (
               <div className="flex flex-wrap justify-center gap-2">
@@ -192,6 +199,7 @@ export function WeekView({
                 ))}
               </div>
             )}
+            {targets.length > 0 && <GenerateWeek weekStart={start} targets={targets} />}
           </div>
         )}
 

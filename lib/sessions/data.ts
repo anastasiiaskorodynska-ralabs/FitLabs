@@ -1,5 +1,6 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { isExerciseAllowed, type EquipmentRef } from "@/lib/exercises/allowed";
 import type { Block, LibraryExercise, Session } from "./types";
 
 const byPosition = (a: { position: number }, b: { position: number }) => a.position - b.position;
@@ -85,18 +86,14 @@ export async function loadLibrary(supabase: SupabaseClient, locale: string): Pro
     supabase.from("training_rules").select("avoid_terms, avoid_cardio_machines").eq("id", 1).single(),
   ]);
 
-  const avoid: string[] = (rules?.avoid_terms ?? []).map((t: string) => t.toLowerCase());
+  const avoidRules = {
+    avoidTerms: rules?.avoid_terms ?? [],
+    avoidCardioMachines: rules?.avoid_cardio_machines ?? false,
+  };
   const uk = locale === "uk";
 
   return (exercises ?? []).map((e) => {
-    const equipment = (e.exercise_equipment as unknown as {
-      equipment: { name_en: string; name_uk: string; available: boolean; is_cardio_machine: boolean };
-    }[]).map((x) => x.equipment);
-    const names = [e.name_en, e.name_uk, ...equipment.flatMap((q) => [q.name_en, q.name_uk])].map((n) =>
-      n.toLowerCase(),
-    );
-    const avoided = avoid.some((term) => names.some((n) => n.includes(term)));
-    const cardioBlocked = rules?.avoid_cardio_machines && equipment.some((q) => q.is_cardio_machine);
+    const equipment = (e.exercise_equipment as unknown as { equipment: EquipmentRef }[]).map((x) => x.equipment);
     const technique = (uk ? e.technique_uk : e.technique_en) ?? "";
 
     return {
@@ -105,7 +102,7 @@ export async function loadLibrary(supabase: SupabaseClient, locale: string): Pro
       nameEn: e.name_en,
       muscles: e.muscle_groups,
       equipment: equipment.map((q) => ({ name: uk ? q.name_uk : q.name_en, available: q.available })),
-      allowed: equipment.every((q) => q.available) && !avoided && !cardioBlocked,
+      allowed: isExerciseAllowed(e, equipment, avoidRules),
       dayTypes: e.day_types,
       measure: e.default_measure,
       perSide: e.per_side,
