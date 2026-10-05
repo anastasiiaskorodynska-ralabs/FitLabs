@@ -9,7 +9,9 @@ import {
   ChevronDown,
   ChevronUp,
   EllipsisVertical,
+  LoaderCircle,
   Plus,
+  RefreshCw,
   Timer,
   Trash2,
 } from "lucide-react";
@@ -21,6 +23,7 @@ import { ExerciseThumb } from "./exercise-thumb";
 export type RowActions = {
   openInfo: () => void;
   openSwap: () => void;
+  regenerate?: () => void; // undefined = AI not available (session not planned)
   editSet: (index: number) => void;
   addSet: () => void;
   moveUp?: () => void; // undefined = can't move that way
@@ -62,6 +65,7 @@ export function ExerciseRow({
   divider,
   perRound,
   busy,
+  regenerating,
   actions,
 }: {
   item: SessionExercise;
@@ -72,6 +76,7 @@ export function ExerciseRow({
   divider: boolean;
   perRound: boolean; // circuit: one target per round instead of set rows
   busy: boolean;
+  regenerating: boolean; // this exercise is being replaced by AI
   actions: RowActions;
 }) {
   const t = useTranslations("Session");
@@ -139,6 +144,22 @@ export function ExerciseRow({
           <span className="text-[13px] leading-[1.3] text-text-2">{sub}</span>
         </div>
         <div className="-mt-1 -mr-1.5 flex flex-none">
+          {actions.regenerate && (
+            <button
+              type="button"
+              onClick={actions.regenerate}
+              disabled={busy || regenerating}
+              aria-label={t("ai.regenerateNamed", { name })}
+              aria-busy={regenerating || undefined}
+              className="flex h-11 w-10 items-center justify-center rounded-xl text-text-2"
+            >
+              {regenerating ? (
+                <LoaderCircle className="size-[19px] animate-spin" />
+              ) : (
+                <RefreshCw className="size-[19px]" />
+              )}
+            </button>
+          )}
           <button
             type="button"
             onClick={actions.openSwap}

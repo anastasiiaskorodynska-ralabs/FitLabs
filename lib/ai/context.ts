@@ -69,13 +69,16 @@ function formatSets(sets: LoggedSet[], perSide: boolean) {
     .join(", ");
 }
 
+// `target` plans one given day (regenerate day) instead of the week's open schedule days.
 export async function loadGenerationContext(
   supabase: SupabaseClient,
   weekStart: string,
   today: string,
+  target?: { date: string; dayType: DayType },
 ): Promise<GenerationContext> {
   const weekEnd = addDays(weekStart, 6);
-  const historyFrom = addDays(weekStart, -HISTORY_DAYS);
+  const historyBefore = target?.date ?? weekStart;
+  const historyFrom = addDays(historyBefore, -HISTORY_DAYS);
 
   const [profileRes, rulesRes, scheduleRes, equipmentRes, libraryRes, examplesRes, existingRes, historyRes] =
     await Promise.all([
@@ -98,7 +101,7 @@ export async function loadGenerationContext(
         )
         .eq("status", "done")
         .gte("date", historyFrom)
-        .lt("date", weekStart)
+        .lt("date", historyBefore)
         .order("date", { ascending: false }),
     ]);
 
@@ -111,9 +114,11 @@ export async function loadGenerationContext(
 
   // Schedule days in this week from today on that don't have a session yet.
   const taken = new Set((existingRes.data ?? []).map((s) => s.date));
-  const targets = (scheduleRes.data ?? [])
-    .map((d) => ({ date: addDays(weekStart, d.weekday), dayType: d.day_type as DayType }))
-    .filter((t) => t.date >= today && !taken.has(t.date));
+  const targets = target
+    ? [target]
+    : (scheduleRes.data ?? [])
+        .map((d) => ({ date: addDays(weekStart, d.weekday), dayType: d.day_type as DayType }))
+        .filter((t) => t.date >= today && !taken.has(t.date));
 
   const library: LibraryEntry[] = (libraryRes.data ?? []).map((e) => {
     const equipment = (e.exercise_equipment as unknown as { equipment: EquipmentRef }[]).map((x) => x.equipment);

@@ -1,13 +1,14 @@
 import type { GenerationContext } from "./context";
 
 // Bump when the prompt or output contract changes; stored on weeks.prompt_version.
-export const PROMPT_VERSION = "week-v1";
+export const PROMPT_VERSION = "plan-v2";
 
 const LANGUAGE = { en: "English", uk: "Ukrainian" } as const;
 
 // Stable instructions (no per-request data) so the prefix can be cached.
-export const WEEK_SYSTEM_PROMPT = `You are an experienced strength and conditioning coach creating gym workouts for one person.
-You plan a whole training week at once and return it as JSON.
+// Shared by week, day and exercise generation; TASK says which one is wanted.
+export const PLAN_SYSTEM_PROMPT = `You are an experienced strength and conditioning coach creating gym workouts for one person.
+You plan a whole training week, one session, or a replacement for one exercise, as the TASK says, and return it as JSON.
 
 How the plan is structured:
 - Each session is a list of blocks. A block is "single" (one exercise), "superset" (2-3 exercises done back to back, then rest) or "circuit" (2-4 exercises done in a row for several rounds).
@@ -35,14 +36,15 @@ Progression (use RECENT PERFORMANCES):
 - If they missed reps, keep the weight.
 - With no history, choose conservative starting weights for the user's level, sex and body weight.
 
-Follow every rule in RULES exactly. Write titles and technique notes in the requested language.
-Return only the JSON object, with one session for each requested date and no other text.`;
+Follow every rule in RULES exactly. Write titles, technique notes and reasons in the requested language.
+Return only the JSON object the TASK asks for, with no other text.`;
 
 function line(label: string, value: unknown) {
   return value === null || value === undefined || value === "" ? null : `${label}: ${value}`;
 }
 
-export function buildWeekUserPrompt(ctx: GenerationContext) {
+// Profile, rules, equipment, library, examples and history: shared by every action.
+function contextSections(ctx: GenerationContext) {
   const { profile, rules } = ctx;
   const sections: string[] = [];
 
@@ -116,23 +118,79 @@ export function buildWeekUserPrompt(ctx: GenerationContext) {
     ].join("\n"),
   );
 
-  sections.push(
+  return sections;
+}
+
+const reasonLine = (reason?: string) =>
+  reason?.trim() ? `The user's reason (follow it): "${reason.trim()}"` : null;
+
+export function buildWeekUserPrompt(ctx: GenerationContext) {
+  return [
+    ...contextSections(ctx),
     [
       "TASK",
       `Create the plan for these dates, one session each:`,
       ...ctx.targets.map((t) => `- ${t.date}: ${t.dayType}`),
       `Each session should take about ${ctx.sessionLength} minutes.`,
       `Write titles and technique notes in ${LANGUAGE[ctx.locale]}.`,
+      `Return {"sessions": [...]}.`,
     ].join("\n"),
-  );
+  ].join("\n\n");
+}
 
-  return sections.join("\n\n");
+// `current` describes the session as it is now (empty = build from scratch).
+export function buildDayUserPrompt(ctx: GenerationContext, current: string[], reason?: string) {
+  const target = ctx.targets[0];
+  return [
+    ...contextSections(ctx),
+    current.length
+      ? ["CURRENT SESSION (replace it with a new version)", ...current].join("\n")
+      : "CURRENT SESSION: empty - create it from scratch.",
+    [
+      "TASK",
+      `Create one session for ${target.date} (${target.dayType}) to replace the current one.`,
+      current.length ? "Keep what suits the user, but change it noticeably; don't return the same session." : null,
+      reasonLine(reason),
+      `It should take about ${ctx.sessionLength} minutes.`,
+      `Write the title and technique notes in ${LANGUAGE[ctx.locale]}.`,
+      `Return {"sessions": [one session]}.`,
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  ].join("\n\n");
+}
+
+export function buildExerciseUserPrompt(
+  ctx: GenerationContext,
+  session: string[],
+  target: { name: string; muscles: string[]; where: string; blockKind: string; isFinisher: boolean },
+  count: number,
+  reason?: string,
+) {
+  return [
+    ...contextSections(ctx),
+    ["CURRENT SESSION", ...session].join("\n"),
+    [
+      "TASK",
+      `Replace "${target.name}" (${target.where}).`,
+      `Keep the same muscle group: the replacement must train at least one of: ${target.muscles.join(", ")}.`,
+      target.isFinisher ? "It is in the abs finisher, so it must be an abs/core exercise." : null,
+      target.blockKind === "circuit"
+        ? "It is in a circuit: give exactly one set (the target per round)."
+        : "Keep a similar number of sets and a similar effort.",
+      "Don't repeat an exercise that is already in the session.",
+      reasonLine(reason),
+      `Return {"options": [...]} with ${count} different option${count === 1 ? "" : "s"}, best first. "why" is one short sentence in ${LANGUAGE[ctx.locale]} saying why it fits.`,
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  ].join("\n\n");
 }
 
 export function buildRetryPrompt(errors: string[]) {
   return [
-    "Your plan broke these rules:",
+    "Your answer broke these rules:",
     ...errors.map((e) => `- ${e}`),
-    "Return the complete corrected plan as JSON, fixing every problem above.",
+    "Return the complete corrected JSON, fixing every problem above.",
   ].join("\n");
 }

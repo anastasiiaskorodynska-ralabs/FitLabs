@@ -2,8 +2,9 @@
 
 import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useFormatter, useTranslations } from "next-intl";
-import { Check, ChevronLeft, CircleDashed, Link2, Plus, Repeat, Target, X } from "lucide-react";
+import { Check, ChevronLeft, CircleDashed, Link2, Plus, RefreshCw, Repeat, Sparkles, Target, X } from "lucide-react";
 import { addSet, deleteExercise, moveExercise } from "@/app/session/actions";
 import { FieldError } from "@/components/onboarding/controls";
 import { DAY_TYPE_STYLE } from "@/lib/day-types";
@@ -13,7 +14,9 @@ import { cn } from "@/lib/utils";
 import { AddExerciseSheet } from "./add-exercise-sheet";
 import { BlockSheet } from "./block-sheet";
 import { ExerciseInfoSheet } from "./exercise-info-sheet";
+import { postAi } from "./ai-request";
 import { ExerciseRow } from "./exercise-row";
+import { RegenerateDaySheet } from "./regenerate-day-sheet";
 import { SetEditorSheet } from "./set-editor-sheet";
 import { SwapSheet } from "./swap-sheet";
 
@@ -22,7 +25,8 @@ type Sheet =
   | { t: "swap"; item: SessionExercise }
   | { t: "info"; exerciseId: string }
   | { t: "block"; blockId: string }
-  | { t: "add" };
+  | { t: "add" }
+  | { t: "day" };
 
 const STATUS_ICON = { planned: CircleDashed, done: Check, skipped: X };
 
@@ -34,6 +38,9 @@ export function SessionView({ session, library }: { session: Session; library: L
   const [sheet, setSheet] = useState<Sheet | null>(null);
   const [error, setError] = useState<string>();
   const [busy, startBusy] = useTransition();
+  const [regenerating, setRegenerating] = useState<string | null>(null);
+  const tAi = useTranslations("Session.ai");
+  const router = useRouter();
   const close = () => setSheet(null);
 
   const byId = useMemo(() => new Map(library.map((e) => [e.id, e])), [library]);
@@ -48,6 +55,18 @@ export function SessionView({ session, library }: { session: Session; library: L
           ? t("blocks.circuit", { n: k.index })
           : t("blocks.single"),
   );
+
+  // AI edits only apply to planned sessions; logged ones keep what was done.
+  const planned = session.status === "planned";
+
+  const regenerateExercise = async (id: string) => {
+    setError(undefined);
+    setRegenerating(id);
+    const result = await postAi("/api/regenerate-exercise", { blockExerciseId: id, mode: "replace" });
+    if (result.ok) router.refresh();
+    else setError(tAi.has(`errors.${result.code}`) ? tAi(`errors.${result.code}`) : tAi("errors.failed"));
+    setRegenerating(null);
+  };
 
   const run = (fn: () => Promise<{ ok: boolean; error?: string }>) => {
     setError(undefined);
@@ -67,7 +86,7 @@ export function SessionView({ session, library }: { session: Session; library: L
 
   return (
     <div className="mx-auto flex h-dvh w-full max-w-[480px] flex-col bg-bg">
-      <div className="flex h-[52px] flex-none items-center px-3 pt-[env(safe-area-inset-top)]">
+      <div className="flex h-[52px] flex-none items-center justify-between gap-2 px-3 pt-[env(safe-area-inset-top)]">
         <Link
           href={`/week?start=${weekStart(session.date)}`}
           aria-label={t("back")}
@@ -75,6 +94,17 @@ export function SessionView({ session, library }: { session: Session; library: L
         >
           <ChevronLeft className="size-[26px]" />
         </Link>
+        {planned && (
+          <button
+            type="button"
+            onClick={() => setSheet({ t: "day" })}
+            disabled={busy || regenerating !== null}
+            className="flex min-h-11 items-center gap-2 rounded-xl bg-surface-2 px-3.5 text-[15px] font-semibold text-text"
+          >
+            {blocks.length ? <RefreshCw className="size-[18px]" aria-hidden /> : <Sparkles className="size-[18px]" aria-hidden />}
+            {blocks.length ? t("ai.regenerateDay") : t("ai.generateDay")}
+          </button>
+        )}
       </div>
 
       <main className={cn("flex min-h-0 flex-1 flex-col gap-3.5 overflow-y-auto px-4 pt-2 pb-[max(24px,env(safe-area-inset-bottom))]", busy && "opacity-70")}>
@@ -183,10 +213,12 @@ export function SessionView({ session, library }: { session: Session; library: L
                     showThen={block.kind === "superset" && i > 0}
                     divider={i > 0}
                     perRound={perRound}
-                    busy={busy}
+                    busy={busy || (regenerating !== null && regenerating !== item.id)}
+                    regenerating={regenerating === item.id}
                     actions={{
                       openInfo: () => setSheet({ t: "info", exerciseId: item.exerciseId }),
                       openSwap: () => setSheet({ t: "swap", item }),
+                      regenerate: planned ? () => regenerateExercise(item.id) : undefined,
                       editSet: (index) => setSheet({ t: "set", item, index, perRound }),
                       addSet: () => run(() => addSet(item.id)),
                       moveUp: canUp ? () => run(() => moveExercise(item.id, -1)) : undefined,
@@ -222,8 +254,15 @@ export function SessionView({ session, library }: { session: Session; library: L
         />
       )}
       {sheet?.t === "swap" && (
-        <SwapSheet item={sheet.item} current={byId.get(sheet.item.exerciseId)} library={library} onClose={close} />
+        <SwapSheet
+          item={sheet.item}
+          current={byId.get(sheet.item.exerciseId)}
+          library={library}
+          aiEnabled={planned}
+          onClose={close}
+        />
       )}
+      {sheet?.t === "day" && <RegenerateDaySheet sessionId={session.id} empty={blocks.length === 0} onClose={close} />}
       {sheet?.t === "info" && byId.get(sheet.exerciseId) && (
         <ExerciseInfoSheet exercise={byId.get(sheet.exerciseId)!} dayType={session.dayType} onClose={close} />
       )}

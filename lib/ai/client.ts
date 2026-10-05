@@ -11,6 +11,8 @@ export function anthropic() {
 
 // Week and day generation (see CLAUDE.md "AI generation").
 export const WEEK_MODEL = "claude-sonnet-5-5";
+// Single-exercise regeneration and swap suggestions: fast and cheap.
+export const EXERCISE_MODEL = "claude-haiku-4-5";
 
 export type GenerationErrorCode = "noTargets" | "refused" | "invalid" | "rateLimited" | "unavailable" | "failed";
 

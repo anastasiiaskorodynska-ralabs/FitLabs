@@ -55,6 +55,15 @@ export const aiWeekPlanSchema = z.object({
   sessions: z.array(aiSessionSchema),
 });
 
+export const aiExerciseOptionsSchema = z.object({
+  options: z.array(
+    z.object({
+      why: z.string().describe("One short sentence: why this fits"),
+      exercise: aiBlockExerciseSchema,
+    }),
+  ),
+});
+
 export type AiSet = z.infer<typeof aiSetSchema>;
 export type AiNewExercise = z.infer<typeof aiNewExerciseSchema>;
 export type AiBlockExercise = z.infer<typeof aiBlockExerciseSchema>;
@@ -62,6 +71,28 @@ export type AiBlock = z.infer<typeof aiBlockSchema>;
 export type AiSession = z.infer<typeof aiSessionSchema>;
 export type AiWeekPlan = z.infer<typeof aiWeekPlanSchema>;
 
+export type AiExerciseOption = z.infer<typeof aiExerciseOptionsSchema>["options"][number];
+
 export const generateWeekRequestSchema = z.object({
   weekStart: z.iso.date(),
+});
+
+const reasonSchema = z.string().trim().max(200).optional();
+
+export const regenerateDayRequestSchema = z.object({
+  sessionId: z.uuid(),
+  reason: reasonSchema,
+});
+
+export const regenerateExerciseRequestSchema = z.object({
+  blockExerciseId: z.uuid(),
+  reason: reasonSchema,
+  // replace: swap it in place now; suggest: return options for the swap sheet.
+  mode: z.enum(["replace", "suggest"]),
+});
+
+// A suggestion the user picked in the swap sheet (re-checked before saving).
+export const applyOptionRequestSchema = z.object({
+  blockExerciseId: z.uuid(),
+  exercise: aiBlockExerciseSchema,
 });

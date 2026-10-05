@@ -472,6 +472,39 @@
     "errors": {
       "invalid": "Something doesn't look right. Try again.",
       "saveFailed": "Couldn't save. Check your connection and try again."
+    },
+    "ai": {
+      "regenerateDay": "Regenerate whole day",
+      "generateDay": "Generate with AI",
+      "regenerate": "Regenerate",
+      "generate": "Generate session",
+      "regenerateBody": "AI replaces every exercise in this session with a new version that follows your rules and examples.",
+      "generateBody": "AI builds this session from your schedule, rules, equipment and examples.",
+      "wish": "Anything to change?",
+      "optional": "(optional)",
+      "wishPlaceholder": "e.g. more glutes, shorter today",
+      "working": "Building…",
+      "dayTime": "This takes about 30 seconds.",
+      "regenerateNamed": "Regenerate {name}",
+      "reason": "Reason",
+      "reasonPlaceholder": "Reason (optional) — e.g. knee hurts today",
+      "suggest": "Suggest with AI",
+      "thinking": "Thinking…",
+      "suggested": "Suggested for you",
+      "allMatches": "All matches",
+      "new": "New",
+      "errors": {
+        "notPlanned": "Only planned sessions can be changed with AI.",
+        "refused": "The AI declined this request. Try a different wish.",
+        "invalid": "The AI couldn't produce something that follows your rules. Try again.",
+        "rateLimited": "Too many requests right now. Wait a minute and try again.",
+        "unavailable": "The AI service is busy. Try again in a moment.",
+        "failed": "Something went wrong. Try again.",
+        "network": "No connection. Check your internet and try again.",
+        "unauthorized": "Your session expired. Sign in again.",
+        "badRequest": "Something went wrong. Reload the page and try again.",
+        "saveFailed": "Couldn't save. Check your connection and try again."
+      }
     }
   },
   "Muscles": {

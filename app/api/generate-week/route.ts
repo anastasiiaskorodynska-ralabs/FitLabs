@@ -1,8 +1,8 @@
-import { revalidatePath } from "next/cache";
+﻿import { revalidatePath } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 import { toGenerationError } from "@/lib/ai/client";
 import { loadGenerationContext } from "@/lib/ai/context";
-import { generateWeekPlan } from "@/lib/ai/generate-week";
+import { generateWeekPlan } from "@/lib/ai/generate";
 import { saveWeekPlan } from "@/lib/ai/save";
 import { generateWeekRequestSchema } from "@/lib/ai/schemas";
 import { weekStart } from "@/lib/sessions/format";
