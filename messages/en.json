@@ -505,7 +505,9 @@
         "badRequest": "Something went wrong. Reload the page and try again.",
         "saveFailed": "Couldn't save. Check your connection and try again."
       }
-    }
+    },
+    "logResults": "Log results",
+    "editResults": "Edit results"
   },
   "Muscles": {
     "quads": "Quads",
@@ -525,5 +527,129 @@
     "full_body": "Full body",
     "forearms": "Forearms",
     "traps": "Traps"
+  },
+  "Log": {
+    "title": "Log results",
+    "back": "Back to session",
+    "loggedOf": "{logged} of {total} sets logged",
+    "progress": "Logging progress",
+    "empty": "This session has no exercises to log.",
+    "unknownExercise": "Unknown exercise",
+    "done": "Done",
+    "allPlanned": "All planned",
+    "undo": "Undo",
+    "markPlanned": "Mark as planned",
+    "editSet": "Change set {n}: {name}",
+    "enter": "enter",
+    "bw": "BW",
+    "units": {
+      "kg": "kg",
+      "sec": "s",
+      "side": "/side"
+    },
+    "cols": {
+      "plan": "Plan",
+      "kg": "Kg",
+      "reps": "Reps",
+      "sec": "Sec"
+    },
+    "plan": {
+      "time": "{seconds} s",
+      "max": "max"
+    },
+    "perRound": "Per round",
+    "planRounds": "Plan: {rounds, plural, one {# round} other {# rounds}}",
+    "rounds": "Rounds",
+    "fewerRounds": "Fewer rounds",
+    "moreRounds": "More rounds",
+    "addNote": "Add note",
+    "noteFor": "Note for {name}",
+    "notePlaceholder": "Note for this exercise — seat height, how it felt…",
+    "sessionNotes": "Session notes",
+    "sessionNotesPlaceholder": "Energy, sleep, gym was busy, anything for next time…",
+    "saveExample": "Save as example for AI",
+    "saveExampleHint": "Future plans will learn from this session",
+    "skipped": "Skipped",
+    "markDone": "Mark as done",
+    "saving": "Saving…",
+    "errors": {
+      "invalid": "Something doesn't look right. Reload and try again.",
+      "saveFailed": "Couldn't save. Check your connection and try again."
+    },
+    "editor": {
+      "planned": "Planned: {plan}",
+      "weight": "Actual weight",
+      "reps": "Actual reps",
+      "repsSide": "Actual reps per side",
+      "maxReps": "Reps you managed",
+      "time": "Actual time · step 5 s",
+      "bw": "BW",
+      "bodyweight": "bodyweight",
+      "units": {
+        "kg": "kg",
+        "sec": "sec",
+        "side": "/side",
+        "reps": "reps"
+      },
+      "decreaseWeight": "Decrease weight",
+      "increaseWeight": "Increase weight",
+      "decrease": "Decrease",
+      "increase": "Increase",
+      "reset": "Reset to plan",
+      "save": "Save set"
+    },
+    "success": {
+      "doneTitle": "Workout logged",
+      "skippedTitle": "Marked as skipped",
+      "doneBody": "{when}. Nice work — your next plan will build on this.",
+      "skippedBody": "No problem — {when} stays in History as skipped. Your next plan accounts for it.",
+      "setsLogged": "sets logged",
+      "above": "above plan",
+      "below": "below plan",
+      "savedExample": "Saved as an example — next plans will use it.",
+      "upNext": "Up next",
+      "planned": "Planned",
+      "backToWeek": "Back to week",
+      "edit": "Edit results"
+    },
+    "example": {
+      "superset": "Superset {letter}",
+      "circuit": "Circuit {n}",
+      "finisher": "Abs finisher",
+      "rounds": "{count, plural, one {# round} other {# rounds}}",
+      "perSide": "side"
+    }
+  },
+  "History": {
+    "title": "History",
+    "tabs": {
+      "sessions": "Sessions",
+      "progress": "Progress"
+    },
+    "all": "All",
+    "doneOf": "{done} of {total} done",
+    "minutes": "{minutes} min",
+    "sets": "{count, plural, one {# set} other {# sets}}",
+    "notLogged": "Not logged",
+    "status": {
+      "done": "Done",
+      "skipped": "Skipped",
+      "planned": "Planned"
+    },
+    "empty": "No past sessions yet. Log a workout and it shows up here.",
+    "progress": {
+      "empty": "Log a workout with weights to see your progress here.",
+      "topSet": "Top set weight",
+      "kg": "kg",
+      "change": "{sign}{kg} kg since {date}",
+      "chartTitle": "{name}: top set weight over time",
+      "best": "best, kg",
+      "sessions": "sessions",
+      "usualReps": "usual reps",
+      "recent": "Recent",
+      "value": "{kg} kg × {reps}",
+      "setCount": "{count, plural, one {# set} other {# sets}}",
+      "side": "/side"
+    }
   }
 }

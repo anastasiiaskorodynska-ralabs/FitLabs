@@ -12,6 +12,10 @@ type SetDb = {
   target_reps: number | null;
   target_reps_max: boolean;
   target_seconds: number | null;
+  actual_kg: string | number | null;
+  actual_reps: number | null;
+  actual_seconds: number | null;
+  completed: boolean | null;
 };
 
 type BlockDb = {
@@ -20,6 +24,7 @@ type BlockDb = {
   kind: Block["kind"];
   role: Block["role"];
   rounds: number | null;
+  actual_rounds: number | null;
   rest_sec: number | null;
   block_exercises: {
     id: string;
@@ -27,9 +32,12 @@ type BlockDb = {
     exercise_id: string;
     measure: "reps" | "seconds";
     per_side: boolean;
+    notes: string | null;
     sets: SetDb[];
   }[];
 };
+
+const num = (v: string | number | null) => (v === null ? null : Number(v));
 
 export function toBlocks(rows: BlockDb[]): Block[] {
   return [...rows].sort(byPosition).map((b) => ({
@@ -37,30 +45,36 @@ export function toBlocks(rows: BlockDb[]): Block[] {
     kind: b.kind,
     role: b.role,
     rounds: b.rounds,
+    actualRounds: b.actual_rounds,
     restSec: b.rest_sec,
     exercises: [...b.block_exercises].sort(byPosition).map((e) => ({
       id: e.id,
       exerciseId: e.exercise_id,
       measure: e.measure,
       perSide: e.per_side,
+      notes: e.notes,
       sets: [...e.sets].sort(byPosition).map((s) => ({
         id: s.id,
-        kg: s.target_kg === null ? null : Number(s.target_kg),
+        kg: num(s.target_kg),
         reps: s.target_reps,
         max: s.target_reps_max,
         seconds: s.target_seconds,
+        actualKg: num(s.actual_kg),
+        actualReps: s.actual_reps,
+        actualSeconds: s.actual_seconds,
+        completed: s.completed,
       })),
     })),
   }));
 }
 
 export const BLOCKS_SELECT =
-  "id, position, kind, role, rounds, rest_sec, block_exercises(id, position, exercise_id, measure, per_side, sets(id, position, target_kg, target_reps, target_reps_max, target_seconds))";
+  "id, position, kind, role, rounds, actual_rounds, rest_sec, block_exercises(id, position, exercise_id, measure, per_side, notes, sets(id, position, target_kg, target_reps, target_reps_max, target_seconds, actual_kg, actual_reps, actual_seconds, completed))";
 
 export async function loadSession(supabase: SupabaseClient, id: string): Promise<Session | null> {
   const { data } = await supabase
     .from("sessions")
-    .select(`id, date, day_type, status, blocks(${BLOCKS_SELECT})`)
+    .select(`id, date, day_type, status, notes, logged_at, blocks(${BLOCKS_SELECT})`)
     .eq("id", id)
     .maybeSingle();
   if (!data) return null;
@@ -69,6 +83,8 @@ export async function loadSession(supabase: SupabaseClient, id: string): Promise
     date: data.date,
     dayType: data.day_type,
     status: data.status,
+    notes: data.notes,
+    loggedAt: data.logged_at,
     blocks: toBlocks(data.blocks as BlockDb[]),
   };
 }

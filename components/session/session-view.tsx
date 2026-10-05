@@ -4,7 +4,7 @@ import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useFormatter, useTranslations } from "next-intl";
-import { Check, ChevronLeft, CircleDashed, Link2, Plus, RefreshCw, Repeat, Sparkles, Target, X } from "lucide-react";
+import { Check, ChevronLeft, CircleDashed, ClipboardCheck, Link2, Plus, RefreshCw, Repeat, Sparkles, Target, X } from "lucide-react";
 import { addSet, deleteExercise, moveExercise } from "@/app/session/actions";
 import { FieldError } from "@/components/onboarding/controls";
 import { DAY_TYPE_STYLE } from "@/lib/day-types";
@@ -107,7 +107,7 @@ export function SessionView({ session, library }: { session: Session; library: L
         )}
       </div>
 
-      <main className={cn("flex min-h-0 flex-1 flex-col gap-3.5 overflow-y-auto px-4 pt-2 pb-[max(24px,env(safe-area-inset-bottom))]", busy && "opacity-70")}>
+      <main className={cn("flex min-h-0 flex-1 flex-col gap-3.5 overflow-y-auto px-4 pt-2 pb-6", busy && "opacity-70")}>
         <header className="flex flex-none flex-col gap-2.5 px-1 pb-1">
           <span className={cn("flex min-h-[30px] items-center gap-2 self-start rounded-full px-3 text-[13px] font-bold", style.tint)}>
             <span className={cn("size-2 rounded-full", style.dot)} />
@@ -243,6 +243,18 @@ export function SessionView({ session, library }: { session: Session; library: L
           {t("addExercise")}
         </button>
       </main>
+
+      {blocks.length > 0 && (
+        <footer className="flex-none border-t border-line bg-bg px-4 pt-3 pb-[max(20px,env(safe-area-inset-bottom))]">
+          <Link
+            href={`/session/${session.id}/log`}
+            className="flex min-h-16 items-center justify-center gap-2.5 rounded-[18px] bg-brand text-[17px] font-bold text-on-brand active:scale-[.98] active:bg-brand-press"
+          >
+            <ClipboardCheck className="size-5" aria-hidden />
+            {planned ? t("logResults") : t("editResults")}
+          </Link>
+        </footer>
+      )}
 
       {sheet?.t === "set" && (
         <SetEditorSheet
