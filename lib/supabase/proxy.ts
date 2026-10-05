@@ -1,7 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-// Refreshes the Supabase auth session on every request.
+// Refreshes the Supabase auth session and reports whether someone is signed in.
+// Callers that redirect must copy cookies from `response` (see withCookies).
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
@@ -29,7 +30,13 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  await supabase.auth.getClaims();
+  const { data } = await supabase.auth.getClaims();
 
-  return response;
+  return { response, isSignedIn: Boolean(data?.claims) };
+}
+
+// Carries refreshed auth cookies over to a redirect response.
+export function withCookies(target: NextResponse, source: NextResponse) {
+  source.cookies.getAll().forEach((cookie) => target.cookies.set(cookie));
+  return target;
 }

@@ -9,5 +9,40 @@
     "history": "History",
     "examples": "Examples",
     "profile": "Profile"
+  },
+  "Locale": {
+    "label": "Language",
+    "en": "EN",
+    "uk": "UK"
+  },
+  "SignIn": {
+    "brand": "FitLabs",
+    "welcome": "Welcome back",
+    "sub": "Sign in to plan your training week.",
+    "email": "Email",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "signIn": "Sign in",
+    "or": "or",
+    "magic": "Send magic link",
+    "magicHint": "We'll email you a one-tap sign-in link.",
+    "magicSent": "If {email} has an account, a sign-in link is on its way. Open it on this device.",
+    "invite": "Accounts are created by invitation only.",
+    "errors": {
+      "invalidEmail": "Enter a valid email address.",
+      "missingPassword": "Enter your password, or use a magic link.",
+      "invalidCredentials": "Wrong email or password.",
+      "rateLimited": "Too many attempts. Wait a few minutes and try again.",
+      "linkExpired": "That sign-in link has expired or was already used. Request a new one.",
+      "generic": "Something went wrong. Try again."
+    }
+  },
+  "Profile": {
+    "signOut": "Sign out"
+  },
+  "Onboarding": {
+    "title": "Welcome",
+    "comingSoon": "Onboarding is coming next: your details, schedule, rules, equipment and examples."
   }
 }
