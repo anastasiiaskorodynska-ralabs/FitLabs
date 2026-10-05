@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Onest } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
+import { ServiceWorkerRegister } from "@/components/sw-register";
 import "./globals.css";
 
 const onest = Onest({
@@ -37,6 +38,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html lang={locale} className={`${onest.variable} h-full antialiased`}>
       <body className="h-full">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ServiceWorkerRegister />
       </body>
     </html>
   );

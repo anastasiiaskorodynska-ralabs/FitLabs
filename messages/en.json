@@ -651,5 +651,24 @@
       "setCount": "{count, plural, one {# set} other {# sets}}",
       "side": "/side"
     }
+  },
+  "Status": {
+    "loading": "Loading…",
+    "offline": {
+      "title": "You're offline",
+      "body": "This page isn't saved on your phone yet. Connect to the internet and try again.",
+      "retry": "Try again"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "body": "This session or page doesn't exist any more.",
+      "home": "Go to this week"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "body": "The page couldn't load. Your data is safe — try again in a moment.",
+      "retry": "Try again",
+      "home": "Go to this week"
+    }
   }
 }
