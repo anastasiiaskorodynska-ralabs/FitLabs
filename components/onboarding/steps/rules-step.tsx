@@ -14,7 +14,7 @@ import {
 } from "../controls";
 import type { StepProps } from "../types";
 
-export function RulesStep({ draft, update, errors, errorText }: StepProps) {
+export function RulesStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.rules");
   const [input, setInput] = useState("");
 
@@ -28,7 +28,7 @@ export function RulesStep({ draft, update, errors, errorText }: StepProps) {
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
 
       <div className="flex flex-none flex-col overflow-hidden rounded-[20px] border border-line bg-surface-1">
         <SwitchRow

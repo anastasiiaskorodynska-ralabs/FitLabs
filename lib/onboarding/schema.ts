@@ -81,7 +81,12 @@ export type OnboardingDraft = Omit<OnboardingData, "sex" | "goal"> & {
 export type FieldErrors = Partial<Record<string, string>>;
 
 export function stepErrors(index: number, draft: OnboardingDraft): FieldErrors | null {
-  const result = STEPS[index].schema.safeParse(draft);
+  return fieldErrors(STEPS[index].schema, draft);
+}
+
+// First error key per top-level field, or null when valid.
+export function fieldErrors(schema: z.ZodType, data: unknown): FieldErrors | null {
+  const result = schema.safeParse(data);
   if (result.success) return null;
   const errors: FieldErrors = {};
   for (const issue of result.error.issues) {

@@ -14,12 +14,12 @@ const GOAL_STYLE: Record<(typeof GOALS)[number], { icon: LucideIcon; tint: strin
   general: { icon: HeartPulse, tint: "bg-brand-tint text-brand-text" },
 };
 
-export function GoalStep({ draft, update, errors, errorText }: StepProps) {
+export function GoalStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.goal");
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
       <div role="radiogroup" aria-label={t("title")} className="flex flex-col gap-3">
         {GOALS.map((goal) => {
           const { icon: Icon, tint } = GOAL_STYLE[goal];

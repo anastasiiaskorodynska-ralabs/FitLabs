@@ -5,7 +5,7 @@ import { ClipboardPaste, Lock } from "lucide-react";
 import { FieldError, StepIntro } from "../controls";
 import type { StepProps } from "../types";
 
-export function ExamplesStep({ draft, update, errors, errorText }: StepProps) {
+export function ExamplesStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.examples");
   const lines = draft.example.split("\n").filter((l) => l.trim()).length;
 
@@ -20,7 +20,7 @@ export function ExamplesStep({ draft, update, errors, errorText }: StepProps) {
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
 
       <div className="flex min-h-[300px] flex-[1_0_300px] flex-col overflow-hidden rounded-[18px] border-[1.5px] border-line-strong bg-surface-1 focus-within:border-2 focus-within:border-brand">
         <textarea

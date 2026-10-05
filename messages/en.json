@@ -38,11 +38,90 @@
       "generic": "Something went wrong. Try again."
     }
   },
+  "Common": {
+    "close": "Close",
+    "save": "Save"
+  },
   "Profile": {
-    "signOut": "Sign out"
+    "title": "Profile",
+    "signOut": "Sign out",
+    "edit": "Edit",
+    "language": "Language",
+    "sections": {
+      "personal": "Personal data",
+      "schedule": "Schedule",
+      "rules": "Training rules",
+      "equipment": "Equipment"
+    },
+    "body": "{age} y · {height} cm · {weight} kg",
+    "levelGoal": "{level} · Goal: {goal}",
+    "sessions": "{minutes} min sessions",
+    "rules": {
+      "abs": "Always finish with abs",
+      "noWarmup": "No warm-up",
+      "avoid": "Avoid: {list}",
+      "none": "Nothing set yet"
+    },
+    "equipmentCount": "{count, plural, =0 {Bodyweight only} one {# item} other {# items}}"
+  },
+  "Examples": {
+    "title": "Examples",
+    "subtitle": "Past workouts the AI copies your style from. {count} saved.",
+    "emptyList": "No examples yet. Paste a workout from your notes so plans match your style.",
+    "add": "Add example",
+    "addTitle": "Add example",
+    "editTitle": "Edit example",
+    "editNamed": "Edit {title}",
+    "more": "More",
+    "fromLog": "From log",
+    "untagged": "No day type",
+    "moreLines": "+{count} more",
+    "pasted": "Pasted · {date}",
+    "savedFromLog": "Saved from log · {date}",
+    "dayType": "Day type",
+    "name": "Name",
+    "optional": "(optional)",
+    "namePlaceholder": "e.g. Leg day A",
+    "workout": "Workout",
+    "placeholder": "Paste from your notes — any format.\n\nSquat 4×8 60kg\nRDL 3×10 40kg\n…",
+    "meta": "{count, plural, one {# line} other {# lines}} · {type}",
+    "empty": "Nothing pasted yet",
+    "paste": "Paste",
+    "save": "Save example",
+    "saving": "Saving…",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteTitle": "Delete example?",
+    "deleteBody": "Future plans won't use it any more. This can't be undone.",
+    "deleteConfirm": "Delete",
+    "cancel": "Cancel",
+    "errors": {
+      "pickType": "Pick a day type.",
+      "textRequired": "Paste or type a workout.",
+      "tooLong": "That's too long.",
+      "invalid": "Check the form and try again.",
+      "saveFailed": "Couldn't save. Check your connection and try again."
+    }
   },
   "Days": {
-    "letter": { "0": "M", "1": "T", "2": "W", "3": "T", "4": "F", "5": "S", "6": "S" },
+    "letter": {
+      "0": "M",
+      "1": "T",
+      "2": "W",
+      "3": "T",
+      "4": "F",
+      "5": "S",
+      "6": "S"
+    },
+    "short": {
+      "0": "Mon",
+      "1": "Tue",
+      "2": "Wed",
+      "3": "Thu",
+      "4": "Fri",
+      "5": "Sat",
+      "6": "Sun"
+    },
     "long": {
       "0": "Monday",
       "1": "Tuesday",
@@ -54,7 +133,18 @@
     }
   },
   "DayTypes": {
-    "short": { "lower": "Lower", "upper": "Upper", "func": "Circuit", "full": "Full body" }
+    "short": {
+      "lower": "Lower",
+      "upper": "Upper",
+      "func": "Circuit",
+      "full": "Full body"
+    },
+    "long": {
+      "lower": "Lower body",
+      "upper": "Upper body",
+      "func": "Functional circuit",
+      "full": "Full body"
+    }
   },
   "Onboarding": {
     "progress": "Step {step} of {total}",
@@ -73,26 +163,55 @@
       "sub": "We use this to set starting weights. Only you can see it.",
       "name": "Name",
       "sex": "Sex",
-      "sexes": { "female": "Female", "male": "Male", "other": "Other" },
+      "sexes": {
+        "female": "Female",
+        "male": "Male",
+        "other": "Other"
+      },
       "age": "Age",
       "height": "Height",
       "weight": "Weight",
-      "units": { "y": "y", "cm": "cm", "kg": "kg" },
+      "units": {
+        "y": "y",
+        "cm": "cm",
+        "kg": "kg"
+      },
       "experience": "Experience",
       "levels": {
-        "beginner": { "label": "Beginner", "hint": "Less than a year of regular training" },
-        "intermediate": { "label": "Intermediate", "hint": "1–3 years, know the main lifts" },
-        "advanced": { "label": "Advanced", "hint": "3+ years, follow structured programs" }
+        "beginner": {
+          "label": "Beginner",
+          "hint": "Less than a year of regular training"
+        },
+        "intermediate": {
+          "label": "Intermediate",
+          "hint": "1–3 years, know the main lifts"
+        },
+        "advanced": {
+          "label": "Advanced",
+          "hint": "3+ years, follow structured programs"
+        }
       }
     },
     "goal": {
       "title": "What's your main goal?",
       "sub": "Pick one. You can change it any time.",
       "options": {
-        "strength": { "label": "Strength", "hint": "Lift heavier. Lower reps, longer rest." },
-        "muscle": { "label": "Build muscle", "hint": "More volume, moderate weight, steady progress." },
-        "fat": { "label": "Fat loss", "hint": "Keep strength, add circuits and conditioning." },
-        "general": { "label": "General fitness", "hint": "Feel strong and move well. Balanced mix." }
+        "strength": {
+          "label": "Strength",
+          "hint": "Lift heavier. Lower reps, longer rest."
+        },
+        "muscle": {
+          "label": "Build muscle",
+          "hint": "More volume, moderate weight, steady progress."
+        },
+        "fat": {
+          "label": "Fat loss",
+          "hint": "Keep strength, add circuits and conditioning."
+        },
+        "general": {
+          "label": "General fitness",
+          "hint": "Feel strong and move well. Balanced mix."
+        }
       }
     },
     "schedule": {
@@ -156,5 +275,197 @@
       "invalid": "Check this step and try again.",
       "saveFailed": "Couldn't save. Check your connection and try again."
     }
+  },
+  "Week": {
+    "prev": "Previous week",
+    "next": "Next week",
+    "thisWeek": "This week",
+    "nextWeek": "Next week",
+    "lastWeek": "Last week",
+    "sessions": "{count, plural, one {# session} other {# sessions}}",
+    "doneOf": "{done} of {total} done",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "meta": "{count, plural, one {# exercise} other {# exercises}} · ~{minutes} min",
+    "noExercises": "No exercises yet",
+    "status": {
+      "planned": "Planned",
+      "done": "Done",
+      "skipped": "Skipped"
+    },
+    "start": "Start workout",
+    "emptyTitle": "Nothing planned yet",
+    "emptyBody": "AI planning is coming soon. For now, log a workout and build it exercise by exercise.",
+    "log": "Log workout",
+    "openDay": "Open session on {day}",
+    "logDay": "Log workout on {day}",
+    "logSheet": {
+      "title": "Log workout",
+      "day": "Day",
+      "focus": "Focus",
+      "create": "Create session",
+      "open": "Open session",
+      "exists": "There's already a session on this day. Open it to edit.",
+      "errors": {
+        "invalid": "Pick a day and a focus.",
+        "saveFailed": "Couldn't create the session. Try again."
+      }
+    }
+  },
+  "Session": {
+    "back": "Back to week",
+    "summary": "{count, plural, one {# exercise} other {# exercises}} · ~{minutes} min",
+    "status": {
+      "planned": "Planned",
+      "done": "Done",
+      "skipped": "Skipped"
+    },
+    "empty": "No exercises yet. Add the first one below.",
+    "addExercise": "Add exercise",
+    "unknownExercise": "Unknown exercise",
+    "bodyweight": "Bodyweight",
+    "perSide": "per side",
+    "hold": "hold",
+    "thenInto": "Then straight into",
+    "infoFor": "Exercise info: {name}",
+    "swapNamed": "Swap {name}",
+    "moreFor": "More options for {name}",
+    "swap": "Swap",
+    "bw": "BW",
+    "max": "MAX",
+    "units": {
+      "kg": "kg",
+      "sec": "sec",
+      "side": "/side"
+    },
+    "cols": {
+      "set": "Set",
+      "kg": "Kg",
+      "reps": "Reps",
+      "sec": "Sec"
+    },
+    "editSet": "Edit set {n}: {name}",
+    "editTarget": "Edit target: {name}",
+    "addSet": "Add set",
+    "technique": "Technique",
+    "menu": {
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "rest": "Rest & rounds",
+      "delete": "Delete"
+    },
+    "blocks": {
+      "single": "Exercise",
+      "superset": "Superset {letter}",
+      "circuit": "Circuit {n}",
+      "finisher": "Abs finisher",
+      "finisherBadge": "FINISHER"
+    },
+    "meta": {
+      "rounds": "{rounds, plural, one {# round} other {# rounds}} · rest {rest} s",
+      "superset": "{sets, plural, one {# set} other {# sets}} · rest {rest} s after {tag}",
+      "sets": "{sets, plural, one {# set} other {# sets}} · rest {rest} s"
+    },
+    "editor": {
+      "perRound": "Target per round",
+      "setOf": "Set {n} of {total}",
+      "mode": "Set type",
+      "modes": {
+        "reps": "Reps",
+        "max": "Max",
+        "side": "Per side",
+        "time": "Time"
+      },
+      "weight": "Weight",
+      "bodyweightHint": "− below 2.5 = bodyweight",
+      "bw": "BW",
+      "bodyweight": "bodyweight",
+      "units": {
+        "kg": "kg",
+        "sec": "sec",
+        "side": "/side",
+        "reps": "reps"
+      },
+      "amountLabel": {
+        "reps": "Reps",
+        "max": "Reps · as many as possible",
+        "side": "Reps per side",
+        "time": "Duration · step 5 s"
+      },
+      "max": "MAX",
+      "decreaseWeight": "Decrease weight",
+      "increaseWeight": "Increase weight",
+      "decrease": "Decrease",
+      "increase": "Increase",
+      "applyAll": "Apply to all {count} sets",
+      "deleteSet": "Delete set",
+      "done": "Done",
+      "saving": "Saving…"
+    },
+    "picker": {
+      "search": "Search exercises",
+      "onlyYours": "Only your equipment · {count} hidden",
+      "showingAll": "Showing all exercises ·",
+      "showAll": "Show all",
+      "hideOthers": "Only mine",
+      "bodyweight": "Bodyweight",
+      "notAvailable": "Not available with your equipment or rules",
+      "noResults": "No matches. Try another word or show all exercises."
+    },
+    "info": {
+      "bodyweight": "Bodyweight",
+      "imageAlt": "{name}, image {n}",
+      "noImages": "No images yet",
+      "video": "{name} video",
+      "youtube": "Watch on YouTube",
+      "technique": "Technique",
+      "muscles": "Primary muscles",
+      "equipment": "Equipment",
+      "available": "Available",
+      "unavailable": "Not available"
+    },
+    "block": {
+      "eyebrow": "Rest & rounds",
+      "rounds": "Rounds",
+      "restRounds": "Rest between rounds",
+      "restSuperset": "Rest after each round",
+      "restSets": "Rest between sets",
+      "sec": "s",
+      "save": "Save",
+      "hint": "Rest is rounded to 15 seconds."
+    },
+    "add": {
+      "eyebrow": "Session",
+      "title": "Add exercise",
+      "where": "Add as",
+      "single": "Single exercise",
+      "newSuperset": "New superset",
+      "newCircuit": "New circuit",
+      "newFinisher": "Abs finisher",
+      "addTo": "To {block}"
+    },
+    "errors": {
+      "invalid": "Something doesn't look right. Try again.",
+      "saveFailed": "Couldn't save. Check your connection and try again."
+    }
+  },
+  "Muscles": {
+    "quads": "Quads",
+    "glutes": "Glutes",
+    "hamstrings": "Hamstrings",
+    "calves": "Calves",
+    "chest": "Chest",
+    "back": "Back",
+    "lats": "Lats",
+    "shoulders": "Shoulders",
+    "biceps": "Biceps",
+    "triceps": "Triceps",
+    "abs": "Abs",
+    "obliques": "Obliques",
+    "core": "Core",
+    "hip_flexors": "Hip flexors",
+    "full_body": "Full body",
+    "forearms": "Forearms",
+    "traps": "Traps"
   }
 }

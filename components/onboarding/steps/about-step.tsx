@@ -19,7 +19,7 @@ const BODY = [
   { field: "weight", unit: "kg" },
 ] as const;
 
-export function AboutStep({ draft, update, errors, errorText }: StepProps) {
+export function AboutStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.about");
   const bodyError = BODY.map(({ field }) =>
     errors[field] ? errorText(errors[field], LIMITS[field]) : undefined,
@@ -27,7 +27,7 @@ export function AboutStep({ draft, update, errors, errorText }: StepProps) {
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
 
       <label className="flex flex-col gap-2">
         <FieldLabel>{t("name")}</FieldLabel>

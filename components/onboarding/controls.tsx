@@ -195,6 +195,7 @@ export function NumberStepper({
   value,
   min,
   max,
+  step = 1,
   onChange,
 }: {
   label: string;
@@ -202,6 +203,7 @@ export function NumberStepper({
   value: number;
   min: number;
   max: number;
+  step?: number;
   onChange: (value: number) => void;
 }) {
   const t = useTranslations("Onboarding");
@@ -227,7 +229,7 @@ export function NumberStepper({
         <button
           type="button"
           aria-label={t("decrease", { label })}
-          onClick={() => onChange(clamp((Number.isNaN(value) ? min : value) - 1))}
+          onClick={() => onChange(clamp((Number.isNaN(value) ? min : value) - step))}
           className="flex size-11 items-center justify-center rounded-xl bg-surface-3 text-text"
         >
           <Minus className="size-5" />
@@ -235,7 +237,7 @@ export function NumberStepper({
         <button
           type="button"
           aria-label={t("increase", { label })}
-          onClick={() => onChange(clamp((Number.isNaN(value) ? min : value) + 1))}
+          onClick={() => onChange(clamp((Number.isNaN(value) ? min : value) + step))}
           className="flex size-11 items-center justify-center rounded-xl bg-surface-3 text-text"
         >
           <Plus className="size-5" />

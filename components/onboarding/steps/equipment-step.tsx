@@ -16,6 +16,7 @@ export function EquipmentStep({
   update,
   errors,
   errorText,
+  hideIntro,
   equipment,
 }: StepProps & { equipment: EquipmentItem[] }) {
   const t = useTranslations("Onboarding.equipment");
@@ -68,7 +69,7 @@ export function EquipmentStep({
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
 
       {groups.map(({ category, rows }) => {
         const count = rows.filter((r) => r.on).length;

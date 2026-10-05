@@ -1,21 +1,15 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { DAY_TYPE_STYLE } from "@/lib/day-types";
 import { DAY_TYPES, SESSION_LENGTHS } from "@/lib/onboarding/schema";
 import { cn } from "@/lib/utils";
 import { FieldError, FieldLabel, Segmented, StepIntro } from "../controls";
 import type { StepProps } from "../types";
 
-const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6] as const;
+export const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6] as const;
 
-const FOCUS_ACTIVE: Record<(typeof DAY_TYPES)[number], string> = {
-  lower: "border-lower bg-lower-tint text-lower-text",
-  upper: "border-upper bg-upper-tint text-upper-text",
-  func: "border-func bg-func-tint text-func-text",
-  full: "border-text-2 bg-surface-3 text-text",
-};
-
-export function ScheduleStep({ draft, update, errors, errorText }: StepProps) {
+export function ScheduleStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.schedule");
   const tDays = useTranslations("Days");
   const tTypes = useTranslations("DayTypes");
@@ -33,7 +27,7 @@ export function ScheduleStep({ draft, update, errors, errorText }: StepProps) {
 
   return (
     <>
-      <StepIntro title={t("title")} sub={t("sub")} />
+      {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
 
       <div className="flex flex-col gap-2">
         <div role="group" aria-label={t("days")} className="grid grid-cols-7 gap-1.5">
@@ -83,7 +77,7 @@ export function ScheduleStep({ draft, update, errors, errorText }: StepProps) {
                       onClick={() => setFocus(day.weekday, type)}
                       className={cn(
                         "min-h-11 rounded-xl border-[1.5px] px-0.5 py-1 text-[13px] leading-[1.15] font-bold",
-                        on ? FOCUS_ACTIVE[type] : "border-line text-text-2",
+                        on ? DAY_TYPE_STYLE[type].picked : "border-line text-text-2",
                       )}
                     >
                       {tTypes(`short.${type}`)}
