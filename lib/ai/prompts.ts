@@ -1,7 +1,7 @@
 import type { GenerationContext } from "./context";
 
 // Bump when the prompt or output contract changes; stored on weeks.prompt_version.
-export const PROMPT_VERSION = "plan-v3";
+export const PROMPT_VERSION = "plan-v4";
 
 const LANGUAGE = { en: "English", uk: "Ukrainian" } as const;
 
@@ -27,7 +27,6 @@ Style:
 - Copy the structure, volume, exercise choices, combinations (supersets, drop sets, circuits) and abs finisher style of the user's example workouts. Examples can be in any language.
 - Lower and upper days: 6-9 exercises, with supersets like in the examples.
 - Functional circuit days: 3 circuits × 3 rounds, 3 exercises each, 60-90 s rest between rounds, and a short technique_note for every exercise.
-- Full body days: a balanced mix of lower, upper and core work.
 - Fit each session into the stated session length.
 - Vary exercises from week to week, but keep the key lifts so progress can be tracked.
 

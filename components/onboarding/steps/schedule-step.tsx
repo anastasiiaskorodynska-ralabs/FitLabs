@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { DAY_TYPE_STYLE } from "@/lib/day-types";
+import { DAY_TYPE_STYLE, DEFAULT_DAY_TYPE } from "@/lib/day-types";
 import { DAY_TYPES, SESSION_LENGTHS } from "@/lib/onboarding/schema";
 import { cn } from "@/lib/utils";
 import { FieldError, FieldLabel, Segmented, StepIntro } from "../controls";
@@ -18,7 +18,7 @@ export function ScheduleStep({ draft, update, errors, errorText, hideIntro }: St
     const exists = draft.days.some((d) => d.weekday === weekday);
     const days = exists
       ? draft.days.filter((d) => d.weekday !== weekday)
-      : [...draft.days, { weekday, dayType: "full" as const }].sort((a, b) => a.weekday - b.weekday);
+      : [...draft.days, { weekday, dayType: DEFAULT_DAY_TYPE }].sort((a, b) => a.weekday - b.weekday);
     update({ days });
   };
 
@@ -64,7 +64,7 @@ export function ScheduleStep({ draft, update, errors, errorText, hideIntro }: St
               <div
                 role="radiogroup"
                 aria-label={tDays(`long.${day.weekday}`)}
-                className="grid grid-cols-4 gap-1.5"
+                className="grid grid-cols-3 gap-1.5"
               >
                 {DAY_TYPES.map((type) => {
                   const on = day.dayType === type;

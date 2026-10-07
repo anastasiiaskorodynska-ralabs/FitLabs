@@ -82,7 +82,9 @@ The build plan uses some older names; the real schema (supabase/migrations) is:
   (role: warmup | main | finisher)
 - profile.onboarding_done -> profile.onboarded_at (null = not done);
   profile.language -> profile.locale; age is stored as birth_year
-- focus / day_focus -> day_type (lower | upper | func | full)
+- focus / day_focus -> day_type: lower | upper | func (functional circuit).
+  The enum still contains 'full' (Postgres can't drop it) but check
+  constraints reject it; the app only offers the three types.
 - training_rules: rules[] (the user's free-text rules, incl. injuries),
   avoid_terms[] (exercises or equipment never planned), avoid_cardio_machines.
   The old no_warmup / abs_finisher / notes columns were folded into rules[].

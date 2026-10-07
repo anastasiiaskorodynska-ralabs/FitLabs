@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { ClipboardPaste } from "lucide-react";
 import { createExample, updateExample } from "@/app/(tabs)/examples/actions";
 import { BottomSheet, PrimaryButton } from "@/components/bottom-sheet";
+import { DayTypePicker } from "@/components/day-type-picker";
 import { FieldError, FieldLabel, inputClass } from "@/components/onboarding/controls";
-import { DAY_TYPE_STYLE } from "@/lib/day-types";
 import { exampleSchema, type Example, type ExampleDraft } from "@/lib/examples/schema";
-import { DAY_TYPES, fieldErrors, type FieldErrors } from "@/lib/onboarding/schema";
+import { fieldErrors, type FieldErrors } from "@/lib/onboarding/schema";
 import { cn } from "@/lib/utils";
 
 // Add or edit an example ("Add example" sheet in /design).
@@ -73,27 +73,7 @@ export function ExampleSheet({ example, onClose }: { example?: Example; onClose:
     >
       <div className="flex flex-none flex-col gap-2">
         <FieldLabel>{t("dayType")}</FieldLabel>
-        <div role="radiogroup" aria-label={t("dayType")} className="grid grid-cols-2 gap-2">
-          {DAY_TYPES.map((type) => {
-            const on = draft.dayType === type;
-            return (
-              <button
-                key={type}
-                type="button"
-                role="radio"
-                aria-checked={on}
-                onClick={() => update({ dayType: type })}
-                className={cn(
-                  "flex min-h-[52px] items-center gap-2.5 rounded-[14px] border-[1.5px] px-3.5 text-left text-[15px] font-bold",
-                  on ? DAY_TYPE_STYLE[type].picked : "border-line text-text-2",
-                )}
-              >
-                <span className={cn("size-2.5 flex-none rounded-full", DAY_TYPE_STYLE[type].dot)} />
-                {tTypes(`long.${type}`)}
-              </button>
-            );
-          })}
-        </div>
+        <DayTypePicker value={draft.dayType} onChange={(dayType) => update({ dayType })} label={t("dayType")} />
         <FieldError message={errorText(errors.dayType)} />
       </div>
 

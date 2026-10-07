@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { createManualSession } from "@/app/session/actions";
 import { BottomSheet, PrimaryButton } from "@/components/bottom-sheet";
+import { DayTypePicker } from "@/components/day-type-picker";
 import { FieldError, FieldLabel } from "@/components/onboarding/controls";
-import { DAY_TYPE_STYLE, type DayType } from "@/lib/day-types";
-import { DAY_TYPES } from "@/lib/onboarding/schema";
+import { DEFAULT_DAY_TYPE, type DayType } from "@/lib/day-types";
 import { weekdayOf } from "@/lib/sessions/format";
 import { cn } from "@/lib/utils";
 import type { WeekSession } from "./week-view";
@@ -28,9 +28,8 @@ export function LogWorkoutSheet({
 }) {
   const t = useTranslations("Week.logSheet");
   const tDays = useTranslations("Days");
-  const tTypes = useTranslations("DayTypes");
   const router = useRouter();
-  const typeFor = (d: string) => schedule.find((s) => s.weekday === weekdayOf(d))?.dayType ?? "full";
+  const typeFor = (d: string) => schedule.find((s) => s.weekday === weekdayOf(d))?.dayType ?? DEFAULT_DAY_TYPE;
 
   const [date, setDate] = useState(initialDate);
   const [dayType, setDayType] = useState<DayType>(typeFor(date));
@@ -103,24 +102,7 @@ export function LogWorkoutSheet({
       ) : (
         <div className="flex flex-col gap-2">
           <FieldLabel>{t("focus")}</FieldLabel>
-          <div role="radiogroup" aria-label={t("focus")} className="grid grid-cols-2 gap-2">
-            {DAY_TYPES.map((type) => (
-              <button
-                key={type}
-                type="button"
-                role="radio"
-                aria-checked={dayType === type}
-                onClick={() => setDayType(type)}
-                className={cn(
-                  "flex min-h-[52px] items-center gap-2.5 rounded-[14px] border-[1.5px] px-3.5 text-left text-[15px] font-bold",
-                  dayType === type ? DAY_TYPE_STYLE[type].picked : "border-line text-text-2",
-                )}
-              >
-                <span className={cn("size-2.5 flex-none rounded-full", DAY_TYPE_STYLE[type].dot)} />
-                {tTypes(`long.${type}`)}
-              </button>
-            ))}
-          </div>
+          <DayTypePicker value={dayType} onChange={setDayType} label={t("focus")} />
         </div>
       )}
     </BottomSheet>

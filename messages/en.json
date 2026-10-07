@@ -135,14 +135,12 @@
     "short": {
       "lower": "Lower",
       "upper": "Upper",
-      "func": "Circuit",
-      "full": "Full body"
+      "func": "Circuit"
     },
     "long": {
       "lower": "Lower body",
       "upper": "Upper body",
-      "func": "Functional circuit",
-      "full": "Full body"
+      "func": "Functional circuit"
     }
   },
   "Onboarding": {

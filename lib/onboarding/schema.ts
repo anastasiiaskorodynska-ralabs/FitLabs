@@ -5,7 +5,7 @@ import { z } from "zod";
 export const SEXES = ["female", "male", "other"] as const;
 export const LEVELS = ["beginner", "intermediate", "advanced"] as const;
 export const GOALS = ["strength", "muscle", "fat", "general"] as const;
-export const DAY_TYPES = ["lower", "upper", "func", "full"] as const;
+export const DAY_TYPES = ["lower", "upper", "func"] as const;
 export const SESSION_LENGTHS = [30, 45, 60, 75, 90] as const;
 
 export const LIMITS = {

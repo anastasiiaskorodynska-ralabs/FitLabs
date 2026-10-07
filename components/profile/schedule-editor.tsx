@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { FieldError } from "@/components/onboarding/controls";
 import { WEEKDAYS } from "@/components/onboarding/steps/schedule-step";
 import type { StepProps } from "@/components/onboarding/types";
-import { DAY_TYPE_STYLE } from "@/lib/day-types";
+import { DAY_TYPE_STYLE, DEFAULT_DAY_TYPE } from "@/lib/day-types";
 import { DAY_TYPES, SESSION_LENGTHS } from "@/lib/onboarding/schema";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ export function ScheduleEditor({ draft, update, errors, errorText }: StepProps) 
     update({
       days: exists
         ? draft.days.filter((d) => d.weekday !== weekday)
-        : [...draft.days, { weekday, dayType: "full" as const }].sort((a, b) => a.weekday - b.weekday),
+        : [...draft.days, { weekday, dayType: DEFAULT_DAY_TYPE }].sort((a, b) => a.weekday - b.weekday),
     });
   };
 
@@ -55,7 +55,7 @@ export function ScheduleEditor({ draft, update, errors, errorText }: StepProps) 
               <div
                 role="radiogroup"
                 aria-label={tDays(`long.${day.weekday}`)}
-                className="grid flex-1 grid-cols-4 gap-1"
+                className="grid flex-1 grid-cols-3 gap-1"
               >
                 {DAY_TYPES.map((type) => {
                   const on = day.dayType === type;
