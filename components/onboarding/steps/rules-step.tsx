@@ -3,17 +3,11 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Plus } from "lucide-react";
-import {
-  AddInput,
-  FieldError,
-  FieldLabel,
-  RemovableChip,
-  StepIntro,
-  SwitchRow,
-  inputClass,
-} from "../controls";
+import { AddInput, FieldError, FieldLabel, RemovableChip, StepIntro } from "../controls";
+import { RuleList } from "../rule-list";
 import type { StepProps } from "../types";
 
+// Free-text rules (followed by the AI) and the avoid list (enforced in code).
 export function RulesStep({ draft, update, errors, errorText, hideIntro }: StepProps) {
   const t = useTranslations("Onboarding.rules");
   const [input, setInput] = useState("");
@@ -29,24 +23,16 @@ export function RulesStep({ draft, update, errors, errorText, hideIntro }: StepP
   return (
     <>
       {!hideIntro && <StepIntro title={t("title")} sub={t("sub")} />}
+      {hideIntro && <p className="-mt-1 text-[15px] leading-[1.45] text-text-2">{t("sub")}</p>}
 
-      <div className="flex flex-none flex-col overflow-hidden rounded-[20px] border border-line bg-surface-1">
-        <SwitchRow
-          on={draft.noWarmup}
-          onToggle={() => update({ noWarmup: !draft.noWarmup })}
-          title={t("noWarmup.label")}
-          hint={t("noWarmup.hint")}
-        />
-        <SwitchRow
-          on={draft.absFinisher}
-          onToggle={() => update({ absFinisher: !draft.absFinisher })}
-          title={t("absFinisher.label")}
-          hint={t("absFinisher.hint")}
-        />
+      <div className="flex flex-col gap-2">
+        <RuleList rules={draft.rules} onChange={(rules) => update({ rules })} suggestions={t.raw("suggestions") as string[]} />
+        <FieldError message={errorText(errors.rules)} />
       </div>
 
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-2.5 border-t border-line pt-4">
         <FieldLabel>{t("avoid")}</FieldLabel>
+        <p className="-mt-1 text-[13px] leading-snug text-text-3">{t("avoidHint")}</p>
         {draft.avoid.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {draft.avoid.map((label) => (
@@ -67,18 +53,6 @@ export function RulesStep({ draft, update, errors, errorText, hideIntro }: StepP
         />
         <FieldError message={errorText(errors.avoid)} />
       </div>
-
-      <label className="flex flex-col gap-2">
-        <FieldLabel>{t("notes")}</FieldLabel>
-        <textarea
-          rows={4}
-          value={draft.notes}
-          onChange={(e) => update({ notes: e.target.value })}
-          placeholder={t("notesPlaceholder")}
-          className={`${inputClass} h-auto resize-none py-3.5 leading-[1.45]`}
-        />
-        <FieldError message={errorText(errors.notes)} />
-      </label>
     </>
   );
 }

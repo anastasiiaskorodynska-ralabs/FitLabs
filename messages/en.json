@@ -57,10 +57,9 @@
     "levelGoal": "{level} · Goal: {goal}",
     "sessions": "{minutes} min sessions",
     "rules": {
-      "abs": "Always finish with abs",
-      "noWarmup": "No warm-up",
-      "avoid": "Avoid: {list}",
-      "none": "Nothing set yet"
+      "avoid": "Never: {list}",
+      "none": "Nothing set yet",
+      "more": "+{count} more"
     },
     "equipmentCount": "{count, plural, =0 {Bodyweight only} one {# item} other {# items}}"
   },
@@ -224,20 +223,24 @@
     },
     "rules": {
       "title": "Your rules",
-      "sub": "Every plan we build will follow these.",
-      "noWarmup": {
-        "label": "I don't warm up",
-        "hint": "Skip warm-up sets — go straight to working weight"
-      },
-      "absFinisher": {
-        "label": "Always finish with abs",
-        "hint": "Add 1–2 core exercises at the end of every session"
-      },
-      "avoid": "Avoid these exercises or equipment",
+      "sub": "The AI follows these in every plan.",
+      "rulePlaceholder": "Add a rule, e.g. Fridays under 40 min",
+      "quickAdd": "Quick add",
+      "suggestions": [
+        "No warm-up — start with working weight",
+        "Always finish with an abs block",
+        "Keep each session under 60 minutes",
+        "No jumping or impact exercises",
+        "Glute focus on lower body days"
+      ],
+      "editRule": "Edit rule",
+      "doneEditing": "Done",
+      "editNamed": "Edit rule: {rule}",
+      "removeNamed": "Remove rule: {rule}",
+      "avoid": "Never plan these exercises or equipment",
+      "avoidHint": "They're also hidden when you swap an exercise.",
       "avoidPlaceholder": "e.g. Overhead press",
-      "add": "Add",
-      "notes": "Anything else?",
-      "notesPlaceholder": "e.g. Bad left knee — no jumping. Keep Fridays under 40 min."
+      "add": "Add"
     },
     "equipment": {
       "title": "What does your gym have?",

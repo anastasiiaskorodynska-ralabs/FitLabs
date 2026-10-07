@@ -38,11 +38,11 @@ export const scheduleSchema = z.object({
   sessionLength: z.union(SESSION_LENGTHS.map((n) => z.literal(n)), "pickOne"),
 });
 
+// rules: free-text rules the AI follows in every plan.
+// avoid: exercises or equipment that code keeps out of plans and the swap list.
 export const rulesSchema = z.object({
-  noWarmup: z.boolean(),
-  absFinisher: z.boolean(),
+  rules: z.array(z.string().trim().min(1).max(200, "tooLong")).max(30, "tooMany"),
   avoid: z.array(z.string().trim().min(1).max(60, "tooLong")).max(30, "tooMany"),
-  notes: z.string().max(1000, "tooLong"),
 });
 
 export const equipmentSchema = z.object({

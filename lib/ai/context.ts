@@ -37,11 +37,9 @@ export type GenerationContext = {
     goal: string | null;
   };
   rules: {
-    noWarmup: boolean;
-    absFinisher: boolean;
+    custom: string[]; // the user's own rules, followed via the prompt
     avoidCardioMachines: boolean;
     avoidTerms: string[];
-    notes: string | null;
   };
   equipment: { slug: string; name: string; isCardioMachine: boolean }[];
   library: LibraryEntry[];
@@ -193,11 +191,9 @@ export async function loadGenerationContext(
       goal: profile?.goal ?? null,
     },
     rules: {
-      noWarmup: rules?.no_warmup ?? false,
-      absFinisher: rules?.abs_finisher ?? false,
+      custom: (rules?.rules ?? []).map((r: string) => r.trim()).filter(Boolean),
       avoidCardioMachines: avoidRules.avoidCardioMachines,
       avoidTerms: avoidRules.avoidTerms,
-      notes: rules?.notes ?? null,
     },
     equipment,
     library,

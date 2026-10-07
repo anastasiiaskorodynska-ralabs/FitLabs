@@ -76,12 +76,7 @@ export async function saveRules(input: unknown): Promise<SaveResult> {
 
   const { error } = await supabase
     .from("training_rules")
-    .update({
-      no_warmup: d.noWarmup,
-      abs_finisher: d.absFinisher,
-      avoid_terms: d.avoid,
-      notes: d.notes.trim() || null,
-    })
+    .update({ rules: d.rules, avoid_terms: d.avoid })
     .eq("id", 1);
   return done(error);
 }

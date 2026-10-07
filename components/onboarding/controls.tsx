@@ -124,41 +124,6 @@ export function RadioCard({
   );
 }
 
-export function SwitchRow({
-  on,
-  onToggle,
-  title,
-  hint,
-}: {
-  on: boolean;
-  onToggle: () => void;
-  title: string;
-  hint: string;
-}) {
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={on}
-      onClick={onToggle}
-      className="flex min-h-[72px] items-center gap-3.5 border-b border-line px-4 py-3 text-left text-text last:border-b-0"
-    >
-      <span className="flex flex-1 flex-col gap-0.5">
-        <span className="text-base font-bold">{title}</span>
-        <span className="text-[13px] leading-snug text-text-2">{hint}</span>
-      </span>
-      <span
-        className={cn(
-          "flex h-8 w-[52px] flex-none rounded-full p-[3px] transition-colors",
-          on ? "justify-end bg-brand" : "justify-start bg-surface-3",
-        )}
-      >
-        <span className="size-[26px] rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,.3)]" />
-      </span>
-    </button>
-  );
-}
-
 export function CheckRow({
   on,
   onToggle,

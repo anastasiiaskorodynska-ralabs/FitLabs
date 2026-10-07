@@ -32,6 +32,7 @@ type Section = "personal" | "schedule" | "rules" | "equipment";
 
 const personalSchema = aboutSchema.extend(goalSchema.shape);
 const NAMES_SHOWN = 6;
+const RULES_SHOWN = 3;
 
 export function ProfileView({
   email,
@@ -85,10 +86,9 @@ export function ProfileView({
       key: "rules",
       icon: ListChecks,
       lines: [
-        draft.absFinisher && { text: t("rules.abs") },
-        draft.noWarmup && { text: t("rules.noWarmup") },
+        ...draft.rules.slice(0, RULES_SHOWN).map((text) => ({ text, dot: "bg-brand" })),
+        draft.rules.length > RULES_SHOWN && { text: t("rules.more", { count: draft.rules.length - RULES_SHOWN }) },
         draft.avoid.length > 0 && { text: t("rules.avoid", { list: draft.avoid.join(", ") }) },
-        draft.notes.trim() && { text: draft.notes.trim() },
       ].filter((l): l is SectionLine => Boolean(l)),
     },
     {

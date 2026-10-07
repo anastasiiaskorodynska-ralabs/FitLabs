@@ -1,7 +1,7 @@
 import type { GenerationContext } from "./context";
 
 // Bump when the prompt or output contract changes; stored on weeks.prompt_version.
-export const PROMPT_VERSION = "plan-v2";
+export const PROMPT_VERSION = "plan-v3";
 
 const LANGUAGE = { en: "English", uk: "Ukrainian" } as const;
 
@@ -36,7 +36,12 @@ Progression (use RECENT PERFORMANCES):
 - If they missed reps, keep the weight.
 - With no history, choose conservative starting weights for the user's level, sex and body weight.
 
-Follow every rule in RULES exactly. Write titles, technique notes and reasons in the requested language.
+The user's rules:
+- RULES lists the user's own rules in their words (injuries, structure, timing, preferences). They come before style, examples and volume guidance: if an example or a guideline conflicts with a rule, the rule wins.
+- Add a warm-up block or an abs finisher only when the rules or the examples call for one. A rule like "always finish with abs" means every session ends with exactly one abs block (role "finisher") of abs/core exercises; "no warm-up" means no warm-up blocks or warm-up sets.
+- Before answering, check every session against each rule one by one and fix anything that breaks one.
+
+Write titles, technique notes and reasons in the requested language.
 Return only the JSON object the TASK asks for, with no other text.`;
 
 function line(label: string, value: unknown) {
@@ -65,15 +70,12 @@ function contextSections(ctx: GenerationContext) {
 
   sections.push(
     [
-      "RULES (must always follow)",
-      `- Warm-up: ${rules.noWarmup ? "NO warm-up blocks or warm-up sets" : "a short warm-up block is allowed"}`,
-      `- Abs finisher: ${rules.absFinisher ? 'EVERY session must end with exactly one abs block (role "finisher") made only of abs/core exercises' : "optional"}`,
-      `- Cardio machines (treadmill, elliptical, bike, rower): ${rules.avoidCardioMachines ? "never use" : "allowed"}`,
-      `- Avoid these exercises or equipment: ${rules.avoidTerms.length ? rules.avoidTerms.join(", ") : "none"}`,
-      rules.notes ? `- Extra rules, injuries and limitations: ${rules.notes}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n"),
+      "RULES (must always follow, in every session)",
+      "The user's own rules (any language):",
+      ...(rules.custom.length ? rules.custom.map((r, i) => `${i + 1}. ${r}`) : ["(none)"]),
+      `Never plan these exercises or equipment: ${rules.avoidTerms.length ? rules.avoidTerms.join(", ") : "none"}`,
+      `Cardio machines (treadmill, elliptical, bike, rower): ${rules.avoidCardioMachines ? "never use" : "allowed"}`,
+    ].join("\n"),
   );
 
   sections.push(

@@ -20,9 +20,12 @@ based on each user's examples, history, equipment and rules.
   exercises -> sets. Circuits have rounds and rest_sec on the block.
 - Support: per-set different kg, "max" reps, seconds instead of reps,
   per-side reps, bodyweight (null kg), technique description.
-- Respect user training_rules in code AND prompt: allowed equipment only,
-  abs finisher as the last block, no warm-up if no_warmup, no cardio machines
-  if avoided.
+- Training rules are a free-text list (training_rules.rules) the user edits;
+  every rule goes into every AI prompt and the AI must follow it (e.g. "no
+  warm-up", "always finish with abs"). Code doesn't interpret them.
+- Enforced in code AND prompt: allowed equipment only, the avoid list
+  (avoid_terms), no cardio machines if avoided, and a finisher block (if any)
+  is last and abs-only.
 - Units: kg.
 - Every exercise shows images (from the library) and a video when
   video_url is set; otherwise a "Watch on YouTube" search link.
@@ -57,7 +60,8 @@ based on each user's examples, history, equipment and rules.
 - Volume (about 60 min): lower and upper days 6-9 exercises with supersets
   like the examples; functional circuit days 3 circuits x 3 rounds,
   3 exercises each, 60-90 s rest, a short technique description per
-  exercise; every session ends with an abs block when abs_finisher is on.
+  exercise; warm-up and abs finisher blocks only when the user's rules or
+  examples ask for them.
 - Vary exercises week to week but keep key lifts for progression.
 - Progression: pass the last 1-3 logged performances per exercise. All target
   reps reached -> +2.5 kg on big lifts, +1-2 kg on dumbbells, or more reps;
@@ -79,8 +83,9 @@ The build plan uses some older names; the real schema (supabase/migrations) is:
 - profile.onboarding_done -> profile.onboarded_at (null = not done);
   profile.language -> profile.locale; age is stored as birth_year
 - focus / day_focus -> day_type (lower | upper | func | full)
-- training_rules: avoid_terms[] (free-text exercises or equipment), notes
-  (extra rules and injuries), abs_finisher, no_warmup, avoid_cardio_machines
+- training_rules: rules[] (the user's free-text rules, incl. injuries),
+  avoid_terms[] (exercises or equipment never planned), avoid_cardio_machines.
+  The old no_warmup / abs_finisher / notes columns were folded into rules[].
 - weekday is 0-6 (Monday = 0)
 - Circuit exercises have one set row = the target per round; rest_sec is on
   the block for every block kind.

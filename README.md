@@ -44,6 +44,7 @@ Open http://localhost:3000 and use the browser's phone view (390 × 844).
    4. `20261007000000_ai_generation.sql` — saving generated weeks
    5. `20261008000000_regenerate.sql` — regenerate day / exercise
    6. `20261009000000_logging.sql` — log results
+   7. `20261010000000_custom_rules.sql` — free-text training rules
 
    If Supabase warns "creates tables without enabling Row Level Security", choose **Run and enable RLS** (the migration enables it as well). Never edit a migration that has run — add a new file instead.
 5. **Authentication → URL Configuration:** set **Site URL** to where the app runs and list every address under **Redirect URLs**:

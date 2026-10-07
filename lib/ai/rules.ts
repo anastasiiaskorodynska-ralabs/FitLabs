@@ -103,7 +103,6 @@ function checkSession(s: AiSession, ctx: GenerationContext, errors: string[]): A
     const where = `${s.date} block ${bi + 1}`;
     const isLast = bi === s.blocks.length - 1;
 
-    if (b.role === "warmup" && ctx.rules.noWarmup) errors.push(`${where}: the user does not warm up. Remove warm-up blocks.`);
     if (b.role === "finisher") {
       finisherCount++;
       if (!isLast) errors.push(`${where}: the abs finisher must be the last block.`);
@@ -129,13 +128,9 @@ function checkSession(s: AiSession, ctx: GenerationContext, errors: string[]): A
     blocks.push({ ...b, rounds: b.kind === "circuit" ? b.rounds : null, exercises });
   });
 
-  if (ctx.rules.absFinisher) {
-    if (finisherCount !== 1 || s.blocks.at(-1)?.role !== "finisher") {
-      errors.push(`${s.date}: the session must end with exactly one abs finisher block (role "finisher").`);
-    }
-  } else if (finisherCount > 1) {
-    errors.push(`${s.date}: use at most one finisher block.`);
-  }
+  // Whether a session has a warm-up or a finisher is up to the user's rules
+  // (followed via the prompt); code only keeps the structure valid.
+  if (finisherCount > 1) errors.push(`${s.date}: use at most one finisher block.`);
   if (exerciseCount < LIMITS.exercisesPerSession.min || exerciseCount > LIMITS.exercisesPerSession.max) {
     errors.push(`${s.date}: plan between 3 and 16 exercises (now ${exerciseCount}).`);
   }
