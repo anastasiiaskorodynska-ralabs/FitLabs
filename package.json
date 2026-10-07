@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "check:messages": "node scripts/check-messages.mjs"
+    "check:messages": "node scripts/check-messages.mjs",
+    "import:images": "node --env-file=.env.local scripts/import-exercise-images.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

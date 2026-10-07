@@ -71,7 +71,9 @@ based on each user's examples, history, equipment and rules.
 
 ## Media
 - Images: free-exercise-db (public domain) with start and end position
-  images; copy them to Supabase Storage rather than linking GitHub.
+  images, copied into the public Storage bucket "exercise-images" by
+  `npm run import:images` (mapping: scripts/exercise-images.json; unmapped
+  exercises match by exact English name). Re-run after new exercises appear.
 - Video: video_url per exercise (YouTube or Shorts link, embedded). Fallback
   search: exercise name_en + "technique".
 

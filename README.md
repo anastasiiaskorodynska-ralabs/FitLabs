@@ -46,6 +46,15 @@ Open http://localhost:3000 and use the browser's phone view (390 × 844).
    6. `20261009000000_logging.sql` — log results
    7. `20261010000000_custom_rules.sql` — free-text training rules
    8. `20261011000000_remove_full_body.sql` — three workout types only
+   9. `20261012000000_exercise_images_bucket.sql` — public bucket for exercise photos
+
+   Then import the exercise photos (start and end position) from [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (public domain) into that bucket:
+
+   ```bash
+   npm run import:images
+   ```
+
+   Re-run it any time, e.g. after the AI adds new exercises: those get photos when their English name matches the dataset exactly. To change which photo an exercise uses, edit `scripts/exercise-images.json`.
 
    If Supabase warns "creates tables without enabling Row Level Security", choose **Run and enable RLS** (the migration enables it as well). Never edit a migration that has run — add a new file instead.
 5. **Authentication → URL Configuration:** set **Site URL** to where the app runs and list every address under **Redirect URLs**:
@@ -79,6 +88,7 @@ Supabase and Vercel free plans cover one user. Only Claude calls cost money: a g
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript, no emit |
 | `npm run check:messages` | EN/UK keys match, every used key exists, no hard-coded UI text |
+| `npm run import:images` | Import exercise photos from free-exercise-db into Supabase Storage (add `-- --dry-run` to preview) |
 
 ## Structure
 
