@@ -1,0 +1,3711 @@
+{
+  "source": "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/dist/exercises.json",
+  "exercises": [
+    {
+      "source_id": "Chin-Up",
+      "slug": "fedb-chin-up",
+      "source_name": "Chin-Up",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "forearms",
+        "back"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "pull-up-bar"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Chin-up",
+      "name_uk": "Підтягування зворотним хватом",
+      "technique_en": "Grip the bar with palms facing you, hands closer than shoulder width, and hang with chest out\nExhale and pull up until your head is level with the bar, keeping elbows close and torso still\nSqueeze the biceps for a second, then lower under control to full arm extension",
+      "technique_uk": "Візьміться за перекладину долонями до себе, хват вужчий за плечі, повисніть з виставленими грудьми\nНа видиху підтягніться, доки голова не опиниться на рівні перекладини, лікті біля тулуба, корпус нерухомий\nЗатримайтесь на секунду з напруженими біцепсами, потім повільно опустіться до повного випрямлення рук"
+    },
+    {
+      "source_id": "Cocoons",
+      "slug": "fedb-cocoons",
+      "source_name": "Cocoons",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Cocoons",
+      "name_uk": "Кокони",
+      "technique_en": "Lie on your back with legs straight and arms extended overhead\nTuck knees to your chest, lifting your glutes off the floor while bringing arms over and crunching\nPause briefly, then return to the start with control",
+      "technique_uk": "Ляжте на спину, ноги прямі, руки витягнуті за голову\nПідтягніть коліна до грудей, відриваючи сідниці від підлоги, а руки заведіть уперед і скрутіться\nКоротко зупиніться і під контролем поверніться у вихідне положення"
+    },
+    {
+      "source_id": "Box_Skip",
+      "slug": "fedb-box-skip",
+      "source_name": "Box Skip",
+      "muscle_groups": [
+        "hamstrings",
+        "glutes",
+        "adductors",
+        "calves",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "plyo-box"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Box skip",
+      "name_uk": "Скіпінг на тумбу",
+      "technique_en": "Line up boxes about 8 feet apart and face the first one with one leg slightly behind\nDrive off the back leg and get as much hip height as possible onto the box\nOn landing, drive the other leg up and forward to leap off, land between boxes on the same leg, then step to the next box",
+      "technique_uk": "Розставте тумби приблизно за 2,5 м одна від одної, станьте обличчям до першої, одна нога трохи позаду\nВідштовхніться задньою ногою, набираючи якомога більшу висоту тазом на тумбу\nПісля приземлення підніміть іншу ногу вперед і вгору та зістрибніть, приземлившись між тумбами на ту саму ногу, потім перейдіть до наступної"
+    },
+    {
+      "source_id": "Butt-Ups",
+      "slug": "fedb-butt-ups",
+      "source_name": "Butt-Ups",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Forearm plank butt-up",
+      "name_uk": "Підйом тазу в планці на передпліччях",
+      "technique_en": "Get in a plank on your forearms with elbows at 90 degrees and back slightly rounded\nExhale and lift your glutes toward the ceiling, tightening abs into a high bridge\nLower slowly while inhaling, without letting your back sag",
+      "technique_uk": "Прийміть планку на передпліччях, лікті під 90°, спина трохи округлена\nНа видиху підніміть таз до стелі, сильно напружуючи прес, у позицію високого містка\nПовільно опустіться на вдосі, не прогинаючи поперек"
+    },
+    {
+      "source_id": "JM_Press",
+      "slug": "fedb-jm-press",
+      "source_name": "JM Press",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "JM press",
+      "name_uk": "Жим JM",
+      "technique_en": "Lie on a flat bench with a close-grip barbell locked out above your upper chest, elbows in\nLower the bar like a triceps extension, and at halfway let it roll back an inch as upper arms move toward your legs, keeping elbow bend constant\nExhale and press up with your triceps as in a close-grip bench press",
+      "technique_uk": "Ляжте на пряму лаву, гриф вузьким хватом у витягнутих руках над верхом грудей, лікті всередину\nОпускайте гриф як у french-жимі, на середині дайте йому відкотитися на 2–3 см, рухаючи плечі до ніг і тримаючи кут у ліктях незмінним\nНа видиху витисніть гриф вгору трицепсами, як у жимі вузьким хватом"
+    },
+    {
+      "source_id": "Star_Jump",
+      "slug": "fedb-star-jump",
+      "source_name": "Star Jump",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings",
+        "shoulders"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Star jump",
+      "name_uk": "Стрибок зіркою",
+      "technique_en": "Stand with feet shoulder width apart and arms close to your body\nSquat halfway and explode up as high as you can, spreading arms and legs wide\nLand with limbs back in, absorbing impact through your legs",
+      "technique_uk": "Станьте з ногами на ширині плечей, руки біля тулуба\nПрисядьте наполовину і вибухово стрибніть якомога вище, розкидаючи руки й ноги в сторони\nПриземліться, звівши кінцівки, і амортизуйте удар ногами"
+    },
+    {
+      "source_id": "3_4_Sit-Up",
+      "slug": "fedb-3-4-sit-up",
+      "source_name": "3/4 Sit-Up",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "3/4 sit-up",
+      "name_uk": "Скручування 3/4",
+      "technique_en": "Lie on your back with knees bent, feet secured and hands behind or beside your head\nFlex hips and spine to raise your torso toward your knees until it is perpendicular to the floor\nLower only three quarters of the way down, then go again",
+      "technique_uk": "Ляжте на спину, коліна зігнуті, ноги зафіксовані, руки за головою або біля неї\nЗігніть стегна й хребет, піднімаючи корпус до колін, доки він не стане перпендикулярним до підлоги\nОпускайтесь лише на три чверті шляху і повторіть"
+    },
+    {
+      "source_id": "Bench_Dips",
+      "slug": "fedb-bench-dips",
+      "source_name": "Bench Dips",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "dip-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Bench dips",
+      "name_uk": "Зворотні віджимання від лави",
+      "technique_en": "Sit on the bench edge, hands shoulder width beside you, then slide off with arms extended and legs forward\nInhale and lower by bending elbows to slightly under 90 degrees, keeping elbows close and forearms vertical\nPress up with your triceps back to the start",
+      "technique_uk": "Сядьте на край лави, руки на ширині плечей, зісуньтеся з прямими руками, ноги витягнуті вперед\nНа вдосі опускайтеся, згинаючи лікті трохи менше ніж до 90°, лікті близько, передпліччя вертикально\nВідштовхніться трицепсами у вихідне положення"
+    },
+    {
+      "source_id": "Bottoms_Up",
+      "slug": "fedb-bottoms-up",
+      "source_name": "Bottoms Up",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Bottoms up",
+      "name_uk": "Підйом таза догори",
+      "technique_en": "Lie on your back with legs straight and arms at your sides\nTuck knees to your chest, extend legs straight up, then rotate and lift your glutes off the floor\nPause briefly and return to the start",
+      "technique_uk": "Ляжте на спину, ноги прямі, руки вздовж тіла\nПідтягніть коліна до грудей, випряміть ноги вертикально вгору і, прокрутивши таз, відірвіть сідниці від підлоги\nКоротко зупиніться і поверніться у вихідне положення"
+    },
+    {
+      "source_id": "Hack_Squat",
+      "slug": "fedb-hack-squat",
+      "source_name": "Hack Squat",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "hack-squat"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Hack squat",
+      "name_uk": "Гак-присідання",
+      "technique_en": "Set your back on the pad and shoulders under the pads, feet shoulder width on the platform, toes slightly out, then release the safety\nLower under control with head up and back on the pad until thighs are just below parallel, knees not past toes\nExhale and push through your heels to straighten legs without locking the knees",
+      "technique_uk": "Притисніть спину до подушки, плечі під упори, ноги на платформі на ширині плечей, носки трохи назовні, зніміть запобіжники\nКонтрольовано опускайтесь з піднятою головою і спиною на подушці, доки стегна не опиняться трохи нижче паралелі, коліна не за носки\nНа видиху штовхайте п’ятами й випрямляйте ноги, не замикаючи коліна"
+    },
+    {
+      "source_id": "Split_Jump",
+      "slug": "fedb-split-jump",
+      "source_name": "Split Jump",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Split jump",
+      "name_uk": "Стрибок у випаді",
+      "technique_en": "Take a lunge stance with the front knee over the midline of the foot and rear knee near the floor\nJump as high as possible through both legs, swinging your arms and bringing feet together in the air\nLand back in the lunge stance, absorbing the impact",
+      "technique_uk": "Прийміть позицію випаду, переднє коліно над серединою стопи, заднє майже торкається підлоги\nВибухово стрибніть якомога вище, махаючи руками і зводячи ноги разом у повітрі\nПриземліться назад у випад, амортизуючи удар"
+    },
+    {
+      "source_id": "Leg_Pull-In",
+      "slug": "fedb-leg-pull-in",
+      "source_name": "Leg Pull-In",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Leg pull-in",
+      "name_uk": "Підтягування колін лежачи",
+      "technique_en": "Lie on a mat with legs extended and hands beside you or under your glutes\nExhale and pull knees in to chest level, keeping lower legs parallel to the floor and abs tight\nHold a second, then inhale and extend back to the start",
+      "technique_uk": "Ляжте на килимок, ноги витягнуті, руки вздовж тіла або під сідницями\nНа видиху підтягніть коліна до рівня грудей, гомілки паралельно підлозі, прес напружений\nЗатримайтесь на секунду, на вдосі поверніться у вихідне положення"
+    },
+    {
+      "source_id": "Rocket_Jump",
+      "slug": "fedb-rocket-jump",
+      "source_name": "Rocket Jump",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Rocket jump",
+      "name_uk": "Стрибок ракетою",
+      "technique_en": "Stand with feet shoulder width apart and arms close to your body\nSquat halfway and explode up as high as possible\nReach fully overhead in the air, then land softly absorbing impact through your legs",
+      "technique_uk": "Станьте з ногами на ширині плечей, руки біля тулуба\nПрисядьте наполовину і вибухово стрибніть якомога вище\nУ польоті повністю витягніться руками вгору, приземліться м’яко, амортизуючи ногами"
+    },
+    {
+      "source_id": "Shotgun_Row",
+      "slug": "fedb-shotgun-row",
+      "source_name": "Shotgun Row",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Shotgun row",
+      "name_uk": "Тяга «шотган» на блоці",
+      "technique_en": "Attach a single handle to a low cable and stand back in a wide split stance, arm extended and shoulder forward\nPull by retracting the shoulder and bending the elbow, turning your palm upward as you go\nPause briefly, then return with control",
+      "technique_uk": "Закріпіть одну рукоятку на нижньому блоці, станьте далі в широку розкладну стійку, рука витягнута, плече подане вперед\nТягніть, відводячи плече назад і згинаючи лікоть, розвертаючи долоню догори\nКоротко зупиніться і контрольовано поверніться у вихідне положення"
+    },
+    {
+      "source_id": "Monster_Walk",
+      "slug": "fedb-monster-walk",
+      "source_name": "Monster Walk",
+      "muscle_groups": [
+        "glutes"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "resistance-bands"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Monster walk",
+      "name_uk": "Монстр-ходьба з гумкою",
+      "technique_en": "Put one band around your ankles and another above your knees, tight with feet shoulder width apart\nTake short steps forward, alternating left and right foot\nAfter several steps, walk backward to where you started",
+      "technique_uk": "Одягніть одну гумку на кісточки, іншу на коліна, щоб вона була натягнута при ногах на ширині плечей\nРобіть короткі кроки вперед, чергуючи ліву і праву ногу\nПісля кількох кроків ідіть назад до початкової точки"
+    },
+    {
+      "source_id": "Plyo_Push-up",
+      "slug": "fedb-plyo-push-up",
+      "source_name": "Plyo Push-up",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Plyo push-up",
+      "name_uk": "Плиометричні віджимання",
+      "technique_en": "Get in a push-up position with arms extended, hands about shoulder width, body straight\nLower your chest toward the floor by bending the elbows\nExplode up so your hands leave the ground, then land softly and repeat, adding a clap for more difficulty",
+      "technique_uk": "Прийміть упор лежачи, руки прямі, долоні приблизно на ширині плечей, тіло пряме\nОпустіть груди до підлоги, згинаючи лікті\nВибухово відштовхніться так, щоб долоні відірвалися від підлоги, м’яко приземліться і повторіть, для складності додайте оплеск"
+    },
+    {
+      "source_id": "Push-Up_Wide",
+      "slug": "fedb-push-up-wide",
+      "source_name": "Push-Up Wide",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Wide push-up",
+      "name_uk": "Віджимання широким хватом",
+      "technique_en": "Set up in a plank with hands wide, elbows extended, body straight and hips not sagging\nInhale and bend your elbows to lower your chest to the floor\nExhale and press back up with your chest to the start",
+      "technique_uk": "Прийміть планку з широко поставленими руками, лікті випрямлені, тіло пряме, таз не провисає\nНа вдосі згинайте лікті, опускаючи груди до підлоги\nНа видиху видавіть тіло вгору грудними м’язами у вихідне положення"
+    },
+    {
+      "source_id": "Spell_Caster",
+      "slug": "fedb-spell-caster",
+      "source_name": "Spell Caster",
+      "muscle_groups": [
+        "abs",
+        "glutes",
+        "shoulders"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": true,
+      "name_en": "Spell caster",
+      "name_uk": "Ротаційні розмахи з гантелями",
+      "technique_en": "Stand with feet wide, holding a dumbbell in each hand with an overhand grip, hips and knees extended\nRotate your torso and pull both dumbbells to one side next to your hip\nKeep arms straight and dumbbells parallel to the floor as you swing to the other side, alternating",
+      "technique_uk": "Станьте з широко розставленими ногами, гантелі в руках прямим хватом, стегна й коліна випрямлені\nПовертайте корпус і підводьте обидві гантелі до стегна з одного боку\nТримаючи руки прямими, а гантелі паралельно підлозі, перемахуйте на іншу сторону, чергуючи боки"
+    },
+    {
+      "source_id": "Spider_Crawl",
+      "slug": "fedb-spider-crawl",
+      "source_name": "Spider Crawl",
+      "muscle_groups": [
+        "abs",
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Spider crawl",
+      "name_uk": "Хід павука",
+      "technique_en": "Start in a plank on hands and toes, feet together, arms bent to 90 degrees\nRaise one foot, rotate the leg outward and bring the knee toward your elbow as far as you can\nReturn the leg to the start and repeat on the other side",
+      "technique_uk": "Прийміть упор на руках і носках, ноги разом, руки зігнуті до 90°\nПідніміть одну ногу, розверніть її назовні й підведіть коліно до ліктя якомога далі\nПоверніть ногу у вихідне положення і повторіть з іншого боку"
+    },
+    {
+      "source_id": "V-Bar_Pullup",
+      "slug": "fedb-v-bar-pullup",
+      "source_name": "V-Bar Pullup",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "pull-up-bar"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "V-bar pull-up",
+      "name_uk": "Підтягування з V-рукояттю",
+      "technique_en": "Fix the V-bar on the pull-up bar, grab both sides and hang, chest out and leaning back slightly\nExhale and pull up with your lats, tilting your head back, until your chest nearly touches the V-bar\nHold a second, then lower slowly as you inhale",
+      "technique_uk": "Закріпіть V-рукоять на перекладині, візьміться за обидві сторони й повисніть, груди вперед, трохи відхиліться назад\nНа видиху підтягніться широчезними, відкинувши голову, доки груди майже не торкнуться рукояті\nЗатримайтесь на секунду, потім повільно опустіться на вдосі"
+    },
+    {
+      "source_id": "Wind_Sprints",
+      "slug": "fedb-wind-sprints",
+      "source_name": "Wind Sprints",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Hanging knee raise sprints",
+      "name_uk": "Швидкі підйоми колін у висі",
+      "technique_en": "Hang from a pull-up bar with an overhand grip, arms and legs extended\nQuickly drive one knee up as high as you can, then lower it and raise the other knee\nKeep your body still and do not swing; alternate legs until the set is done",
+      "technique_uk": "Повисніть на перекладині хватом зверху, руки й ноги випрямлені\nШвидко підніміть одне коліно якомога вище, опустіть його й одразу підніміть інше\nТримайте тіло нерухомо без розгойдування; чергуйте ноги до кінця підходу"
+    },
+    {
+      "source_id": "Barbell_Squat",
+      "slug": "fedb-barbell-squat",
+      "source_name": "Barbell Squat",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings",
+        "back"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell back squat",
+      "name_uk": "Присідання зі штангою на спині",
+      "technique_en": "Set the bar on your upper back in a rack, unrack it and stand shoulder-width with toes slightly out\nSit down by bending knees and hips, keeping head up and back straight, until thighs are about parallel\nDrive through your heels to stand up, keeping knees in line with toes",
+      "technique_uk": "Покладіть штангу на верх спини в стійці, зніміть її й станьте на ширині плечей, носки трохи назовні\nПрисідайте, згинаючи коліна й таз, голова вгору, спина пряма, до паралелі стегон з підлогою\nВиштовхніться п’ятами вгору, тримаючи коліна в одній лінії з носками"
+    },
+    {
+      "source_id": "Elbow_to_Knee",
+      "slug": "fedb-elbow-to-knee",
+      "source_name": "Elbow to Knee",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Elbow to knee crunch",
+      "name_uk": "Скручування лікоть до коліна",
+      "technique_en": "Lie on your back with one ankle crossed over the opposite bent knee, hands behind your head\nCurl up and rotate your torso to bring the elbow toward the opposite knee\nLower with control and finish all reps before switching sides",
+      "technique_uk": "Лягте на спину, кісточку однієї ноги покладіть на коліно іншої зігнутої ноги, руки за головою\nПіднімаючись, скрутіть корпус і потягніться ліктем до протилежного коліна\nКонтрольовано опустіться й виконайте всі повторення, потім змініть бік"
+    },
+    {
+      "source_id": "Fast_Skipping",
+      "slug": "fedb-fast-skipping",
+      "source_name": "Fast Skipping",
+      "muscle_groups": [
+        "quads",
+        "glutes",
+        "adductors",
+        "calves",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Fast skipping",
+      "name_uk": "Швидкий скіпінг",
+      "technique_en": "Stand relaxed with one leg slightly forward\nSkip with a step-hop pattern, two hops on each leg, alternating sides\nStay low to the ground with minimal air time and move as fast as you can",
+      "technique_uk": "Станьте розслаблено, одна нога трохи попереду\nСкачіть кроком із підскоком, по два підскоки на кожній нозі, чергуючи сторони\nТримайтеся низько над землею з мінімальним польотом і рухайтеся якомога швидше"
+    },
+    {
+      "source_id": "Flutter_Kicks",
+      "slug": "fedb-flutter-kicks",
+      "source_name": "Flutter Kicks",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Bench flutter kicks",
+      "name_uk": "Мах ногами лежачи на лаві",
+      "technique_en": "Lie face down with hips at the bench edge, hold the bench front, and raise straight legs to hip level\nLift one leg higher, then lower it as the other rises\nKeep the movement controlled, alternate legs and breathe normally",
+      "technique_uk": "Лягте обличчям вниз, таз на краю лави, тримайтесь за передній край і підніміть прямі ноги до рівня тазу\nПіднімайте одну ногу вище, опускаючи її, коли піднімається інша\nРухайтеся контрольовано, чергуйте ноги й дихайте рівно"
+    },
+    {
+      "source_id": "Lateral_Bound",
+      "slug": "fedb-lateral-bound",
+      "source_name": "Lateral Bound",
+      "muscle_groups": [
+        "adductors",
+        "glutes",
+        "calves",
+        "hamstrings",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Lateral bound",
+      "name_uk": "Бічні стрибки",
+      "technique_en": "Stand sideways to the direction of travel in a half squat\nShift weight to the outside leg and push off to bound sideways as far as possible\nLand on one leg, then immediately bound back the other way",
+      "technique_uk": "Станьте боком до напрямку руху в напівприсіді\nПеренесіть вагу на зовнішню ногу й відштовхніться, стрибаючи вбік якомога далі\nПриземліться на одну ногу й одразу стрибніть у протилежний бік"
+    },
+    {
+      "source_id": "Overhead_Slam",
+      "slug": "fedb-overhead-slam",
+      "source_name": "Overhead Slam",
+      "muscle_groups": [
+        "lats"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "medicine-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Medicine ball overhead slam",
+      "name_uk": "Кидок медболу над головою в підлогу",
+      "technique_en": "Stand shoulder-width apart holding a medicine ball in both hands\nRaise the ball overhead, extending your whole body\nSlam it into the floor in front of you as hard as you can, then catch it on the bounce",
+      "technique_uk": "Станьте на ширині плечей, тримаючи медбол обома руками\nПіднімте м’яч над головою, повністю випрямивши тіло\nЗі всієї сили вдаріть м’ячем у підлогу перед собою й піймайте його після відскоку"
+    },
+    {
+      "source_id": "Scissors_Jump",
+      "slug": "fedb-scissors-jump",
+      "source_name": "Scissors Jump",
+      "muscle_groups": [
+        "quads",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Scissor jump",
+      "name_uk": "Стрибки «ножиці» з випадів",
+      "technique_en": "Start in a lunge with the front knee over the midfoot and rear knee near the floor\nJump as high as possible, swinging your arms\nSwitch legs in the air and land softly in a lunge, then repeat",
+      "technique_uk": "Прийміть позицію випаду: переднє коліно над серединою стопи, заднє майже торкається підлоги\nСтрибніть якомога вище, допомагаючи руками\nУ повітрі поміняйте ноги й м’яко приземліться у випад, потім повторіть"
+    },
+    {
+      "source_id": "Dumbbell_Raise",
+      "slug": "fedb-dumbbell-raise",
+      "source_name": "Dumbbell Raise",
+      "muscle_groups": [
+        "shoulders",
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell lateral raise",
+      "name_uk": "Махи гантелями убік",
+      "technique_en": "Stand tall with a dumbbell in each hand at your sides, elbows slightly bent\nRaise the dumbbells out to the sides until nearly chin height, elbows leading\nPause briefly, then lower slowly without swinging your torso",
+      "technique_uk": "Станьте прямо з гантелями біля боків, лікті трохи зігнуті\nПіднімайте гантелі убік майже до рівня підборіддя, лікті ведуть рух\nЗробіть коротку паузу й повільно опустіть, не розгойдуючи корпус"
+    },
+    {
+      "source_id": "Dumbbell_Squat",
+      "slug": "fedb-dumbbell-squat",
+      "source_name": "Dumbbell Squat",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings",
+        "back"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell squat",
+      "name_uk": "Присідання з гантелями",
+      "technique_en": "Stand shoulder-width apart with a dumbbell in each hand at your sides, toes slightly out\nLower by bending knees and hips, head up and back straight, until thighs are parallel to the floor\nPush through your heels to stand, keeping knees in line with toes",
+      "technique_uk": "Станьте на ширині плечей з гантелями біля боків, носки трохи назовні\nОпускайтеся, згинаючи коліна й таз, голова вгору, спина пряма, до паралелі стегон з підлогою\nВиштовхніться п’ятами вгору, тримаючи коліна в лінії з носками"
+    },
+    {
+      "source_id": "Glute_Kickback",
+      "slug": "fedb-glute-kickback",
+      "source_name": "Glute Kickback",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Quadruped glute kickback",
+      "name_uk": "Відведення ноги назад на четвереньках",
+      "technique_en": "Get on all fours with hands under shoulders, head neutral and knees bent at 90 degrees\nLift one leg until the thigh is in line with your back, keeping the knee bent\nSqueeze the glute for a second, lower, and alternate legs",
+      "technique_uk": "Станьте на четвереньки: руки під плечима, голова нейтрально, коліна зігнуті на 90 градусів\nПіднімайте одну ногу, доки стегно не опиниться на лінії зі спиною, зберігаючи кут у коліні\nСтисніть сідницю на секунду, опустіть ногу й чергуйте сторони"
+    },
+    {
+      "source_id": "Knee_Tuck_Jump",
+      "slug": "fedb-knee-tuck-jump",
+      "source_name": "Knee Tuck Jump",
+      "muscle_groups": [
+        "hamstrings",
+        "glutes",
+        "adductors",
+        "calves",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Knee tuck jump",
+      "name_uk": "Стрибок із підтягуванням колін",
+      "technique_en": "Stand with knees slightly bent and palms down in front of your chest\nDip quickly into a quarter squat, then explode upward\nDrive your knees up to touch your palms, then land softly with knees bending",
+      "technique_uk": "Станьте з трохи зігнутими колінами, долоні перед грудьми донизу\nШвидко опустіться в чверть-присід і вибухово стрибніть угору\nПідтягніть коліна до долонь і м’яко приземліться, амортизуючи колінами"
+    },
+    {
+      "source_id": "Landmine_180s",
+      "slug": "fedb-landmine-180s",
+      "source_name": "Landmine 180's",
+      "muscle_groups": [
+        "abs",
+        "glutes",
+        "back",
+        "shoulders"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": true,
+      "name_en": "Landmine 180s",
+      "name_uk": "Повороти зі штангою в лендмайні на 180",
+      "technique_en": "Anchor the bar in a landmine and hold the end at shoulder height with straight arms, feet wide\nRotate your trunk and hips to swing the bar down to one side\nReverse smoothly to the other side, keeping arms straight, until the set is done",
+      "technique_uk": "Закріпіть штангу в лендмайні й тримайте її кінець на рівні плечей прямими руками, ноги широко\nПоверніть корпус і таз, опускаючи штангу дугою в один бік\nПлавно змініть напрямок на протилежний бік, тримаючи руки прямими, до кінця підходу"
+    },
+    {
+      "source_id": "Side_Jackknife",
+      "slug": "fedb-side-jackknife",
+      "source_name": "Side Jackknife",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Side jackknife",
+      "name_uk": "Бічний складний прес",
+      "technique_en": "Lie on your side with legs straight and one arm extended overhead\nLift your legs and upper body at the same time, folding toward each other\nLower with control and finish all reps before switching sides",
+      "technique_uk": "Лягте на бік, ноги прямі, одна рука витягнута над головою\nОдночасно піднімайте ноги й верх тулуба, складаючись назустріч одне одному\nКонтрольовано опустіться й виконайте всі повторення, потім змініть бік"
+    },
+    {
+      "source_id": "Vertical_Swing",
+      "slug": "fedb-vertical-swing",
+      "source_name": "Vertical Swing",
+      "muscle_groups": [
+        "hamstrings",
+        "glutes",
+        "quads",
+        "shoulders"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell vertical swing",
+      "name_uk": "Мах гантеллю вертикально над головою",
+      "technique_en": "Hold a dumbbell with both hands at arm's length between your legs, back straight, head up\nSwing it back between your legs, hinging at the hips with a slight knee bend\nExplosively extend hips, knees and ankles to swing it overhead, then land softly and bring it back to your torso",
+      "technique_uk": "Тримайте гантель двома руками між ногами на прямих руках, спина пряма, голова вгору\nВідведіть гантель назад між ноги, згинаючись у тазі й трохи згинаючи коліна\nВибухово розігніть таз, коліна й гомілки, піднімаючи гантель над головою, м’яко приземліться й поверніть її до корпусу"
+    },
+    {
+      "source_id": "Cable_Deadlifts",
+      "slug": "fedb-cable-deadlifts",
+      "source_name": "Cable Deadlifts",
+      "muscle_groups": [
+        "quads",
+        "forearms",
+        "glutes",
+        "hamstrings",
+        "back"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable deadlift",
+      "name_uk": "Станова тяга на блоці",
+      "technique_en": "Set both cables low, pick a weight and stand between the towers\nSquat down by bending hips and knees to grab the handles\nDrive through your heels to stand tall, arms hanging, chest and head up",
+      "technique_uk": "Встановіть обидва блоки внизу, оберіть вагу й станьте між стійками\nПрисядьте, згинаючи таз і коліна, щоб узятися за рукоятки\nВиштовхніться п’ятами до повного випрямлення, руки опущені, груди й голова вгору"
+    },
+    {
+      "source_id": "Cable_Judo_Flip",
+      "slug": "fedb-cable-judo-flip",
+      "source_name": "Cable Judo Flip",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": true,
+      "name_en": "Cable judo flip",
+      "name_uk": "Тяга канату «кидок дзюдо»",
+      "technique_en": "Attach a rope to the low pulley, stand sideways with a wide stance and hold the rope with both hands\nTwist away from the cable, bringing the rope over your shoulder like a judo throw\nShift your weight, rotate and crunch forward pulling the cable down, then return; repeat on both sides",
+      "technique_uk": "Прикріпіть канат до нижнього блока, станьте боком із широкою стійкою й візьміть канат обома руками\nПоверніться від блока, проводячи канат через плече, як у кидку дзюдо\nПеренесіть вагу, скрутіться вперед, тягнучи канат вниз, поверніться назад; повторіть в обидва боки"
+    },
+    {
+      "source_id": "Incline_Push-Up",
+      "slug": "fedb-incline-push-up",
+      "source_name": "Incline Push-Up",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Incline push-up",
+      "name_uk": "Віджимання від лави",
+      "technique_en": "Place your hands on a bench slightly wider than shoulders, feet back, body straight\nLower your chest to the edge of the bench by bending your arms\nPush up until your arms are straight, keeping the body in one line",
+      "technique_uk": "Поставте руки на лаву трохи ширше плечей, ноги відведіть назад, тіло пряме\nОпустіть груди до краю лави, згинаючи руки\nВідштовхніться до повного випрямлення рук, тримаючи тіло в одній лінії"
+    },
+    {
+      "source_id": "Bodyweight_Squat",
+      "slug": "fedb-bodyweight-squat",
+      "source_name": "Bodyweight Squat",
+      "muscle_groups": [
+        "quads",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Bodyweight squat",
+      "name_uk": "Присідання з власною вагою",
+      "technique_en": "Stand shoulder-width apart, hands behind your head or in front\nSit back and down by bending knees and hips, as deep as you can control\nKeep chest and head up, push knees out and stand back up",
+      "technique_uk": "Станьте на ширині плечей, руки за головою або перед собою\nСідайте назад і вниз, згинаючи коліна й таз, на комфортну глибину\nТримайте груди й голову вгору, коліна ведіть назовні й підніміться"
+    },
+    {
+      "source_id": "Isometric_Wipers",
+      "slug": "fedb-isometric-wipers",
+      "source_name": "Isometric Wipers",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "seconds",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Isometric wipers",
+      "name_uk": "Ізометричні двірники",
+      "technique_en": "Get into a push-up position with hands just outside shoulder width and body straight\nShift your weight to one side, bending that elbow as you lower\nPush back up and shift to the other side, repeating",
+      "technique_uk": "Прийміть упор лежачи, руки трохи ширше плечей, тіло пряме\nПереніс­іть вагу на один бік, згинаючи лікоть цього боку й опускаючись\nВідштовхніться вгору й перенесіть вагу на інший бік, повторюючи рух"
+    },
+    {
+      "source_id": "Jackknife_Sit-Up",
+      "slug": "fedb-jackknife-sit-up",
+      "source_name": "Jackknife Sit-Up",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Jackknife sit-up",
+      "name_uk": "Складка (джек-ніф)",
+      "technique_en": "Lie on your back with arms extended overhead and legs straight.\nExhale and lift arms and legs together, folding at the waist with legs at 35-45 degrees.\nKeep legs and arms straight, then lower back under control.",
+      "technique_uk": "Ляжте на спину, руки витягніть за голову, ноги випряміть.\nНа видиху одночасно підніміть руки й ноги, складаючись у талії, ноги під кутом 35-45 градусів.\nТримайте руки й ноги прямими, потім повільно опустіться назад."
+    },
+    {
+      "source_id": "Lateral_Box_Jump",
+      "slug": "fedb-lateral-box-jump",
+      "source_name": "Lateral Box Jump",
+      "muscle_groups": [
+        "adductors",
+        "glutes",
+        "calves",
+        "hamstrings",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "plyo-box"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Lateral box jump",
+      "name_uk": "Бічний стрибок на бокс",
+      "technique_en": "Stand beside a low box with feet comfortably apart.\nDip into a quarter squat and jump up and sideways, driving knees high.\nLand softly in the center of the box, then step down the other side and repeat.",
+      "technique_uk": "Станьте збоку від низького боксу, ноги на комфортній ширині.\nЗробіть чверть-присід і стрибніть вгору та вбік, високо піднімаючи коліна.\nМ'яко приземліться в центр боксу, зійдіть з іншого боку й повторіть."
+    },
+    {
+      "source_id": "Parallel_Bar_Dip",
+      "slug": "fedb-parallel-bar-dip",
+      "source_name": "Parallel Bar Dip",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dip-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Parallel bar dip",
+      "name_uk": "Віджимання на брусах",
+      "technique_en": "Grip the bars and jump up into a locked-out support position.\nLower by bending the elbows until they pass 90 degrees, without swinging.\nPress back up to full lockout with good posture.",
+      "technique_uk": "Візьміться за бруси та стрибком займіть упор на випрямлених руках.\nОпускайтеся, згинаючи лікті нижче 90 градусів, без розгойдування.\nВіджміться до повного випрямлення рук, тримаючи поставу."
+    },
+    {
+      "source_id": "Cable_Chest_Press",
+      "slug": "fedb-cable-chest-press",
+      "source_name": "Cable Chest Press",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable chest press",
+      "name_uk": "Жим від грудей у блоковому тренажері",
+      "technique_en": "Sit holding the handles, upper arms about 45 degrees from the body, chest up.\nPress the handles forward until your arms are fully extended.\nKeep shoulder blades retracted and return slowly, keeping tension on the cables.",
+      "technique_uk": "Сядьте, візьміть рукоятки, плечі під кутом близько 45 градусів до тулуба, груди вгору.\nВижміть рукоятки вперед до повного випрямлення рук.\nТримайте лопатки зведеними й повільно поверніться, зберігаючи напругу в тросах."
+    },
+    {
+      "source_id": "Cross-Body_Crunch",
+      "slug": "fedb-cross-body-crunch",
+      "source_name": "Cross-Body Crunch",
+      "muscle_groups": [
+        "abs"
+      ],
+      "day_types": [
+        "lower",
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": true,
+      "name_en": "Cross-body crunch",
+      "name_uk": "Перехресні скручування",
+      "technique_en": "Lie on your back with knees bent, feet flat, hands behind your head.\nCurl up and bring one shoulder toward the opposite knee as you exhale.\nLower with control and alternate sides, focusing on the abs.",
+      "technique_uk": "Ляжте на спину, коліна зігніть, стопи на підлозі, руки за головою.\nНа видиху підніміться й тягніть плече до протилежного коліна.\nКонтрольовано опустіться й чергуйте боки, відчуваючи прес."
+    },
+    {
+      "source_id": "Anti-Gravity_Press",
+      "slug": "fedb-anti-gravity-press",
+      "source_name": "Anti-Gravity Press",
+      "muscle_groups": [
+        "shoulders",
+        "back",
+        "traps",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Anti-gravity press",
+      "name_uk": "Антигравітаційний жим",
+      "technique_en": "Lie face down on an incline bench and curl the bar from the floor to your chest with an overhand grip.\nPress the bar forward in front of your head by extending the elbows.\nKeep arms parallel to the ground and return to the chest.",
+      "technique_uk": "Ляжте животом на похилу лаву, зігніть руки зворотним хватом і підніміть штангу з підлоги до грудей.\nВижміть штангу вперед перед головою, випрямляючи лікті.\nТримайте руки паралельно підлозі та поверніть штангу до грудей."
+    },
+    {
+      "source_id": "Standing_Long_Jump",
+      "slug": "fedb-standing-long-jump",
+      "source_name": "Standing Long Jump",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Standing long jump",
+      "name_uk": "Стрибок у довжину з місця",
+      "technique_en": "Stand with feet shoulder-width apart in a partial squat, ideally on a soft surface.\nSwing your arms big and jump forward as far as possible.\nLand with feet reaching forward, then measure the distance.",
+      "technique_uk": "Станьте на ширині плечей у неглибокому присіді, бажано на м'якій поверхні.\nЕнергійно змахніть руками та стрибніть вперед якомога далі.\nПриземліться, виносячи ноги вперед, і виміряйте відстань."
+    },
+    {
+      "source_id": "Supine_Chest_Throw",
+      "slug": "fedb-supine-chest-throw",
+      "source_name": "Supine Chest Throw",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "medicine-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Supine chest throw",
+      "name_uk": "Кидок м'яча від грудей лежачи",
+      "technique_en": "Lie on your back with knees bent and the ball on your chest, hands underneath it.\nExplode up, extending the elbows to throw the ball straight above you.\nCatch it with both hands and repeat.",
+      "technique_uk": "Ляжте на спину, коліна зігніть, м'яч на грудях, руки знизу м'яча.\nРізко викиньте м'яч прямо вгору, випрямляючи лікті.\nЛовіть м'яч обома руками й повторюйте."
+    },
+    {
+      "source_id": "Decline_Smith_Press",
+      "slug": "fedb-decline-smith-press",
+      "source_name": "Decline Smith Press",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Decline Smith press",
+      "name_uk": "Жим у Сміті на негативній лаві",
+      "technique_en": "Lie on a decline bench under the bar, grip wider than shoulders, and unrack with arms extended.\nInhale and lower the bar until it lightly touches your torso.\nPause briefly, press up as you exhale, and rack the bar when done.",
+      "technique_uk": "Ляжте на негативну лаву під гриф, хват ширший за плечі, зніміть гриф із фіксаторів на прямих руках.\nНа вдиху опустіть гриф, щоб злегка торкнувся тулуба.\nКоротко зупиніться, вижміть на видиху й після сету поставте гриф на фіксатори."
+    },
+    {
+      "source_id": "Machine_Bench_Press",
+      "slug": "fedb-machine-bench-press",
+      "source_name": "Machine Bench Press",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "chest-press-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Machine bench press",
+      "name_uk": "Жим лежачи в тренажері",
+      "technique_en": "Sit down, select the weight, and grip the handles palms down with upper arms parallel to the floor.\nPush the handles away as you exhale, squeezing the chest.\nHold for a second, then return slowly as you inhale.",
+      "technique_uk": "Сядьте, оберіть вагу й візьміться за рукоятки хватом зверху, плечі паралельно підлозі.\nВиштовхніть рукоятки вперед на видиху, стискаючи груди.\nЗатримайтеся на секунду й повільно поверніться на вдиху."
+    },
+    {
+      "source_id": "Plie_Dumbbell_Squat",
+      "slug": "fedb-plie-dumbbell-squat",
+      "source_name": "Plie Dumbbell Squat",
+      "muscle_groups": [
+        "quads",
+        "abs",
+        "calves",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Plié dumbbell squat",
+      "name_uk": "Плі-присід з гантеллю",
+      "technique_en": "Hold one dumbbell by the base with both hands, feet wider than shoulders, toes turned out.\nBend the knees and lower until thighs are parallel to the floor, arms staying still.\nPress through the heels to stand up.",
+      "technique_uk": "Тримайте гантель за основу обома руками, ноги ширше плечей, носки назовні.\nЗігніть коліна й опустіться до паралелі стегон з підлогою, руки нерухомі.\nВідштовхніться п'ятами й підніміться."
+    },
+    {
+      "source_id": "Upright_Barbell_Row",
+      "slug": "fedb-upright-barbell-row",
+      "source_name": "Upright Barbell Row",
+      "muscle_groups": [
+        "shoulders",
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Upright barbell row",
+      "name_uk": "Тяга штанги до підборіддя",
+      "technique_en": "Hold the bar with an overhand grip slightly narrower than shoulders, resting on your thighs.\nExhale and lift the bar close to the body until it nearly reaches your chin, elbows leading and above the forearms.\nPause, then lower slowly while keeping the torso still.",
+      "technique_uk": "Візьміть штангу хватом зверху трохи вужче плечей, гриф на стегнах.\nНа видиху тягніть штангу близько до тіла майже до підборіддя, лікті ведуть рух і вище передпліч.\nЗатримайтеся, потім повільно опустіть, тримаючи корпус нерухомо."
+    },
+    {
+      "source_id": "Cable_Shoulder_Press",
+      "slug": "fedb-cable-shoulder-press",
+      "source_name": "Cable Shoulder Press",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable shoulder press",
+      "name_uk": "Жим над головою в блоках",
+      "technique_en": "Set the cables low, stand between the towers, and hold the handles at shoulder height, palms forward.\nKeep head and chest up and press the handles overhead.\nPause at the top and return under control.",
+      "technique_uk": "Встановіть блоки внизу, станьте між стійками й тримайте рукоятки на рівні плечей, долоні вперед.\nТримайте голову й груди піднятими та вижміть рукоятки над головою.\nЗатримайтеся вгорі й контрольовано поверніться."
+    },
+    {
+      "source_id": "Double_Leg_Butt_Kick",
+      "slug": "fedb-double-leg-butt-kick",
+      "source_name": "Double Leg Butt Kick",
+      "muscle_groups": [
+        "quads",
+        "glutes",
+        "adductors",
+        "calves",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Double leg butt kick",
+      "name_uk": "Стрибок із закиданням гомілок",
+      "technique_en": "Stand with knees slightly bent.\nQuickly dip down and jump for maximum height, tucking your heels toward your glutes.\nLand with knees partly bent to absorb the impact.",
+      "technique_uk": "Станьте з трохи зігнутими колінами.\nШвидко присядьте й стрибніть якомога вище, підтягуючи п'ятки до сідниць.\nПриземліться на напівзігнуті ноги, амортизуючи удар."
+    },
+    {
+      "source_id": "Dumbbell_Incline_Row",
+      "slug": "fedb-dumbbell-incline-row",
+      "source_name": "Dumbbell Incline Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "forearms",
+        "lats",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell incline row",
+      "name_uk": "Тяга гантелей на похилій лаві",
+      "technique_en": "Lie chest-down on an incline bench holding dumbbells with a neutral grip and arms straight.\nRetract your shoulder blades and row the dumbbells to your sides.\nPause at the top and lower with control.",
+      "technique_uk": "Ляжте грудьми на похилу лаву, гантелі нейтральним хватом, руки прямі.\nЗведіть лопатки й підтягніть гантелі до боків.\nЗатримайтеся вгорі й контрольовано опустіть."
+    },
+    {
+      "source_id": "Incline_Push-Up_Wide",
+      "slug": "fedb-incline-push-up-wide",
+      "source_name": "Incline Push-Up Wide",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Wide incline push-up",
+      "name_uk": "Широкі віджимання з упором на підвищення",
+      "technique_en": "Place hands wider than shoulders on a Smith bar or sturdy platform, feet back, body straight.\nLower your chest to the bar by bending the arms.\nPress back up to the start, keeping the body in a line.",
+      "technique_uk": "Поставте руки ширше плечей на гриф Сміта або стійку опору, ноги відведіть назад, тіло пряме.\nОпустіть груди до грифа, згинаючи руки.\nВіджміться назад, тримаючи тіло в одну лінію."
+    },
+    {
+      "source_id": "Leverage_Chest_Press",
+      "slug": "fedb-leverage-chest-press",
+      "source_name": "Leverage Chest Press",
+      "muscle_groups": [
+        "chest",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "chest-press-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Leverage chest press",
+      "name_uk": "Жим від грудей у важільному тренажері",
+      "technique_en": "Adjust the seat so handles are at lower-to-mid chest, chest up, shoulder blades retracted.\nPress the handles forward by extending the elbows.\nPause, then return without resting the weight until the set ends.",
+      "technique_uk": "Відрегулюйте сидіння так, щоб рукоятки були на рівні нижньої-середньої частини грудей, груди вгору, лопатки зведені.\nВижміть рукоятки вперед, випрямляючи лікті.\nЗатримайтеся й поверніться, не кладучи вагу до завершення підходу."
+    },
+    {
+      "source_id": "One-Arm_Long_Bar_Row",
+      "slug": "fedb-one-arm-long-bar-row",
+      "source_name": "One-Arm Long Bar Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "One-arm landmine row",
+      "name_uk": "Тяга штанги в упор однією рукою",
+      "technique_en": "Anchor the bar, grip it near the collar, and stand in a bent-knee stance with hips back and chest up.\nPull the weight to your side by retracting the shoulder and bending the elbow.\nPause briefly and lower with control, no jerking.",
+      "technique_uk": "Зафіксуйте гриф, візьміться біля втулки й прийміть стійку з зігнутими колінами, таз назад, груди вгору.\nПідтягніть вагу до боку, зводячи лопатку й згинаючи лікоть.\nКоротко затримайтеся й контрольовано опустіть, без ривків."
+    },
+    {
+      "source_id": "One_Arm_Lat_Pulldown",
+      "slug": "fedb-one-arm-lat-pulldown",
+      "source_name": "One Arm Lat Pulldown",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "One-arm lat pulldown",
+      "name_uk": "Тяга верхнього блока однією рукою",
+      "technique_en": "Adjust the knee pad and grasp the handle with an overhand grip.\nPull the handle down, driving your elbow to your side.\nPause at the bottom and return slowly, keeping tension.",
+      "technique_uk": "Відрегулюйте валик для колін і візьміть рукоятку хватом зверху.\nТягніть рукоятку вниз, притискаючи лікоть до боку.\nЗатримайтеся внизу й повільно поверніться, зберігаючи напругу."
+    },
+    {
+      "source_id": "Single_Leg_Butt_Kick",
+      "slug": "fedb-single-leg-butt-kick",
+      "source_name": "Single Leg Butt Kick",
+      "muscle_groups": [
+        "quads",
+        "calves",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Single leg butt kick",
+      "name_uk": "Стрибок на одній нозі із закиданням гомілки",
+      "technique_en": "Stand on one leg with the other knee raised.\nDip and jump up by extending hip, knee, and ankle, flicking the heel toward your butt.\nLand on the same leg with a soft knee, keeping the other leg in position.",
+      "technique_uk": "Станьте на одну ногу, інше коліно підніміть.\nПрисядьте й стрибніть, випрямляючи стегно, коліно й стопу, закидаючи п'ятку до сідниць.\nПриземліться на ту саму ногу з м'яким коліном, інша нога лишається в тому ж положенні."
+    },
+    {
+      "source_id": "Band_Assisted_Pull-Up",
+      "slug": "fedb-band-assisted-pull-up",
+      "source_name": "Band Assisted Pull-Up",
+      "muscle_groups": [
+        "lats",
+        "abs",
+        "forearms",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "pull-up-bar"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Band-assisted pull-up",
+      "name_uk": "Підтягування з гумкою",
+      "technique_en": "Loop the band over the bar, place one knee in it and take a medium to wide grip\nPull your elbows down to your sides until your chin clears the bar\nAvoid swinging, pause briefly and lower with control",
+      "technique_uk": "Закріпіть гумку на турніку, поставте одне коліно в петлю та візьміться середнім або широким хватом\nТягніть лікті до боків, поки підборіддя не опиниться над перекладиною\nНе розгойдуйтесь, коротко зупиніться та контрольовано опустіться"
+    },
+    {
+      "source_id": "Barbell_Rear_Delt_Row",
+      "slug": "fedb-barbell-rear-delt-row",
+      "source_name": "Barbell Rear Delt Row",
+      "muscle_groups": [
+        "shoulders",
+        "biceps",
+        "lats",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell rear delt row",
+      "name_uk": "Тяга штанги до грудей на задні дельти",
+      "technique_en": "Hold the bar with a wide overhand grip, hinge forward until the torso is near parallel, back flat\nFlare the elbows out and pull the bar to your upper chest, keeping upper arms perpendicular to the torso\nSqueeze the rear delts, don't use the biceps, and lower slowly",
+      "technique_uk": "Візьміть штангу широким хватом зверху, нахиліться майже до паралелі з підлогою, спина пряма\nРозведіть лікті в сторони та тягніть штангу до верху грудей, тримаючи плечі перпендикулярно корпусу\nСтисніть задні дельти, не підключайте біцепс і повільно опустіть штангу"
+    },
+    {
+      "source_id": "Physioball_Hip_Bridge",
+      "slug": "fedb-physioball-hip-bridge",
+      "source_name": "Physioball Hip Bridge",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "stability-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Stability ball hip bridge",
+      "name_uk": "Ягодичний місток на фітболі",
+      "technique_en": "Lie with your upper back on the ball, hips unsupported, feet flat and hip-width or wider\nDrive your hips up by squeezing glutes and hamstrings\nPause at the top and lower back to the start",
+      "technique_uk": "Лягніть верхньою частиною спини на м'яч, таз у повітрі, стопи на підлозі на ширині таза або ширше\nПіднімайте таз, напружуючи сідниці та задню поверхню стегна\nЗупиніться вгорі та поверн="
+    },
+    {
+      "source_id": "Push_Up_to_Side_Plank",
+      "slug": "fedb-push-up-to-side-plank",
+      "source_name": "Push Up to Side Plank",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "seconds",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Push-up to side plank",
+      "name_uk": "Віджимання з переходом у бічну планку",
+      "technique_en": "Start in a push-up position on your toes, hands just outside shoulder width\nDo a push-up with a straight body, then rotate to one side and raise the other arm to the ceiling\nLower back to the floor, do another push-up and rotate to the other side",
+      "technique_uk": "Прийміть упор лежачи на носках, руки трохи ширше плечей\nВіджміться з прямим корпусом, потім розверніться вбік і підніміть вільну руку до стелі\nОпустіть руку, виконайте ще одне віджимання та розверніться в інший бік"
+    },
+    {
+      "source_id": "Seated_Dumbbell_Press",
+      "slug": "fedb-seated-dumbbell-press",
+      "source_name": "Seated Dumbbell Press",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated dumbbell press",
+      "name_uk": "Жим гантелей сидячи",
+      "technique_en": "Sit on a bench with back support and bring the dumbbells to shoulder height, palms forward\nPress the dumbbells up until they almost touch at the top\nPause briefly and lower slowly to shoulder level",
+      "technique_uk": "Сядьте на лаву зі спинкою та підніміть гантелі до рівня плечей, долоні вперед\nВижміть гантелі вгору, поки вони майже не торкнуться одна одної\nКоротко зупиніться та повільно опустіть до рівня плечей"
+    },
+    {
+      "source_id": "T-Bar_Row_with_Handle",
+      "slug": "fedb-t-bar-row-with-handle",
+      "source_name": "T-Bar Row with Handle",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "T-bar row with handle",
+      "name_uk": "Тяга Т-грифа з ручкою",
+      "technique_en": "Fix the bar in a landmine, attach the handle and stand over it with a wide stance, hips back, chest up\nPull the weight to your upper abdomen by squeezing the shoulder blades and bending the elbows\nPause briefly and lower with control without jerking",
+      "technique_uk": "Зафіксуйте гриф у ландмайні, приєднайте ручку й станьте над ним широко, таз назад, груди вгору\nТягніть вагу до верху живота, зводячи лопатки та згинаючи лікті\nКоротко зупиніться та контрольовано опустіть без ривків"
+    },
+    {
+      "source_id": "Bradford_Rocky_Presses",
+      "slug": "fedb-bradford-rocky-presses",
+      "source_name": "Bradford/Rocky Presses",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Bradford press",
+      "name_uk": "Жим Бредфорда",
+      "technique_en": "Sit on a military press bench with the bar at shoulder level, grip wider than shoulder width\nPress the bar overhead, then lower it behind your head with control\nPress back up and lower to the front, alternating front and back each rep",
+      "technique_uk": "Сядьте на лаву для жиму з штангою на рівні плечей, хват ширший за плечі\nВижміть штангу над головою, потім контрольовано опустіть її за голову\nВижміть знову вгору й опустіть перед собою, чергуючи спереду та ззаду"
+    },
+    {
+      "source_id": "Decline_Dumbbell_Flyes",
+      "slug": "fedb-decline-dumbbell-flyes",
+      "source_name": "Decline Dumbbell Flyes",
+      "muscle_groups": [
+        "chest"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Decline dumbbell fly",
+      "name_uk": "Розведення гантелей на лаві з нахилом вниз",
+      "technique_en": "Secure your legs on a decline bench and hold dumbbells above your chest, palms facing each other\nWith a slight elbow bend, lower the arms in a wide arc until you feel a chest stretch\nSqueeze the chest to bring the dumbbells back up along the same arc",
+      "technique_uk": "Зафіксуйте ноги на лаві з нахилом вниз і тримайте гантелі над грудьми, долоні одна до одної\nЗ легким згином ліктів опускайте руки широкою дугою до розтягнення грудей\nСтискаючи груди, поверніть гантелі вгору по тій самій дузі"
+    },
+    {
+      "source_id": "Dips_-_Triceps_Version",
+      "slug": "fedb-dips-triceps-version",
+      "source_name": "Dips - Triceps Version",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "dip-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Triceps dips",
+      "name_uk": "Віджимання на брусах на triceps",
+      "technique_en": "Support yourself on the bars with arms nearly locked\nKeeping the torso upright and elbows close, lower until elbows reach about 90 degrees\nPress back up with your triceps to the start",
+      "technique_uk": "Обіпріться на бруси з майже випрямленими руками\nТримаючи корпус вертикально, а лікті ближче до тіла, опускайтесь до кута в ліктях близько 90 градусів\nВідштовхніться трицепсами назад у вихідне положення"
+    },
+    {
+      "source_id": "Incline_Dumbbell_Flyes",
+      "slug": "fedb-incline-dumbbell-flyes",
+      "source_name": "Incline Dumbbell Flyes",
+      "muscle_groups": [
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Incline dumbbell fly",
+      "name_uk": "Розведення гантелей на похилій лаві",
+      "technique_en": "Lie on a bench set to no more than 30 degrees, arms extended above you with a slight elbow bend\nLower the dumbbells out to the sides in an arc, rotating the palms to face each other\nBring them back up along the same arc, moving only at the shoulders",
+      "technique_uk": "Лягте на лаву з нахилом не більше 30 градусів, руки над собою з легким згином ліктів\nОпускайте гантелі в сторони дугою, повертаючи долоні одна до одної\nПіднімайте їх назад тією ж дугою, рухаючись лише в плечових суглобах"
+    },
+    {
+      "source_id": "Incline_Push-Up_Medium",
+      "slug": "fedb-incline-push-up-medium",
+      "source_name": "Incline Push-Up Medium",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Incline push-up",
+      "name_uk": "Віджимання з опорою на підвищення",
+      "technique_en": "Place your hands shoulder-width on a Smith bar or sturdy platform, feet back, body straight\nLower your chest to the bar by bending the elbows\nPress back up to the start, keeping the body straight",
+      "technique_uk": "Поставте руки на ширині плечей на гриф у Сміті або стійку платформу, ноги відставте назад, тіло пряме\nОпустіть груди до грифа, згинаючи лікті\nВідожміться назад, тримаючи тіло прямим"
+    },
+    {
+      "source_id": "Low_Pulley_Row_To_Neck",
+      "slug": "fedb-low-pulley-row-to-neck",
+      "source_name": "Low Pulley Row To Neck",
+      "muscle_groups": [
+        "shoulders",
+        "biceps",
+        "back",
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Low cable row to neck",
+      "name_uk": "Тяга нижнього блока з канатом до шиї",
+      "technique_en": "Sit at a low cable with a rope, palms down, back upright, knees slightly bent, arms extended\nRaise the elbows and pull the rope toward your neck, upper arms parallel to the floor\nHold briefly and return slowly without moving the torso",
+      "technique_uk": "Сядьте біля нижнього блока з канатом, долоні вниз, спина вертикально, коліна трохи зігнуті, руки випрямлені\nПіднімайте лікті та тягніть канат до шиї, плечі паралельно підлозі\nКоротко затримайтесь і повільно поверніться, не рухаючи корпусом"
+    },
+    {
+      "source_id": "Alternating_Floor_Press",
+      "slug": "fedb-alternating-floor-press",
+      "source_name": "Alternating Floor Press",
+      "muscle_groups": [
+        "chest",
+        "abs",
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Alternating kettlebell floor press",
+      "name_uk": "Почерговий жим гир лежачи на підлозі",
+      "technique_en": "Lie on the floor and bring two kettlebells to your chest, palms facing forward\nPress both up, then lower one kettlebell to your chest while the other stays locked out\nPress it back up and repeat on the other side",
+      "technique_uk": "Лягніть на підлогу та піднесіть дві гирі до грудей, долоні вперед\nВижміть обидві вгору, потім опустіть одну до грудей, а іншу тримайте випрямленою\nВижміть її вгору та повторіть з іншого боку"
+    },
+    {
+      "source_id": "Cable_Internal_Rotation",
+      "slug": "fedb-cable-internal-rotation",
+      "source_name": "Cable Internal Rotation",
+      "muscle_groups": [
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable internal rotation",
+      "name_uk": "Внутрішня ротація плеча на блоці",
+      "technique_en": "Sit sideways to a low cable, elbow tucked at your side and bent 90 degrees, hand holding the handle\nRotate the shoulder to pull the handle across your abs in a semi-circle\nKeep the forearm perpendicular to the torso and return slowly",
+      "technique_uk": "Сядьте боком до нижнього блока, лікоть притиснутий до боку та зігнутий на 90 градусів, рука тримає ручку\nОбертайте плече, тягнучи ручку до живота півколом\nТримайте передпліччя перпендикулярно корпусу та повільно поверніться"
+    },
+    {
+      "source_id": "Close-Grip_EZ-Bar_Press",
+      "slug": "fedb-close-grip-ez-bar-press",
+      "source_name": "Close-Grip EZ-Bar Press",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "ez-bar"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Close-grip EZ-bar press",
+      "name_uk": "Жим EZ-грифа вузьким хватом",
+      "technique_en": "Lie on a flat bench and hold the EZ bar over your chest with a narrow grip, elbows in\nLower the bar to your lower chest, keeping the elbows tucked\nPress back up by extending the elbows with your triceps",
+      "technique_uk": "Лягніть на пряму лаву та тримайте EZ-гриф над грудьми вузьким хватом, лікті ближче до тіла\nОпустіть гриф до нижньої частини грудей, тримаючи лікті притиснутими\nВижміть гриф вгору, розгинаючи лікті за рахунок трицепса"
+    },
+    {
+      "source_id": "Kettlebell_Pirate_Ships",
+      "slug": "fedb-kettlebell-pirate-ships",
+      "source_name": "Kettlebell Pirate Ships",
+      "muscle_groups": [
+        "shoulders",
+        "abs"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Kettlebell pirate ship",
+      "name_uk": "Піратський корабель з гирею",
+      "technique_en": "Stand wide, holding a kettlebell with both hands at waist level, arms extended\nRotate to one side, swinging the kettlebell up to head height, and pause briefly\nLet it drop and rotate to the other side, raising it to head height again",
+      "technique_uk": "Станьте широко, тримайте гирю обома руками на рівні пояса, руки випрямлені\nПовернтакож убік, піднімаючи гирю до рівня голови, і коротко зупиніться\nОпустіть гирю та повернітеся в інший бік, знову піднімаючи її до рівня голови"
+    },
+    {
+      "source_id": "Leverage_Shoulder_Press",
+      "slug": "fedb-leverage-shoulder-press",
+      "source_name": "Leverage Shoulder Press",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "shoulder-press-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Machine shoulder press",
+      "name_uk": "Жим на плечі в тренажері",
+      "technique_en": "Adjust the seat so the handles are near the top of your shoulders, chest and head up\nPress the handles up by extending the elbows\nPause briefly at the top and lower under control, keeping tension until the set ends",
+      "technique_uk": "Налаштуйте сидіння так, щоб рукоятки були біля верху плечей, груди та голова вгору\nВижміть рукоятки вгору, розгинаючи лікті\nКоротко зупиніться вгорі та контрольовано опустіть, зберігаючи напругу до кінця підходу"
+    },
+    {
+      "source_id": "Return_Push_from_Stance",
+      "slug": "fedb-return-push-from-stance",
+      "source_name": "Return Push from Stance",
+      "muscle_groups": [
+        "shoulders",
+        "chest",
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "medicine-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Medicine ball catch and return throw",
+      "name_uk": "Ловіння та повернення медбола зі стійки",
+      "technique_en": "With a partner, take an athletic 2 or 3 point stance\nOn the signal, move into position to receive the pass\nCatch the medicine ball with both hands and throw it straight back",
+      "technique_uk": "З партнером прийміть атлетичну стійку на дві або три точки\nЗа сигналом перемістіться, щоб прийняти передачу\nПіймайте медбол двома руками та одразу киньте його назад"
+    },
+    {
+      "source_id": "Standing_Bradford_Press",
+      "slug": "fedb-standing-bradford-press",
+      "source_name": "Standing Bradford Press",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Standing Bradford press",
+      "name_uk": "Жим Бредфорда стоячи",
+      "technique_en": "Hold the bar on the front of your shoulders with a shoulder-width overhand grip\nPress the bar overhead, then lower it behind your head to about a right angle at the elbows\nPress back up and lower to the front, alternating each rep",
+      "technique_uk": "Тримайте штангу на передніх дельтах хватом зверху на ширині плечей\nВижміть штангу над головою, потім опустіть її за голову приблизно до прямого кута в ліктях\nВижміть знову вгору та опустіть перед собою, чергуючи повторення"
+    },
+    {
+      "source_id": "Standing_Dumbbell_Press",
+      "slug": "fedb-standing-dumbbell-press",
+      "source_name": "Standing Dumbbell Press",
+      "muscle_groups": [
+        "shoulders",
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Standing dumbbell press",
+      "name_uk": "Жим гантелей стоячи",
+      "technique_en": "Stand with feet shoulder-width apart, dumbbells at head height, elbows out at about 90 degrees\nPress both dumbbells straight overhead with no leg drive or leaning back\nPause and lower slowly to the start",
+      "technique_uk": "Станьте на ширині плечей, гантелі на рівні голови, лікті в сторони під кутом близько 90 градусів\nВижміть обидві гантелі вертикально вгору без поштовху ногами та прогину назад\nЗупиніться та повільно опустіть у вихідне положення"
+    },
+    {
+      "source_id": "Step-up_with_Knee_Raise",
+      "slug": "fedb-step-up-with-knee-raise",
+      "source_name": "Step-up with Knee Raise",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "plyo-box"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Step-up with knee raise",
+      "name_uk": "Підйом на бокс з підняттям коліна",
+      "technique_en": "Stand facing a box or bench with feet together.\nStep up, drive through the front heel and raise the other knee as high as possible.\nStep down under control and alternate legs.",
+      "technique_uk": "Станьте обличчям до боксу або лави, стопи разом.\nПіднімiться, відштовхуючись п'ятою передньої ноги, і підніміть інше коліно якомога вище.\nКонтрольовано зійдіть вниз і змінюйте ноги."
+    },
+    {
+      "source_id": "Catch_and_Overhead_Throw",
+      "slug": "fedb-catch-and-overhead-throw",
+      "source_name": "Catch and Overhead Throw",
+      "muscle_groups": [
+        "lats",
+        "abs",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "medicine-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Catch and overhead throw",
+      "name_uk": "Кидок м'яча з-за голови з ловлею",
+      "technique_en": "Stand facing a wall or partner, holding the ball with both hands.\nStretch the ball back behind your head and throw it forward forcefully.\nFollow through and catch the rebound, standing close enough to the wall.",
+      "technique_uk": "Станьте обличчям до стіни або партнера, тримаючи м'яч обома руками.\nЗаведіть м'яч за голову та різко киньте вперед.\nДоведіть рух до кінця й зловіть м'яч, стоячи достатньо близько до стіни."
+    },
+    {
+      "source_id": "Kneeling_High_Pulley_Row",
+      "slug": "fedb-kneeling-high-pulley-row",
+      "source_name": "Kneeling High Pulley Row",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Kneeling high pulley row",
+      "name_uk": "Тяга з верхнього блока стоячи на колінах",
+      "technique_en": "Attach a rope to a high pulley and kneel a couple of feet away, arms extended.\nBend the elbows and pull the rope to your upper chest, squeezing the shoulder blades together.\nPause briefly and return slowly.",
+      "technique_uk": "Закріпіть канат на верхньому блоці й станьте на коліна за пару кроків, руки випрямлені.\nЗігніть лікті й тягніть канат до верху грудей, зводячи лопатки.\nКоротко затримайтесь і повільно поверніться."
+    },
+    {
+      "source_id": "Close-Grip_Dumbbell_Press",
+      "slug": "fedb-close-grip-dumbbell-press",
+      "source_name": "Close-Grip Dumbbell Press",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Close-grip dumbbell press",
+      "name_uk": "Жим гантелі вузьким хватом",
+      "technique_en": "Lie across a bench with shoulders supported, holding one dumbbell vertically over your chest with both hands.\nLower the dumbbell to your chest.\nPress back up by extending the elbows.",
+      "technique_uk": "Ляжте впоперек лави, спираючись плечима, і тримайте гантель вертикально над грудьми обома руками.\nОпустіть гантель до грудей.\nВижміть угору, випрямляючи лікті."
+    },
+    {
+      "source_id": "Smith_Machine_Upright_Row",
+      "slug": "fedb-smith-machine-upright-row",
+      "source_name": "Smith Machine Upright Row",
+      "muscle_groups": [
+        "traps",
+        "biceps",
+        "back",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Smith machine upright row",
+      "name_uk": "Тяга до підборіддя в машині Сміта",
+      "technique_en": "Set the bar at mid-thigh and grip it shoulder width, arms extended.\nPull the bar up close to your body, elbows leading, until it nearly reaches your chin.\nPause, then lower slowly without swinging the torso.",
+      "technique_uk": "Встановіть гриф на рівні середини стегон і візьміться хватом на ширині плечей.\nТягніть гриф близько до тіла, ведучи ліктями, майже до підборіддя.\nЗатримайтесь і повільно опустіть, не розгойдуючи корпус."
+    },
+    {
+      "source_id": "Underhand_Cable_Pulldowns",
+      "slug": "fedb-underhand-cable-pulldowns",
+      "source_name": "Underhand Cable Pulldowns",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Underhand cable pulldown",
+      "name_uk": "Тяга верхнього блока зворотним хватом",
+      "technique_en": "Sit at the machine, secure your knees under the pad and grab the bar underhand, narrower than shoulder width.\nLean back slightly and pull the bar to your upper chest, keeping elbows close.\nSqueeze the lats, then return slowly to full arm extension.",
+      "technique_uk": "Сядьте в тренажер, зафіксуйте коліна під валиком і візьміть гриф зворотним хватом, вужче плечей.\nТрохи відхиліться назад і тягніть гриф до верху грудей, лікті близько до тіла.\nСтисніть найширші, потім повільно поверніться до повного випрямлення рук."
+    },
+    {
+      "source_id": "Bent_Over_Two-Dumbbell_Row",
+      "slug": "fedb-bent-over-two-dumbbell-row",
+      "source_name": "Bent Over Two-Dumbbell Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Bent-over dumbbell row",
+      "name_uk": "Тяга гантелей в нахилі",
+      "technique_en": "Hold a dumbbell in each hand, bend your knees slightly and hinge forward with a flat back, head up.\nPull the dumbbells to your sides, elbows close, and squeeze your back.\nLower slowly with the torso still.",
+      "technique_uk": "Візьміть по гантелі, злегка зігніть коліна й нахиліться з прямою спиною, голова вгору.\nТягніть гантелі до боків, лікті близько до тіла, стискаючи спину.\nПовільно опустіть, не рухаючи корпус."
+    },
+    {
+      "source_id": "Incline_Push-Up_Close-Grip",
+      "slug": "fedb-incline-push-up-close-grip",
+      "source_name": "Incline Push-Up Close-Grip",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Close-grip incline push-up",
+      "name_uk": "Віджимання з опорою вузьким хватом",
+      "technique_en": "Place your hands close together on a Smith bar or sturdy platform, feet back, body straight.\nLower your chest to the bar by bending the elbows.\nPress back up to straight arms, keeping the body in line.",
+      "technique_uk": "Поставте руки близько одна до одної на гриф Сміта або стійку платформу, ноги відставте, тіло пряме.\nОпустіть груди до грифа, згинаючи лікті.\nВіджмiться до випрямлення рук, тримаючи тіло в одну лінію."
+    },
+    {
+      "source_id": "Smith_Machine_Bent_Over_Row",
+      "slug": "fedb-smith-machine-bent-over-row",
+      "source_name": "Smith Machine Bent Over Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Smith machine bent-over row",
+      "name_uk": "Тяга в нахилі в машині Сміта",
+      "technique_en": "Set the bar just below knee height, hinge forward with a flat back and head up, and grip overhand.\nPull the bar toward your torso, elbows close, and squeeze your back.\nLower slowly without moving the torso.",
+      "technique_uk": "Встановіть гриф трохи нижче колін, нахиліться з прямою спиною, голова вгору, хват зверху.\nТягніть гриф до корпусу, лікті близько, стискаючи спину.\nПовільно опустіть, не рухаючи корпус."
+    },
+    {
+      "source_id": "Straight_Bar_Bench_Mid_Rows",
+      "slug": "fedb-straight-bar-bench-mid-rows",
+      "source_name": "Straight Bar Bench Mid Rows",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell row from bench",
+      "name_uk": "Тяга штанги з лави",
+      "technique_en": "Stand on a bench behind a loaded bar, hips back, chest up, medium overhand grip.\nRow the bar to your torso by pulling the shoulder blades back and bending the elbows.\nPause briefly and lower all the way down with control.",
+      "technique_uk": "Станьте на лаву за завантаженою штангою, таз назад, груди вперед, середній хват зверху.\nТягніть штангу до корпусу, зводячи лопатки та згинаючи лікті.\nКоротко затримайтесь і контрольовано опустіть повністю вниз."
+    },
+    {
+      "source_id": "Box_Jump_Multiple_Response",
+      "slug": "fedb-box-jump-multiple-response",
+      "source_name": "Box Jump (Multiple Response)",
+      "muscle_groups": [
+        "hamstrings",
+        "glutes",
+        "adductors",
+        "calves",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "plyo-box"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Repeated box jump",
+      "name_uk": "Серійні стрибки на бокс",
+      "technique_en": "Stand an arm's length from the box, arms down, knees slightly bent.\nSwing the arms and jump up, landing on the box with both feet together.\nStep or jump back down right away and repeat.",
+      "technique_uk": "Станьте на відстані витягнутої руки від боксу, руки внизу, коліна злегка зігнуті.\nМахніть руками та стрибніть, приземляючись на бокс обома ногами.\nОдразу зістрибніть або зійдіть і повторюйте."
+    },
+    {
+      "source_id": "Close-Grip_Front_Lat_Pulldown",
+      "slug": "fedb-close-grip-front-lat-pulldown",
+      "source_name": "Close-Grip Front Lat Pulldown",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Close-grip lat pulldown",
+      "name_uk": "Тяга верхнього блока вузьким хватом",
+      "technique_en": "Sit at the machine with knees secured and grab the bar with a close overhand grip.\nLean back slightly, chest out, and pull the bar to your upper chest.\nSqueeze the shoulder blades, then return slowly to full stretch.",
+      "technique_uk": "Сядьте в тренажер, зафіксуйте коліна й візьміть гриф вузьким хватом зверху.\nТрохи відхиліться, груди вперед, і тягніть гриф до верху грудей.\nЗведіть лопатки, потім повільно поверніться до повного розтягнення."
+    },
+    {
+      "source_id": "Standing_Dumbbell_Upright_Row",
+      "slug": "fedb-standing-dumbbell-upright-row",
+      "source_name": "Standing Dumbbell Upright Row",
+      "muscle_groups": [
+        "traps",
+        "biceps",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell upright row",
+      "name_uk": "Тяга гантелей до підборіддя",
+      "technique_en": "Stand holding dumbbells in front of your thighs, overhand grip slightly narrower than shoulders.\nLift them close to your body, elbows leading and above the forearms, until near your chin.\nPause, then lower slowly with the torso still.",
+      "technique_uk": "Станьте з гантелями перед стегнами, хват зверху трохи вужче плечей.\nПіднімайте їх близько до тіла, ведучи ліктями вище передпліч, майже до підборіддя.\nЗатримайтесь і повільно опустіть, не рухаючи корпус."
+    },
+    {
+      "source_id": "Bent_Over_One-Arm_Long_Bar_Row",
+      "slug": "fedb-bent-over-one-arm-long-bar-row",
+      "source_name": "Bent Over One-Arm Long Bar Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats",
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "One-arm landmine row",
+      "name_uk": "Одноручна тяга штанги в упор",
+      "technique_en": "Anchor one end of the barbell in a corner, load the other, and hinge forward with knees slightly bent.\nGrip the bar behind the plates and pull it up to your lower chest, elbow in.\nSqueeze your back, then lower slowly without swinging the torso.",
+      "technique_uk": "Закріпіть один кінець грифа в куті, завантажте інший і нахиліться з трохи зігнутими колінами.\nВізьміть гриф за дисками й тягніть до нижньої частини грудей, лікоть до тіла.\nСтисніть спину, потім повільно опустіть, не розгойдуючи корпус."
+    },
+    {
+      "source_id": "Close-Grip_Barbell_Bench_Press",
+      "slug": "fedb-close-grip-barbell-bench-press",
+      "source_name": "Close-Grip Barbell Bench Press",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Close-grip bench press",
+      "name_uk": "Жим штанги лежачи вузьким хватом",
+      "technique_en": "Lie on a flat bench and unrack the bar with a shoulder-width grip, arms locked.\nLower slowly to mid chest, keeping elbows close to your body.\nPress up with the triceps and lock out.",
+      "technique_uk": "Ляжте на лаву й зніміть штангу хватом на ширині плечей, руки випрямлені.\nПовільно опустіть до середини грудей, лікті близько до тіла.\nВижміть трицепсами до повного випрямлення."
+    },
+    {
+      "source_id": "Stiff_Leg_Barbell_Good_Morning",
+      "slug": "fedb-stiff-leg-barbell-good-morning",
+      "source_name": "Stiff Leg Barbell Good Morning",
+      "muscle_groups": [
+        "back",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Stiff-leg barbell good morning",
+      "name_uk": "Нахили зі штангою на прямих ногах",
+      "technique_en": "Place the bar across your upper back, step out with feet shoulder width, head up, back straight.\nHinge at the hips and lower your torso until parallel to the floor.\nRaise back to standing by driving the hips forward.",
+      "technique_uk": "Покладіть штангу на верх спини, ноги на ширині плечей, голова вгору, спина пряма.\nЗгинайтеся в тазі й опустіть корпус до паралелі з підлогою.\nПіднімiться, штовхаючи таз уперед."
+    },
+    {
+      "source_id": "Kneeling_Single-Arm_High_Pulley_Row",
+      "slug": "fedb-kneeling-single-arm-high-pulley-row",
+      "source_name": "Kneeling Single-Arm High Pulley Row",
+      "muscle_groups": [
+        "lats",
+        "biceps",
+        "back"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Kneeling single-arm high pulley row",
+      "name_uk": "Одноручна тяга верхнього блока на колінах",
+      "technique_en": "Attach a single handle to a high pulley, kneel facing it and hold the handle with one arm extended.\nPull down to your torso, bending the elbow, retracting the shoulder blade and rotating the palm toward you.\nPause briefly and return under control.",
+      "technique_uk": "Закріпіть одну рукоятку на верхньому блоці, станьте на коліна обличчям до нього, рука випрямлена.\nТягніть до корпусу, згинаючи лікоть, зводячи лопатку та повертаючи долоню до себе.\nКоротко затримайтесь і контрольовано поверніться."
+    },
+    {
+      "source_id": "Smith_Machine_Stiff-Legged_Deadlift",
+      "slug": "fedb-smith-machine-stiff-legged-deadlift",
+      "source_name": "Smith Machine Stiff-Legged Deadlift",
+      "muscle_groups": [
+        "hamstrings",
+        "glutes",
+        "back"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Smith machine stiff-leg deadlift",
+      "name_uk": "Станова тяга на прямих ногах в машині Сміта",
+      "technique_en": "Set the bar at mid-thigh, grip shoulder width, stand tall with knees slightly bent.\nHinge at the hips and lower the bar over your feet with a flat back until you feel a hamstring stretch.\nDrive the hips forward to stand back up.",
+      "technique_uk": "Встановіть гриф на рівні середини стегон, хват на ширині плечей, стійте прямо з трохи зігнутими колінами.\nЗгинайтеся в тазі та опустіть гриф над стопами з прямою спиною до розтягнення біцепса стегна.\nШтовхніть таз уперед і випрямтеся."
+    },
+    {
+      "source_id": "Smith_Machine_Close-Grip_Bench_Press",
+      "slug": "fedb-smith-machine-close-grip-bench-press",
+      "source_name": "Smith Machine Close-Grip Bench Press",
+      "muscle_groups": [
+        "triceps",
+        "chest",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Smith machine close-grip bench press",
+      "name_uk": "Жим вузьким хватом у машині Сміта",
+      "technique_en": "Place a bench under the bar, lie down and unrack with a shoulder-width overhand grip, arms locked.\nLower slowly to mid chest, elbows close to your body.\nPress up with the triceps and lock out.",
+      "technique_uk": "Поставте лаву під гриф, ляжте й зніміть гриф хватом зверху на ширині плечей, руки випрямлені.\nПовільно опустіть до середини грудей, лікті близько до тіла.\nВижміть трицепсами до повного випрямлення."
+    },
+    {
+      "source_id": "Bent_Over_Two-Dumbbell_Row_With_Palms_In",
+      "slug": "fedb-bent-over-two-dumbbell-row-with-palms-in",
+      "source_name": "Bent Over Two-Dumbbell Row With Palms In",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Neutral-grip dumbbell row",
+      "name_uk": "Тяга гантелей в нахилі нейтральним хватом",
+      "technique_en": "Hold dumbbells with palms facing each other, knees slightly bent, hinge forward with a flat back and head up.\nPull the dumbbells to your sides, squeezing the shoulder blades together.\nLower slowly with the torso still.",
+      "technique_uk": "Візьміть гантелі нейтральним хватом, коліна злегка зігнуті, нахиліться з прямою спиною, голова вгору.\nТягніть гантелі до боків, зводячи лопатки.\nПовільно опустіть, не рухаючи корпус."
+    },
+    {
+      "source_id": "Leg_Lift",
+      "slug": "fedb-leg-lift",
+      "source_name": "Leg Lift",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Standing leg curl (bodyweight)",
+      "name_uk": "Згинання ноги стоячи без ваги",
+      "technique_en": "Stand tall and hold a sturdy surface for balance\nBend one knee and lift the heel toward your glute while the other leg stays straight\nLower slowly with control, then switch legs",
+      "technique_uk": "Стійте прямо і триймайтеся за стійку опору для балансу\nЗігніть коліно й підніміть п'яту до сідниці, інша нога залишається прямою\nПовільно опустіть під контролем, потім змініть ногу"
+    },
+    {
+      "source_id": "Calf_Press",
+      "slug": "fedb-calf-press",
+      "source_name": "Calf Press",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "calf-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Machine calf press",
+      "name_uk": "Жим носками в тренажері",
+      "technique_en": "Adjust the seat so knees are slightly bent, balls of feet on the platform, hands on handles\nPress down through the balls of your feet as far as possible\nPause briefly, then return with a full stretch",
+      "technique_uk": "Налаштуйте сидіння так, щоб коліна були трохи зігнуті, носки на платформі, руки на рукоятках\nВіджміть платформу носками якомога далі\nКоротко затримайтеся, потім поверніться з повним розтягненням"
+    },
+    {
+      "source_id": "Spider_Curl",
+      "slug": "fedb-spider-curl",
+      "source_name": "Spider Curl",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "ez-bar"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Spider curl",
+      "name_uk": "Згинання рук «павук»",
+      "technique_en": "Lie chest-down on the front of a preacher bench with arms hanging over the pad and a supinated grip on the bar\nCurl the bar up while keeping the upper arms still\nSqueeze the biceps for a second, then lower slowly",
+      "technique_uk": "Ляжте грудьми на передню частину лави Скотта, руки звисають, хват знизу\nЗігніть руки, піднімаючи штангу, плечі нерухомі\nСтисніть біцепс на секунду, потім повільно опустіть"
+    },
+    {
+      "source_id": "Barbell_Curl",
+      "slug": "fedb-barbell-curl",
+      "source_name": "Barbell Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell curl",
+      "name_uk": "Підйом штанги на біцепс",
+      "technique_en": "Stand upright with a shoulder-width underhand grip, elbows close to your torso\nCurl the bar up to shoulder level, moving only the forearms\nSqueeze the biceps, then lower slowly",
+      "technique_uk": "Стійте прямо, хват знизу на ширині плечей, лікті біля корпусу\nПіднімайте штангу до рівня плечей, рухаються лише передпліччя\nСтисніть біцепс, потім повільно опустіть"
+    },
+    {
+      "source_id": "Cable_Shrugs",
+      "slug": "fedb-cable-shrugs",
+      "source_name": "Cable Shrugs",
+      "muscle_groups": [
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable shrug",
+      "name_uk": "Шраги в блоці",
+      "technique_en": "Stand close to a low pulley holding the bar with an overhand grip, arms straight\nShrug your shoulders as high as possible without bending the elbows\nHold for a second, then lower with control",
+      "technique_uk": "Станьте біля нижнього блока, тримайте гриф хватом зверху, руки прямі\nПіднімайте плечі максимально вгору, не згинаючи лікті\nЗатримайтеся на секунду, потім контрольовано опустіть"
+    },
+    {
+      "source_id": "Finger_Curls",
+      "slug": "fedb-finger-curls",
+      "source_name": "Finger Curls",
+      "muscle_groups": [
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell finger curl",
+      "name_uk": "Згинання пальців зі штангою",
+      "technique_en": "Hold a barbell with an underhand grip at shoulder width, feet flat on the floor\nLower the bar by opening your fingers and let it roll to the fingertips\nCurl it back up by closing your hands and hold the top",
+      "technique_uk": "Візьміть штангу хватом знизу на ширині плечей, ступні стоять на підлозі\nОпустіть гриф, розкриваючи пальці, нехай він скотиться до кінчиків пальців\nЗакрийте кисті, піднімаючи гриф, і затримайтеся нагорі"
+    },
+    {
+      "source_id": "Ball_Leg_Curl",
+      "slug": "fedb-ball-leg-curl",
+      "source_name": "Ball Leg Curl",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "glutes"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "stability-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Stability ball leg curl",
+      "name_uk": "Згинання ніг на фітболі",
+      "technique_en": "Lie on your back with your heels on the ball and legs extended\nLift your hips so weight rests on shoulder blades and feet\nBend your knees to pull the ball toward you, pause, then return",
+      "technique_uk": "Ляжте на спину, п'яти на м'ячі, ноги випрямлені\nПіднімить таз, спираючись на лопатки і стопи\nЗгинаючи коліна, підтягніть м'яч до себе, затримайтеся й поверніться"
+    },
+    {
+      "source_id": "Barbell_Shrug",
+      "slug": "fedb-barbell-shrug",
+      "source_name": "Barbell Shrug",
+      "muscle_groups": [
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell shrug",
+      "name_uk": "Шраги зі штангою",
+      "technique_en": "Stand tall holding a barbell in front of your thighs with an overhand grip slightly wider than shoulders\nRaise your shoulders as high as you can, arms straight\nHold for a second, then lower slowly",
+      "technique_uk": "Стійте прямо, штанга перед стегнами, хват зверху трохи ширше плечей\nПіднімайте плечі максимально вгору, руки прямі\nЗатримайтеся на секунду, потім повільно опустіть"
+    },
+    {
+      "source_id": "Preacher_Curl",
+      "slug": "fedb-preacher-curl",
+      "source_name": "Preacher Curl",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "EZ-bar preacher curl",
+      "name_uk": "Підйом EZ-штанги на лаві Скотта",
+      "technique_en": "Sit at the preacher bench with upper arms and chest against the pad, holding the EZ-bar on the inner grip\nLower the bar until your arms are almost fully extended\nCurl up to shoulder height and squeeze the biceps",
+      "technique_uk": "Сядьте за лаву Скотта, плечі й груди притиснуті до подушки, EZ-гриф тримайте за внутрішній хват\nОпускайте штангу, поки руки майже повністю випрямляться\nПіднімить до рівня плечей і стисніть біцепс"
+    },
+    {
+      "source_id": "Dumbbell_Shrug",
+      "slug": "fedb-dumbbell-shrug",
+      "source_name": "Dumbbell Shrug",
+      "muscle_groups": [
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell shrug",
+      "name_uk": "Шраги з гантелями",
+      "technique_en": "Stand tall with a dumbbell in each hand, palms facing your body, arms at your sides\nElevate your shoulders as high as possible, keeping arms straight\nHold for a second, then lower with control",
+      "technique_uk": "Стійте прямо, гантелі в руках, долоні до корпусу, руки вздовж тіла\nПіднімайте плечі максимально вгору, руки прямі\nЗатримайтеся на секунду, потім контрольовано опустіть"
+    },
+    {
+      "source_id": "Thigh_Abductor",
+      "slug": "fedb-thigh-abductor",
+      "source_name": "Thigh Abductor",
+      "muscle_groups": [
+        "glutes"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "hip-abductor-adductor"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Machine hip abduction",
+      "name_uk": "Відведення ніг у тренажері",
+      "technique_en": "Sit in the machine, grip the handles and keep your upper body still\nPress your legs apart smoothly\nHold the contraction for a second, then return slowly",
+      "technique_uk": "Сядьте в тренажер, візьміться за рукоятки, корпус нерухомий\nПлавно розведіть ноги в сторони\nЗатримайтеся на секунду, потім повільно поверніться"
+    },
+    {
+      "source_id": "Thigh_Adductor",
+      "slug": "fedb-thigh-adductor",
+      "source_name": "Thigh Adductor",
+      "muscle_groups": [
+        "adductors",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "hip-abductor-adductor"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Machine hip adduction",
+      "name_uk": "Зведення ніг у тренажері",
+      "technique_en": "Sit in the machine with legs on the pads, grip the handles and keep your upper body still\nSqueeze your legs together smoothly\nHold for a second, then return slowly without jerking",
+      "technique_uk": "Сядьте в тренажер, ноги на подушках, візьміться за рукоятки, корпус нерухомий\nПлавно зведіть ноги разом\nЗатримайтеся на секунду, потім повільно поверніться без ривків"
+    },
+    {
+      "source_id": "Seated_Leg_Curl",
+      "slug": "fedb-seated-leg-curl",
+      "source_name": "Seated Leg Curl",
+      "muscle_groups": [
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "leg-curl-extension"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated leg curl",
+      "name_uk": "Згинання ніг сидячи",
+      "technique_en": "Sit with your back against the pad, lower legs on the lever and lap pad snug above your knees\nCurl the lever back as far as possible, keeping your torso still\nHold for a second, then return slowly",
+      "technique_uk": "Сядьте спиною до спинки, гомілки на валику, фіксатор щільно над колінами\nЗігніть ноги, тягнучи валик назад якомога далі, корпус нерухомий\nЗатримайтеся на секунду, потім повільно поверніться"
+    },
+    {
+      "source_id": "Cable_Wrist_Curl",
+      "slug": "fedb-cable-wrist-curl",
+      "source_name": "Cable Wrist Curl",
+      "muscle_groups": [
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable wrist curl",
+      "name_uk": "Згинання зап'ястків у блоці",
+      "technique_en": "Sit on a bench facing a low pulley, forearms resting on your thighs, palms up, wrists past your knees\nCurl your wrists upward, keeping forearms still\nHold for a second, then lower slowly",
+      "technique_uk": "Сядьте на лаву обличчям до нижнього блока, передпліччя на стегнах, долоні вгору, зап'ястки за колінами\nЗгинайте зап'ястки вгору, передпліччя нерухомі\nЗатримайтеся на секунду, потім повільно опустіть"
+    },
+    {
+      "source_id": "Body_Tricep_Press",
+      "slug": "fedb-body-tricep-press",
+      "source_name": "Body Tricep Press",
+      "muscle_groups": [
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Bodyweight triceps press",
+      "name_uk": "Жим на triceps з вагою тіла",
+      "technique_en": "Set a bar in a rack at chest height, hold it shoulder-width and step back with feet together, leaning on the bar\nBend your elbows to lower your body toward the bar\nPause, then extend your elbows to push back up",
+      "technique_uk": "Встановіть гриф у стійці на рівні грудей, візьміть на ширині плечей, відступіть, ноги разом, спираючись на гриф\nЗгинайте лікті, опускаючи тіло до грифа\nЗатримайтеся, потім розігніть лікті й поверніться"
+    },
+    {
+      "source_id": "Seated_Calf_Raise",
+      "slug": "fedb-seated-calf-raise",
+      "source_name": "Seated Calf Raise",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "calf-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated calf raise",
+      "name_uk": "Підйом на носки сидячи",
+      "technique_en": "Sit with toes on the platform, heels hanging off, and thighs under the lever pad\nLower your heels until the calves are fully stretched\nRise as high as possible and hold the top for a second",
+      "technique_uk": "Сядьте, носки на платформі, п'яти звисають, стегна під валиком\nОпустіть п'яти до повного розтягнення литок\nПіднімайтеся якомога вище й затримайтеся нагорі на секунду"
+    },
+    {
+      "source_id": "Standing_Leg_Curl",
+      "slug": "fedb-standing-leg-curl",
+      "source_name": "Standing Leg Curl",
+      "muscle_groups": [
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "leg-curl-extension"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Standing leg curl",
+      "name_uk": "Згинання ноги стоячи в тренажері",
+      "technique_en": "Adjust the machine, lean forward slightly with the pad on the back of one lower leg and hold the handles\nCurl the leg up as far as possible without lifting the thigh from the pad\nHold for a second, lower slowly, then switch legs",
+      "technique_uk": "Налаштуйте тренажер, злегка нахиліться вперед, валик на задній частині гомілки, тримайтеся за рукоятки\nЗігніть ногу якомога вище, не відриваючи стегно від подушки\nЗатримайтеся на секунду, повільно опустіть, потім змініть ногу"
+    },
+    {
+      "source_id": "Band_Skull_Crusher",
+      "slug": "fedb-band-skull-crusher",
+      "source_name": "Band Skull Crusher",
+      "muscle_groups": [
+        "triceps"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "resistance-bands"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Band skull crusher",
+      "name_uk": "Французький жим з гумою лежачи",
+      "technique_en": "Anchor a band at the base of a bench and lie down with the band lined up with your head\nHold the band with upper arms vertical and elbows bent\nStraighten your arms, keeping upper arms still, pause, then return",
+      "technique_uk": "Закріпіть гуму біля основи лави і ляжте так, щоб гума була на одній лінії з головою\nТримайте гуму, плечі вертикально, лікті зігнуті\nВипрямте руки, плечі нерухомі, затримайтеся й поверніться"
+    },
+    {
+      "source_id": "Incline_Bench_Pull",
+      "slug": "fedb-incline-bench-pull",
+      "source_name": "Incline Bench Pull",
+      "muscle_groups": [
+        "back",
+        "lats",
+        "shoulders"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Incline bench dumbbell row (elbows out)",
+      "name_uk": "Тяга гантелей лежачи на похилій лаві (лікті в сторони)",
+      "technique_en": "Lie face down on a bench at about 30 degrees, arms hanging with dumbbells, palms down\nFlare your elbows out and pull the dumbbells up until upper arms are level with your back\nHold for a second, then lower slowly",
+      "technique_uk": "Ляжте животом на лаву під кутом близько 30°, руки з гантелями звисають, долоні вниз\nРозведіть лікті в сторони й тягніть гантелі, поки плечі не опиняться на рівні спини\nЗатримайтеся на секунду, потім повільно опустіть"
+    },
+    {
+      "source_id": "Reverse_Cable_Curl",
+      "slug": "fedb-reverse-cable-curl",
+      "source_name": "Reverse Cable Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Reverse cable curl",
+      "name_uk": "Зворотні згинання рук у блоці",
+      "technique_en": "Stand upright holding a low-pulley bar with an overhand shoulder-width grip, elbows close to your sides\nCurl the bar up to shoulder level, moving only the forearms\nSqueeze for a second, then lower slowly",
+      "technique_uk": "Стійте прямо, тримайте гриф нижнього блока хватом зверху на ширині плечей, лікті притиснуті до боків\nПіднімайте гриф до рівня плечей, рухаються лише передпліччя\nСтисніть на секунду, потім повільно опустіть"
+    },
+    {
+      "source_id": "Band_Hip_Adductions",
+      "slug": "fedb-band-hip-adductions",
+      "source_name": "Band Hip Adductions",
+      "muscle_groups": [
+        "adductors"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "resistance-bands"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Band hip adduction",
+      "name_uk": "Приведення стегна з еспандером",
+      "technique_en": "Anchor the band to a post and loop it around your ankle, standing side-on to the post\nKeeping the knee straight, move the leg across in front of the standing leg\nControl the return and avoid leaning; repeat, then switch sides",
+      "technique_uk": "Закріпіть еспандер до стійки та накиньте петлю на щиколотку, стоячи боком до стійки\nЗ прямим коліном проведіть ногу перед опорною ногою\nКонтрольовано поверніться без нахилів корпусу; виконайте повтори й змініть ногу"
+    },
+    {
+      "source_id": "Cable_Preacher_Curl",
+      "slug": "fedb-cable-preacher-curl",
+      "source_name": "Cable Preacher Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable preacher curl",
+      "name_uk": "Згинання на лаві Скотта в блоці",
+      "technique_en": "Set the preacher bench in front of a low pulley with a straight bar and rest your upper arms on the pad\nCurl the bar towards your shoulders, exhaling as you lift\nSqueeze the biceps for a second at the top, then lower slowly to full extension",
+      "technique_uk": "Поставте лаву Скотта перед нижнім блоком із прямою рукояттю та обіприте плечі на подушку\nЗігніть руки, піднімаючи рукоять до плечей, видихаючи на підйомі\nСтисніть біцепс на секунду вгорі й повільно опустіть до повного розгинання"
+    },
+    {
+      "source_id": "Concentration_Curls",
+      "slug": "fedb-concentration-curls",
+      "source_name": "Concentration Curls",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Concentration curl",
+      "name_uk": "Концентрований підйом на біцепс",
+      "technique_en": "Sit on a bench and rest the back of your upper arm on your inner thigh, holding a dumbbell at arm's length\nCurl the dumbbell towards your shoulder, moving only the forearm\nSqueeze at the top, then lower slowly without swinging",
+      "technique_uk": "Сядьте на лаву, обіпріть задню частину плеча на внутрішню поверхню стегна з гантеллю на витягнутій руці\nЗігніть руку, піднімаючи гантель до плеча, рухається лише передпліччя\nСтисніть м'яз угорі й повільно опустіть без розгойдування"
+    },
+    {
+      "source_id": "Incline_Hammer_Curls",
+      "slug": "fedb-incline-hammer-curls",
+      "source_name": "Incline Hammer Curls",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Incline hammer curl",
+      "name_uk": "Молотковий підйом на похилій лаві",
+      "technique_en": "Sit back on an incline bench with dumbbells hanging at your sides, palms facing in\nCurl the dumbbells up with a neutral grip, keeping the upper arms still\nPause at the top, then lower slowly to full stretch",
+      "technique_uk": "Сядьте на похилу лаву, гантелі звисають по боках, долоні дивляться одна на одну\nЗгинайте руки з нейтральним хватом, плечі нерухомі\nЗробіть паузу вгорі й повільно опустіть до повного розтягнення"
+    },
+    {
+      "source_id": "Reverse_Barbell_Curl",
+      "slug": "fedb-reverse-barbell-curl",
+      "source_name": "Reverse Barbell Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Reverse barbell curl",
+      "name_uk": "Зворотний підйом штанги на біцепс",
+      "technique_en": "Stand tall holding a barbell with an overhand shoulder-width grip, elbows close to your sides\nCurl the bar up to shoulder level, moving only the forearms\nHold for a second, then lower slowly under control",
+      "technique_uk": "Станьте прямо, візьміть штангу верхнім хватом на ширині плечей, лікті притиснуті до корпусу\nПіднімайте штангу до рівня плечей, рухаються лише передпліччя\nУтримайте секунду та повільно опустіть під контролем"
+    },
+    {
+      "source_id": "Seated_Dumbbell_Curl",
+      "slug": "fedb-seated-dumbbell-curl",
+      "source_name": "Seated Dumbbell Curl",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated dumbbell curl",
+      "name_uk": "Підйом гантелей на біцепс сидячи",
+      "technique_en": "Sit on a bench with dumbbells at arm's length, elbows close to your torso\nCurl up and rotate the wrists so palms face forward after the dumbbells pass your thighs\nSqueeze at the top, then lower slowly and rotate back to neutral",
+      "technique_uk": "Сядьте на лаву з гантелями у витягнутих руках, лікті біля корпусу\nЗгинайте руки та розвертайте зап'ястя долонями вперед після проходження стегон\nСтисніть м'яз угорі, повільно опустіть і поверніть нейтральний хват"
+    },
+    {
+      "source_id": "Seated_Triceps_Press",
+      "slug": "fedb-seated-triceps-press",
+      "source_name": "Seated Triceps Press",
+      "muscle_groups": [
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated dumbbell triceps press",
+      "name_uk": "Французький жим гантелі сидячи",
+      "technique_en": "Sit on a bench with back support and hold one dumbbell overhead with both hands\nLower it behind your head, keeping the elbows in and upper arms still\nPress back up by straightening the elbows, exhaling as you lift",
+      "technique_uk": "Сядьте на лаву зі спинкою та утримуйте гантель над головою обома руками\nОпустіть її за голову, лікті тримайте всередині, плечі нерухомі\nВипряміть руки, видихаючи на підйомі"
+    },
+    {
+      "source_id": "Standing_Calf_Raises",
+      "slug": "fedb-standing-calf-raises",
+      "source_name": "Standing Calf Raises",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "calf-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Standing calf raise",
+      "name_uk": "Підйом на носки стоячи в тренажері",
+      "technique_en": "Set the pads to your height, place shoulders under them and balls of the feet on the block with heels hanging off\nRise as high as possible on your toes, keeping the knees almost straight\nPause at the top, then lower slowly to a full calf stretch",
+      "technique_uk": "Налаштуйте упори під зріст, поставте плечі під подушки, а передню частину стопи на платформу, п'яти звисають\nПіднімайтеся на носки якомога вище, коліна майже прямі\nЗробіть паузу вгорі та повільно опустіться до повного розтягнення литок"
+    },
+    {
+      "source_id": "Alternate_Hammer_Curl",
+      "slug": "fedb-alternate-hammer-curl",
+      "source_name": "Alternate Hammer Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Alternating hammer curl",
+      "name_uk": "Молотковий підйом гантелей по черзі",
+      "technique_en": "Stand tall with dumbbells at your sides, palms facing your torso, elbows close\nCurl one dumbbell up with a neutral grip, keeping the upper arm still\nSqueeze at the top, lower slowly, then alternate arms",
+      "technique_uk": "Станьте прямо з гантелями по боках, долоні до корпусу, лікті притиснуті\nПіднімайте одну гантель нейтральним хватом, плече нерухоме\nСтисніть угорі, повільно опустіть і чергуйте руки"
+    },
+    {
+      "source_id": "Incline_Dumbbell_Curl",
+      "slug": "fedb-incline-dumbbell-curl",
+      "source_name": "Incline Dumbbell Curl",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Incline dumbbell curl",
+      "name_uk": "Підйом гантелей на біцепс на похилій лаві",
+      "technique_en": "Sit back on an incline bench with dumbbells hanging at arm's length, palms forward\nCurl the weights up, keeping the upper arms still and elbows by your torso\nHold for a second at the top, then lower slowly to full stretch",
+      "technique_uk": "Сядьте на похилу лаву, гантелі у витягнутих руках, долоні вперед\nЗгинайте руки, плечі нерухомі, лікті біля корпусу\nУтримайте секунду вгорі та повільно опустіть до повного розтягнення"
+    },
+    {
+      "source_id": "Straight-Arm_Pulldown",
+      "slug": "fedb-straight-arm-pulldown",
+      "source_name": "Straight-Arm Pulldown",
+      "muscle_groups": [
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Straight-arm pulldown",
+      "name_uk": "Пуловер у верхньому блоці прямими руками",
+      "technique_en": "Grip a bar on the high pulley slightly wider than shoulders, step back and hinge forward about 30 degrees\nKeeping arms nearly straight, pull the bar down to your thighs using the lats\nReturn slowly with control, keeping the lats tight",
+      "technique_uk": "Візьміться за рукоять верхнього блока трохи ширше плечей, відступіть і нахиліться вперед приблизно на 30 градусів\nМайже прямими руками тягніть рукоять до стегон за рахунок найширших\nПовільно поверніться, утримуючи напругу в найширших"
+    },
+    {
+      "source_id": "Cable_Incline_Pushdown",
+      "slug": "fedb-cable-incline-pushdown",
+      "source_name": "Cable Incline Pushdown",
+      "muscle_groups": [
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cable incline pullover",
+      "name_uk": "Пуловер у блоці лежачи на похилій лаві",
+      "technique_en": "Lie on an incline bench facing away from a high pulley and hold the straight bar with arms extended in front\nKeeping upper arms still, raise the bar in an arc until it is overhead\nReturn slowly using your lats and squeeze at the start position",
+      "technique_uk": "Лягте на похилу лаву спиною до верхнього блока та візьміть пряму рукоять на витягнутих руках перед собою\nНе рухаючи плечима, підніміть рукоять дугою до положення над головою\nПовільно поверніться силою найширших і стисніть їх у початковій позиції"
+    },
+    {
+      "source_id": "Close-Grip_EZ_Bar_Curl",
+      "slug": "fedb-close-grip-ez-bar-curl",
+      "source_name": "Close-Grip EZ Bar Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Close-grip EZ bar curl",
+      "name_uk": "Підйом EZ-штанги вузьким хватом",
+      "technique_en": "Stand tall holding the EZ bar on the inner handle, elbows close to your sides\nCurl the bar to shoulder level, moving only the forearms\nSqueeze the biceps hard at the top, then lower slowly",
+      "technique_uk": "Станьте прямо, візьміть EZ-гриф за внутрішні вигини, лікті притиснуті до корпусу\nПіднімайте гриф до рівня плечей, рухаються лише передпліччя\nСильно стисніть біцепс угорі та повільно опустіть"
+    },
+    {
+      "source_id": "Cross_Body_Hammer_Curl",
+      "slug": "fedb-cross-body-hammer-curl",
+      "source_name": "Cross Body Hammer Curl",
+      "muscle_groups": [
+        "biceps",
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Cross-body hammer curl",
+      "name_uk": "Молотковий підйом гантелей до протилежного плеча",
+      "technique_en": "Stand tall with dumbbells at your sides, palms facing in\nCurl one dumbbell diagonally towards the opposite shoulder without twisting the wrist\nHold for a second, lower along the same path, then switch arms",
+      "technique_uk": "Станьте прямо з гантелями по боках, долоні всередину\nПіднімайте гантель по діагоналі до протилежного плеча, не повертаючи зап'ястя\nУтримайте секунду, опустіть тим самим шляхом і змініть руку"
+    },
+    {
+      "source_id": "Single_Leg_Glute_Bridge",
+      "slug": "fedb-single-leg-glute-bridge",
+      "source_name": "Single Leg Glute Bridge",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Single-leg glute bridge",
+      "name_uk": "Ягідний місток на одній нозі",
+      "technique_en": "Lie on your back with knees bent, feet flat, and pull one knee to your chest\nDrive through the heel of the planted foot and lift your hips up\nExtend fully, pause, then lower under control",
+      "technique_uk": "Лягте на спину, коліна зігнуті, стопи на підлозі, одне коліно підтягніть до грудей\nВідштовхуйтеся п'ятою опорної ноги та підніміть таз\nПовністю розігніть стегно, зробіть паузу та контрольовано опустіться"
+    },
+    {
+      "source_id": "Smith_Machine_Calf_Raise",
+      "slug": "fedb-smith-machine-calf-raise",
+      "source_name": "Smith Machine Calf Raise",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "smith-machine"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Smith machine calf raise",
+      "name_uk": "Підйом на носки в машині Сміта",
+      "technique_en": "Place a block under the bar, set the bar on your upper back and stand with the balls of your feet on the block\nRise as high as you can on your toes, keeping the knees straight\nPause at the top, then lower the heels slowly for a full stretch",
+      "technique_uk": "Покладіть підставку під гриф, розташуйте гриф на верхній частині спини та станьте передньою частиною стопи на підставку\nПіднімайтеся на носки якомога вище, коліна прямі\nЗробіть паузу вгорі та повільно опустіть п'яти до повного розтягнення"
+    },
+    {
+      "source_id": "Tricep_Dumbbell_Kickback",
+      "slug": "fedb-tricep-dumbbell-kickback",
+      "source_name": "Tricep Dumbbell Kickback",
+      "muscle_groups": [
+        "triceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell triceps kickback",
+      "name_uk": "Розгинання руки з гантелею в нахилі",
+      "technique_en": "Hinge forward with a flat back, upper arms close to your torso and parallel to the floor, elbows bent 90 degrees\nExtend the arms back until fully straight, moving only the forearms\nPause briefly, then lower slowly to the start",
+      "technique_uk": "Нахиліться вперед з прямою спиною, плечі біля корпусу паралельно підлозі, лікті зігнуті на 90 градусів\nРозігніть руки назад до повного випрямлення, рухаються лише передпліччя\nКоротко зупиніться та повільно поверніться у початкове положення"
+    },
+    {
+      "source_id": "Barbell_Seated_Calf_Raise",
+      "slug": "fedb-barbell-seated-calf-raise",
+      "source_name": "Barbell Seated Calf Raise",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell seated calf raise",
+      "name_uk": "Підйом на носки сидячи зі штангою",
+      "technique_en": "Sit on a bench with the balls of your feet on a block and a barbell resting on your thighs just above the knees\nRise as high as possible on your toes, exhaling and squeezing the calves\nPause for a second, then lower slowly to a full stretch",
+      "technique_uk": "Сядьте на лаву, передня частина стоп на підставці, штанга лежить на стегнах трохи вище колін\nПіднімайтеся на носки якомога вище, видихаючи та стискаючи литки\nЗатримайтеся на секунду та повільно опустіться до повного розтягнення"
+    },
+    {
+      "source_id": "Incline_Inner_Biceps_Curl",
+      "slug": "fedb-incline-inner-biceps-curl",
+      "source_name": "Incline Inner Biceps Curl",
+      "muscle_groups": [
+        "biceps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "dumbbells",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Incline inner biceps curl",
+      "name_uk": "Підйом гантелей на похилій лаві до боків",
+      "technique_en": "Lie back on an incline bench with dumbbells hanging at your sides, palms facing out\nCurl the weights up and out, keeping forearms in line with your side delts\nSqueeze in a double-biceps position, then lower along the same path",
+      "technique_uk": "Ляжте на похилу лаву, гантелі звисають по боках, долоні назовні\nПіднімайте гантелі вгору й убік, передпліччя в лінії з боковими дельтами\nСтисніть м'язи в позі подвійного біцепса та опустіть тим самим шляхом"
+    },
+    {
+      "source_id": "Lying_Cambered_Barbell_Row",
+      "slug": "fedb-lying-cambered-barbell-row",
+      "source_name": "Lying Cambered Barbell Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats",
+        "traps"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Lying cambered bar row",
+      "name_uk": "Тяга вигнутого грифа лежачи на лаві",
+      "technique_en": "Lie face down on a bench with a cambered bar underneath and grip it overhand, wider than shoulders\nRow the bar up with elbows close, to the chest for upper back or to the stomach for lats\nHold for a second at the top, then lower slowly",
+      "technique_uk": "Лягте животом на лаву, під нею вигнутий гриф, візьміться верхнім хватом ширше плечей\nТягніть гриф угору з ліктями біля корпусу: до грудей на верх спини або до живота на найширші\nУтримайте секунду вгорі та повільно опустіть"
+    },
+    {
+      "source_id": "Rope_Straight-Arm_Pulldown",
+      "slug": "fedb-rope-straight-arm-pulldown",
+      "source_name": "Rope Straight-Arm Pulldown",
+      "muscle_groups": [
+        "lats"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Rope straight-arm pulldown",
+      "name_uk": "Пулдаун канату прямими руками",
+      "technique_en": "Stand back from a high pulley, hinge forward with a flat back and hold the rope with arms extended overhead\nKeeping arms straight, pull the rope down to your thighs\nSqueeze your lats at the bottom and return under control without resting the stack",
+      "technique_uk": "Відійдіть від верхнього блока, нахиліться з рівною спиною і візьміть канат прямими руками перед собою\nНе згинаючи рук, потягніть канат вниз до стегон\nСтисніть найширші м'язи внизу і повільно поверніться, не кладучи вагу на стек"
+    },
+    {
+      "source_id": "Rocking_Standing_Calf_Raise",
+      "slug": "fedb-rocking-standing-calf-raise",
+      "source_name": "Rocking Standing Calf Raise",
+      "muscle_groups": [
+        "calves"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Rocking standing calf raise",
+      "name_uk": "Підйоми на литки стоячи з перекатом",
+      "technique_en": "Set the bar on your upper back in a rack, step back with feet shoulder-width apart and knees slightly bent\nRaise your heels as high as possible, pause, then lower slowly to stretch the calves\nThen lift your toes to work the front of the shins, keeping knees still throughout",
+      "technique_uk": "Покладіть гриф на верх спини в стійці, відступіть, ноги на ширині плечей, коліна злегка зігнуті\nПіднімайте п'яти якомога вище, затримайтесь і повільно опустіться до розтягнення литок\nПотім підніміть носки для гомілок спереду, не рухаючи колінами"
+    },
+    {
+      "source_id": "Hyperextensions_Back_Extensions",
+      "slug": "fedb-hyperextensions-back-extensions",
+      "source_name": "Hyperextensions (Back Extensions)",
+      "muscle_groups": [
+        "back",
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "back-extension"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Back extension",
+      "name_uk": "Гіперекстензія",
+      "technique_en": "Lie face down on the bench, ankles under pads, thighs on the pad, arms crossed on your chest\nBend forward at the waist with a flat back until you feel a hamstring stretch\nRaise your torso to a straight line without swinging or overarching",
+      "technique_uk": "Ляжте обличчям вниз на лаву, щиколотки під валиками, стегна на подушці, руки схрестіть на грудях\nНахиліться в поясі з рівною спиною до розтягнення біцепсів стегна\nПіднімайте корпус до прямої лінії без розмахів і прогину"
+    },
+    {
+      "source_id": "Seated_Palm-Up_Barbell_Wrist_Curl",
+      "slug": "fedb-seated-palm-up-barbell-wrist-curl",
+      "source_name": "Seated Palm-Up Barbell Wrist Curl",
+      "muscle_groups": [
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell",
+        "bench"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Seated palm-up barbell wrist curl",
+      "name_uk": "Згинання зап'ястя зі штангою сидячи хватом знизу",
+      "technique_en": "Sit with a palms-up grip, forearms resting on your thighs and wrists past your knees\nLower the bar as far as possible while keeping a firm grip\nCurl it up, squeeze the forearms for a second, moving only the wrists",
+      "technique_uk": "Сядьте з хватом знизу, передпліччя на стегнах, зап'ястя за колінами\nОпустіть штангу якомога нижче, міцно тримаючи гриф\nПідніміть її, стисніть передпліччя на секунду, рухаються лише зап'ястя"
+    },
+    {
+      "source_id": "Wrist_Rotations_with_Straight_Bar",
+      "slug": "fedb-wrist-rotations-with-straight-bar",
+      "source_name": "Wrist Rotations with Straight Bar",
+      "muscle_groups": [
+        "forearms"
+      ],
+      "day_types": [
+        "upper"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Straight bar wrist rotations",
+      "name_uk": "Обертання зап'ясть із прямим грифом",
+      "technique_en": "Hold a barbell with an overhand grip, hands shoulder-width apart\nAlternate hands, extending the wrists as if rolling up a newspaper\nReverse the motion by flexing the wrists, alternating until failure",
+      "technique_uk": "Візьміть штангу хватом зверху, руки на ширині плечей\nПо черзі розгинайте зап'ястя, ніби накручуєте газету\nПотім змініть напрямок, згинаючи зап'ястя, чергуючи руки до відмови"
+    },
+    {
+      "source_id": "Power_Clean",
+      "slug": "fedb-power-clean",
+      "source_name": "Power Clean",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "forearms",
+        "glutes",
+        "back",
+        "quads",
+        "shoulders",
+        "traps",
+        "triceps"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Power clean",
+      "name_uk": "Взяття штанги на груди",
+      "technique_en": "Stand with feet slightly wider than hips, grip the bar outside the knees, back flat, chest up, bar over the balls of the feet\nDrive with legs, then explosively extend hips and knees and shrug, keeping the bar close\nPull under the bar, catch it on your front shoulders in a quarter squat and stand up tall",
+      "technique_uk": "Станьте трохи ширше таза, візьміть гриф ззовні колін, спина пряма, груди вперед, гриф над передньою частиною стопи\nВідштовхніться ногами, потім вибухово розігніть стегна й коліна та зробіть шраг, тримаючи гриф близько\nПідведіться під гриф, прийміть на передні дельти в чвертьприсіді та випряміться"
+    },
+    {
+      "source_id": "Snatch_Pull",
+      "slug": "fedb-snatch-pull",
+      "source_name": "Snatch Pull",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "glutes",
+        "back",
+        "quads",
+        "traps"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Snatch pull",
+      "name_uk": "Ривкова тяга",
+      "technique_en": "Take a wide snatch grip, hips low, back flat, chest up, shoulders just in front of the bar\nPush through the heels to lift the bar past the knees with straight arms and the same back angle\nAccelerate by extending hips, knees and ankles explosively, finishing fully extended without pulling with the arms",
+      "technique_uk": "Візьміть широкий хват для ривка, таз низько, спина пряма, груди вгору, плечі трохи попереду грифа\nВідштовхніться п'ятами, піднімаючи гриф повз коліна прямими руками з тим самим кутом спини\nПрискоріться, вибухово розігнувши стегна, коліна та гомілкостоп, без підтягування руками"
+    },
+    {
+      "source_id": "Dumbbell_Clean",
+      "slug": "fedb-dumbbell-clean",
+      "source_name": "Dumbbell Clean",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "forearms",
+        "glutes",
+        "back",
+        "quads",
+        "shoulders",
+        "traps"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "dumbbells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Dumbbell clean",
+      "name_uk": "Взяття гантелей на груди",
+      "technique_en": "Start with dumbbells on the floor, hips back, feet shoulder-width apart\nJump explosively, extending hips, knees and ankles while keeping arms straight\nDrop into a squat to catch the dumbbells on your shoulders, then stand up",
+      "technique_uk": "Почніть з гантелями на підлозі, таз назад, ноги на ширині плечей\nВибухово підстрибніть, розігнувши стегна, коліна й гомілкостоп, руки прямі\nПрисядьте, прийняті гантелі на плечі, і підведіться"
+    },
+    {
+      "source_id": "Barbell_Deadlift",
+      "slug": "fedb-barbell-deadlift",
+      "source_name": "Barbell Deadlift",
+      "muscle_groups": [
+        "back",
+        "calves",
+        "forearms",
+        "glutes",
+        "hamstrings",
+        "lats",
+        "quads",
+        "traps"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "barbell"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Barbell deadlift",
+      "name_uk": "Станова тяга зі штангою",
+      "technique_en": "Stand at the bar, bend knees and hinge forward with a flat back, gripping shoulder-width overhand\nPush with your legs and stand up, chest out and shoulder blades back\nLower by bending knees and hips with a straight back until the plates touch the floor",
+      "technique_uk": "Станьте до штанги, зігніть коліна й нахиліться з рівною спиною, хват зверху на ширині плечей\nВідштовхніться ногами й випряміться, груди вперед, лопатки зведені\nОпустіть штангу, згинаючи коліна й таз з рівною спиною, поки диски не торкнуться підлоги"
+    },
+    {
+      "source_id": "Lunge_Pass_Through",
+      "slug": "fedb-lunge-pass-through",
+      "source_name": "Lunge Pass Through",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "glutes",
+        "quads"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Lunge pass through",
+      "name_uk": "Випад з передачею гирі",
+      "technique_en": "Stand tall holding a kettlebell in one hand\nStep forward and lower into a lunge, torso upright, back knee nearly touching the floor\nPass the kettlebell under the front leg to the other hand, push through the heel to return and alternate legs",
+      "technique_uk": "Станьте прямо з гирею в одній руці\nЗробіть крок уперед і опустіться у випад, корпус прямий, заднє коліно майже торкається підлоги\nПередайте гирю під передньою ногою в іншу руку, відштовхніться п'ятою і чергуйте ноги"
+    },
+    {
+      "source_id": "Kettlebell_Dead_Clean",
+      "slug": "fedb-kettlebell-dead-clean",
+      "source_name": "Kettlebell Dead Clean",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "glutes",
+        "back",
+        "quads",
+        "traps"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Kettlebell dead clean",
+      "name_uk": "Взяття гирі на груди з підлоги",
+      "technique_en": "Place the kettlebell between your feet, push hips back and look straight ahead\nExtend legs and hips to bring the kettlebell to your shoulder, rotating the wrist\nLower it under control with a straight back and hamstrings loaded",
+      "technique_uk": "Поставте гирю між ступнями, відведіть таз назад, дивіться перед собою\nРозігніть ноги й таз, підводячи гирю до плеча з обертанням зап'ястя\nОпустіть гирю під контролем з рівною спиною та напруженими задніми стегнами"
+    },
+    {
+      "source_id": "Kettlebell_Hang_Clean",
+      "slug": "fedb-kettlebell-hang-clean",
+      "source_name": "Kettlebell Hang Clean",
+      "muscle_groups": [
+        "hamstrings",
+        "calves",
+        "glutes",
+        "back",
+        "shoulders",
+        "traps"
+      ],
+      "day_types": [
+        "lower",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "Kettlebell hang clean",
+      "name_uk": "Взяття гирі на груди з вису",
+      "technique_en": "Hold the kettlebell hanging between your legs, hips pushed back, eyes forward\nExtend legs and hips to bring the kettlebell to your shoulder, rotating the wrist\nLower it back to hang between your legs, hamstrings loaded and head up",
+      "technique_uk": "Тримайте гирю у висі між ногами, таз відведений назад, погляд уперед\nРозігніть ноги й таз, підводячи гирю до плеча з обертанням зап'ястя\nОпустіть гирю назад між ногами, задні стегна напружені, голова вгору"
+    },
+    {
+      "source_id": "One-Arm_Kettlebell_Row",
+      "slug": "fedb-one-arm-kettlebell-row",
+      "source_name": "One-Arm Kettlebell Row",
+      "muscle_groups": [
+        "back",
+        "biceps",
+        "lats"
+      ],
+      "day_types": [
+        "upper",
+        "func"
+      ],
+      "equipment_slugs": [
+        "kettlebells"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "One-arm kettlebell row",
+      "name_uk": "Тяга гирі однією рукою в нахилі",
+      "technique_en": "Place the kettlebell by your feet, bend knees slightly and push hips back with a flat back\nGrab it and pull it to your stomach, bending the elbow\nRetract the shoulder blade at the top, then lower under control",
+      "technique_uk": "Поставте гирю біля ніг, трохи зігніть коліна й відведіть таз назад з рівною спиною\nВізьміть її та підтягніть до живота, згинаючи лікоть\nЗведіть лопатку вгорі, потім повільно опустіть"
+    },
+    {
+      "source_id": "Downward_Facing_Balance",
+      "slug": "fedb-downward-facing-balance",
+      "source_name": "Downward Facing Balance",
+      "muscle_groups": [
+        "glutes",
+        "abs",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "stability-ball"
+      ],
+      "default_measure": "reps",
+      "per_side": false,
+      "is_bodyweight": true,
+      "is_abs": false,
+      "name_en": "Exercise ball downward balance",
+      "name_uk": "Баланс на фітболі лежачи на животі",
+      "technique_en": "Lie face down on top of an exercise ball\nWalk your hands forward along the floor until the ball is under your stomach or thighs\nLift your legs and extend elbows and knees, holding the balance",
+      "technique_uk": "Ляжте животом на фітбол\nПройдіть руками вперед по підлозі, щоб м'яч опинився під животом чи стегнами\nПіднімiть ноги, випрямивши лікті й коліна, і втримайте баланс"
+    },
+    {
+      "source_id": "One-Legged_Cable_Kickback",
+      "slug": "fedb-one-legged-cable-kickback",
+      "source_name": "One-Legged Cable Kickback",
+      "muscle_groups": [
+        "glutes",
+        "hamstrings"
+      ],
+      "day_types": [
+        "lower"
+      ],
+      "equipment_slugs": [
+        "cable-station"
+      ],
+      "default_measure": "reps",
+      "per_side": true,
+      "is_bodyweight": false,
+      "is_abs": false,
+      "name_en": "One-leg cable kickback",
+      "name_uk": "Віддавання ноги назад на блоці",
+      "technique_en": "Attach an ankle cuff to a low pulley and face the stack, holding the frame for support\nWith knees and hips slightly bent and abs tight, kick the working leg back in an arc\nSqueeze your glutes at the top, return slowly against the cable, then switch legs",
+      "technique_uk": "Прикріпіть манжету до нижнього блока та станьте обличчям до стека, тримаючись за раму\nЗі злегка зігнутими колінами й тазом та напруженим пресом відведіть робочу ногу назад дугою\nСтисніть сідниці вгорі, повільно поверніться проти опору троса, потім змініть ногу"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 // Imports start/end photos from free-exercise-db (public domain) into the
 // "exercise-images" Supabase Storage bucket and fills exercises.image_urls.
-// Uses scripts/exercise-images.json, then exact English-name matches for the
-// rest (e.g. exercises the AI added). Safe to re-run: uploads overwrite.
+// Uses exercises.source_id, then scripts/exercise-images.json, then exact
+// English-name matches (e.g. exercises the AI added). Safe to re-run.
 //
 // Run: node --env-file=.env.local scripts/import-exercise-images.mjs [--dry-run]
 
@@ -20,6 +20,19 @@ const auth = { apikey: key, authorization: `Bearer ${key}` };
 const { map } = JSON.parse(readFileSync(fileURLToPath(new URL("./exercise-images.json", import.meta.url)), "utf8"));
 const normalise = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
+// fetch with a few retries: one dropped connection shouldn't stop a long import.
+async function fetchRetry(input, init, tries = 4) {
+  for (let i = 1; ; i++) {
+    try {
+      const res = await fetch(input, init);
+      if (res.status < 500 || i === tries) return res;
+    } catch (error) {
+      if (i === tries) throw error;
+    }
+    await new Promise((r) => setTimeout(r, 1000 * i));
+  }
+}
+
 async function json(res) {
   if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
   return res.json();
@@ -29,12 +42,16 @@ const dataset = await json(await fetch(`${DATASET}/dist/exercises.json`));
 const byId = new Map(dataset.map((e) => [e.id, e]));
 const byName = new Map(dataset.map((e) => [normalise(e.name), e]));
 
-const exercises = await json(await fetch(`${url}/rest/v1/exercises?select=id,slug,name_en,image_urls`, { headers: auth }));
+const exercises = await json(
+  await fetch(`${url}/rest/v1/exercises?select=id,slug,name_en,source_id,image_urls`, { headers: auth }),
+);
 const done = [];
 const missing = [];
 
 for (const ex of exercises) {
-  const source = map[ex.slug] ? byId.get(map[ex.slug]) : byName.get(normalise(ex.name_en));
+  // Imported exercises know their source; the starter library uses the mapping file.
+  const sourceId = ex.source_id ?? map[ex.slug];
+  const source = sourceId ? byId.get(sourceId) : byName.get(normalise(ex.name_en));
   if (!source?.images?.length) {
     missing.push(ex.name_en);
     continue;
@@ -45,9 +62,9 @@ for (const ex of exercises) {
     const ext = path.split(".").pop();
     const target = `${ex.slug}/${i}.${ext}`;
     if (!dryRun) {
-      const image = await fetch(`${DATASET}/exercises/${path}`);
+      const image = await fetchRetry(`${DATASET}/exercises/${path}`);
       if (!image.ok) throw new Error(`download ${path}: ${image.status}`);
-      const upload = await fetch(`${url}/storage/v1/object/${BUCKET}/${target}`, {
+      const upload = await fetchRetry(`${url}/storage/v1/object/${BUCKET}/${target}`, {
         method: "POST",
         headers: { ...auth, "content-type": image.headers.get("content-type") ?? "image/jpeg", "x-upsert": "true" },
         body: Buffer.from(await image.arrayBuffer()),
@@ -58,7 +75,7 @@ for (const ex of exercises) {
   }
 
   if (!dryRun) {
-    const update = await fetch(`${url}/rest/v1/exercises?id=eq.${ex.id}`, {
+    const update = await fetchRetry(`${url}/rest/v1/exercises?id=eq.${ex.id}`, {
       method: "PATCH",
       headers: { ...auth, "content-type": "application/json" },
       body: JSON.stringify({ image_urls: urls }),

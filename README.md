@@ -47,6 +47,15 @@ Open http://localhost:3000 and use the browser's phone view (390 × 844).
    7. `20261010000000_custom_rules.sql` — free-text training rules
    8. `20261011000000_remove_full_body.sql` — three workout types only
    9. `20261012000000_exercise_images_bucket.sql` — public bucket for exercise photos
+   10. `20261013000000_bigger_library.sql` — more equipment (unticked) and `exercises.source_id`
+
+   Grow the library from free-exercise-db (about 155 extra exercises, EN/UK names and technique written by Claude for a few cents). `--dry-run` previews, the plain run writes `scripts/data/exercise-library.json` for review, `--insert` adds it:
+
+   ```bash
+   npm run build:library -- --dry-run
+   npm run build:library
+   npm run build:library -- --insert
+   ```
 
    Then import the exercise photos (start and end position) from [free-exercise-db](https://github.com/yuhonas/free-exercise-db) (public domain) into that bucket:
 
@@ -88,6 +97,7 @@ Supabase and Vercel free plans cover one user. Only Claude calls cost money: a g
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript, no emit |
 | `npm run check:messages` | EN/UK keys match, every used key exists, no hard-coded UI text |
+| `npm run build:library` | Add exercises from free-exercise-db (see Supabase step 4) |
 | `npm run import:images` | Import exercise photos from free-exercise-db into Supabase Storage (add `-- --dry-run` to preview) |
 
 ## Structure

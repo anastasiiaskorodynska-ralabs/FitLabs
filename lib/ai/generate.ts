@@ -21,10 +21,10 @@ type Attempt<T> =
   | { ok: false; errors: string[]; content?: Anthropic.Beta.BetaContentBlockParam[] };
 
 function requestParams(model: Model) {
-  // Sonnet: adaptive thinking at medium effort, with server-side fallback on a
-  // safety decline. Haiku 4.5 takes neither effort nor fallbacks.
+  // Sonnet: adaptive thinking at high effort (more careful plans), with
+  // server-side fallback on a safety decline. Haiku 4.5 takes neither.
   return model === WEEK_MODEL
-    ? { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const, effort: "medium" as const }
+    ? { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const, effort: "high" as const }
     : { betas: undefined, fallbacks: undefined, effort: undefined };
 }
 

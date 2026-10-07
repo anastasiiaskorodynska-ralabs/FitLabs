@@ -74,6 +74,9 @@ based on each user's examples, history, equipment and rules.
   images, copied into the public Storage bucket "exercise-images" by
   `npm run import:images` (mapping: scripts/exercise-images.json; unmapped
   exercises match by exact English name). Re-run after new exercises appear.
+- Library: 58 hand-written starter exercises plus ones imported from
+  free-exercise-db by `npm run build:library` (exercises.source_id = dataset
+  id; reviewed data in scripts/data/exercise-library.json).
 - Video: video_url per exercise (YouTube or Shorts link, embedded). Fallback
   search: exercise name_en + "technique".
 
